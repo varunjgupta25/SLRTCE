@@ -13,6 +13,10 @@ model_capabilities.yaml
 adapters/
 scripts/
 
+# Uncompressed source images (converted to optimised JPEGs for the repo)
+assets/slide_carpe_diem_2025.png
+assets/slide_college_entrance.png
+
 # Node
 node_modules/
 npm-debug.log*

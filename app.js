@@ -7,6 +7,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initStatsCounter();
+  initTicker();
+  initCarousel();
 });
 
 /* Mobile Menu Toggle */
@@ -732,4 +734,238 @@ function initStatsCounter() {
 
   // Trigger on load
   setTimeout(countUp, 300);
+}
+
+/* ==========================================================================
+   NEWS TICKER
+   Seamless CSS-animation marquee with Pause / Play controls.
+   Items to edit: the <li> elements inside #tickerList in index.html.
+   ========================================================================== */
+function initTicker() {
+  const list   = document.getElementById('tickerList');
+  const pause  = document.getElementById('tickerPause');
+  const play   = document.getElementById('tickerPlay');
+  if (!list || !pause || !play) return;
+
+  // Respect prefers-reduced-motion — CSS already hides animation; just bail.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Clone all items to create a seamless loop.
+  const origItems = Array.from(list.querySelectorAll('li'));
+  origItems.forEach(item => list.appendChild(item.cloneNode(true)));
+
+  // Measure total width of original set after a brief paint delay.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const totalW = origItems.reduce((acc, li) => acc + li.offsetWidth, 0);
+      if (totalW === 0) return;
+
+      // Set CSS custom property used by @keyframes ticker-scroll.
+      list.style.setProperty('--ticker-offset', `-${totalW}px`);
+
+      // Duration: ~60px / sec feels comfortable.
+      const duration = Math.round(totalW / 60);
+      list.style.animation = `ticker-scroll ${duration}s linear infinite`;
+
+      // Pause button
+      pause.addEventListener('click', () => {
+        list.style.animationPlayState = 'paused';
+        pause.classList.add('ticker-btn--hidden');
+        play.classList.remove('ticker-btn--hidden');
+      });
+
+      // Play button
+      play.addEventListener('click', () => {
+        list.style.animationPlayState = 'running';
+        play.classList.add('ticker-btn--hidden');
+        pause.classList.remove('ticker-btn--hidden');
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   CAMPUS CAROUSEL (3-up)
+   Infinite-loop (clone-based), responsive, keyboard + focus aware.
+   Slides to edit: <li class="carousel-slide"> elements in index.html.
+   ========================================================================== */
+function initCarousel() {
+  const track    = document.getElementById('carouselTrack');
+  const viewport = document.getElementById('carouselViewport');
+  const btnPrev  = document.getElementById('carouselPrev');
+  const btnNext  = document.getElementById('carouselNext');
+  if (!track || !viewport || !btnPrev || !btnNext) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Helpers ----
+  function getSlidesVisible() {
+    const w = window.innerWidth;
+    if (w >= 1024) return 3;
+    if (w >= 640)  return 2;
+    return 1;
+  }
+
+  const origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+  const total      = origSlides.length; // 5
+
+  // Clone set prepended (for prev) and appended (for next).
+  function buildTrack() {
+    // Remove old clones.
+    track.querySelectorAll('.carousel-slide--clone').forEach(el => el.remove());
+
+    const vis = getSlidesVisible();
+    const slideW = 100 / vis;
+
+    // Size all originals.
+    origSlides.forEach(s => {
+      s.style.width = `${slideW}%`;
+    });
+
+    // Prepend clones (last <vis> originals) for prev-wrap.
+    const prependClones = origSlides.slice(-vis).map(s => {
+      const c = s.cloneNode(true);
+      c.classList.add('carousel-slide--clone');
+      c.style.width = `${slideW}%`;
+      return c;
+    });
+    prependClones.reverse().forEach(c => track.prepend(c));
+
+    // Append clones (first <vis> originals) for next-wrap.
+    const appendClones = origSlides.slice(0, vis).map(s => {
+      const c = s.cloneNode(true);
+      c.classList.add('carousel-slide--clone');
+      c.style.width = `${slideW}%`;
+      return c;
+    });
+    appendClones.forEach(c => track.appendChild(c));
+
+    return { vis, slideW, prependCount: prependClones.length };
+  }
+
+  let vis, slideW, prependCount;
+  let currentIndex = 0; // index into origSlides (0-based)
+  let isTransitioning = false;
+  let autoTimer = null;
+
+  function getAllSlides() {
+    return Array.from(track.querySelectorAll('.carousel-slide'));
+  }
+
+  function getOffset(index) {
+    // index relative to allSlides array.
+    return -(index * (100 / vis));
+  }
+
+  function goTo(allSlideIndex, animate) {
+    const pct = -(allSlideIndex * (100 / vis));
+    if (!animate || reducedMotion) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform 0.42s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    track.style.transform = `translateX(${pct}%)`;
+  }
+
+  function setup() {
+    const res = buildTrack();
+    vis = res.vis;
+    slideW = res.slideW;
+    prependCount = res.prependCount;
+
+    const allSlides = getAllSlides();
+    // Initial position: prependCount = offset to first real slide.
+    goTo(prependCount + currentIndex, false);
+  }
+
+  setup();
+
+  // ---- After transition: jump instantly if on a clone ----
+  track.addEventListener('transitionend', () => {
+    isTransitioning = false;
+    const allSlides = getAllSlides();
+    const totalAll  = allSlides.length;
+
+    // Calculate which allSlide index we are at via transform.
+    const pct = parseFloat(track.style.transform.replace('translateX(', '').replace('%)', '')) || 0;
+    const rawIdx = Math.round(-pct / (100 / vis));
+
+    if (rawIdx <= prependCount - 1) {
+      // Jumped before first real slide — jump to equivalent real slide at end.
+      currentIndex = total - 1;
+      goTo(prependCount + currentIndex, false);
+    } else if (rawIdx >= prependCount + total) {
+      // Jumped past last real slide — jump to first.
+      currentIndex = 0;
+      goTo(prependCount + currentIndex, false);
+    } else {
+      currentIndex = rawIdx - prependCount;
+    }
+  });
+
+  // ---- Move one step ----
+  function step(dir) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const allSlides = getAllSlides();
+    const curAllIdx = prependCount + currentIndex;
+
+    if (dir === 'next') {
+      goTo(curAllIdx + 1, true);
+    } else {
+      goTo(curAllIdx - 1, true);
+    }
+  }
+
+  btnNext.addEventListener('click', () => { resetAuto(); step('next'); });
+  btnPrev.addEventListener('click', () => { resetAuto(); step('prev'); });
+
+  // ---- Keyboard support ----
+  [btnPrev, btnNext].forEach(btn => {
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // ---- Auto-advance ----
+  function startAuto() {
+    if (reducedMotion) return;
+    stopAuto();
+    autoTimer = setInterval(() => step('next'), 4000);
+  }
+
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  function resetAuto() {
+    stopAuto();
+    startAuto();
+  }
+
+  startAuto();
+
+  // Stop auto when a carousel button has focus.
+  [btnPrev, btnNext].forEach(btn => {
+    btn.addEventListener('focus', stopAuto);
+    btn.addEventListener('blur',  startAuto);
+  });
+
+  // ---- Resize: rebuild with correct slide count ----
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const newVis = getSlidesVisible();
+      if (newVis !== vis) {
+        stopAuto();
+        setup();
+        startAuto();
+      }
+    }, 200);
+  });
 }

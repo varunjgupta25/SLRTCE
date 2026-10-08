@@ -181,6 +181,117 @@
     </nav>
   </header>
 
+  <!-- ================= NEWS TICKER ================= -->
+  <!--
+    TICKER CONFIG: Edit the <li> items inside #ticker-list to update announcements.
+    Each <li> should be one announcement. The separator dot is added automatically by CSS.
+  -->
+  <div class="ticker-bar" role="complementary" aria-label="Latest announcements">
+    <span class="ticker-label" aria-hidden="true">
+      <i class="fa-solid fa-bullhorn"></i> Latest
+    </span>
+    <div class="ticker-track-wrap">
+      <ul class="ticker-list" id="tickerList" aria-live="off">
+        <li>Alumni Meet 2025 — Reconnect, Reminisce and Rejuvenate with your SLRTCE family. Register now.</li>
+        <li>Ph.D. Admission Notification 2025-26 — Applications invited for Ph.D. Research programmes. Last date: 31 Oct 2025.</li>
+        <li>Autonomy Undertaking — SLRTCE reaffirms its autonomous status under University of Mumbai for AY 2025-26.</li>
+        <li>Voter Awareness Session — SLRTCE in association with DLLE conducted a voter registration drive for students.</li>
+        <li>MoU with SUC Sharjah — SLRTCE signs academic collaboration MoU with Skyline University College, Sharjah, UAE.</li>
+      </ul>
+    </div>
+    <div class="ticker-controls">
+      <button class="ticker-btn" id="tickerPause" aria-label="Pause ticker" title="Pause">
+        <i class="fa-solid fa-pause" aria-hidden="true"></i>
+      </button>
+      <button class="ticker-btn ticker-btn--hidden" id="tickerPlay" aria-label="Play ticker" title="Play">
+        <i class="fa-solid fa-play" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= CAMPUS CAROUSEL ================= -->
+  <!--
+    CAROUSEL CONFIG: Slides are the <li> elements inside .carousel-track.
+    To add/remove slides: add/remove <li class="carousel-slide"> with your img and .slide-caption.
+    Image order must match the order images were provided.
+    Slide images are in: assets/
+  -->
+  <section class="campus-carousel-section" aria-label="Campus photo gallery">
+    <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous slide">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+
+    <div class="carousel-viewport" id="carouselViewport">
+      <ul class="carousel-track" id="carouselTrack" role="list">
+
+        <!-- Slide 1: DLLE Voter Card Session -->
+        <li class="carousel-slide" role="listitem">
+          <img
+            src="assets/slide_dlle_voter_session.jpg"
+            alt="SLRTCE students displaying voter ID cards at the DLLE voter registration drive, part of Department of Lifelong Learning and Extension, University of Mumbai"
+            loading="eager"
+          >
+          <div class="slide-caption">
+            <span>DLLE Voter Awareness Drive</span>
+          </div>
+        </li>
+
+        <!-- Slide 2: Carpe Diem 2025 -->
+        <li class="carousel-slide" role="listitem">
+          <img
+            src="assets/slide_carpe_diem_2025.jpg"
+            alt="SLRTCE students celebrating victory at Carpe Diem 2025, the Rahul Education inter-departmental cultural festival, holding the championship trophy"
+            loading="lazy"
+          >
+          <div class="slide-caption">
+            <span>Carpe Diem 2025 — Champions</span>
+          </div>
+        </li>
+
+        <!-- Slide 3: Campus Lawn -->
+        <li class="carousel-slide" role="listitem">
+          <img
+            src="assets/slide_campus_lawn.jpg"
+            alt="SLRTCE main campus building with manicured lawn, showing the multi-storey academic block at Mira Road, Mumbai"
+            loading="lazy"
+          >
+          <div class="slide-caption">
+            <span>SLRTCE Campus, Mira Road</span>
+          </div>
+        </li>
+
+        <!-- Slide 4: College Entrance Gate -->
+        <li class="carousel-slide" role="listitem">
+          <img
+            src="assets/slide_college_entrance.jpg"
+            alt="Front entrance gate of Shree L. R. Tiwari College of Engineering with the institute name displayed in gold lettering"
+            loading="lazy"
+          >
+          <div class="slide-caption">
+            <span>SLRTCE Main Entrance</span>
+          </div>
+        </li>
+
+        <!-- Slide 5: Alumni Meet / Seminar Hall -->
+        <li class="carousel-slide" role="listitem">
+          <img
+            src="assets/slide_alumni_meet.jpg"
+            alt="Attendees at an SLRTCE seminar or alumni meet, seated in the college auditorium with faculty and guests"
+            loading="lazy"
+          >
+          <div class="slide-caption">
+            <span>Alumni Meet &amp; Institute Events</span>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next slide">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+  </section>
+
   <!-- ================= HERO SECTION ================= -->
   <section class="hero-section" id="hero">
     <div class="hero-glow-bg"></div>
