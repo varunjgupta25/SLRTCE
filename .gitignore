@@ -1,0 +1,23 @@
+# Agent / IDE metadata
+.agent/
+.agents/
+.gemini/
+.gsd/
+.kilo/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db

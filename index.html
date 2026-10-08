@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shree L. R. Tiwari College of Engineering (SLRTCE) | Autonomous Institute</title>
+  <meta name="description" content="Shree L. R. Tiwari College of Engineering (SLRTCE) - Autonomous Institute affiliated to University of Mumbai, Approved by AICTE & DTE Maharashtra, NAAC & NBA Accredited.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= TOP UTILITY BAR ================= -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="govt-code"><i class="fa-solid fa-building-columns"></i> DTE Code: <strong>EN3218</strong></span>
+        <span class="divider">|</span>
+        <span class="top-contact"><i class="fa-solid fa-envelope"></i> info@slrtce.in</span>
+        <span class="divider">|</span>
+        <span class="top-contact"><i class="fa-solid fa-phone"></i> +91 (022) 2812 0144</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="#disclosure" class="top-link" onclick="openModal('mandatory-disclosure')">Mandatory Disclosure</a>
+        <a href="#iqac" class="top-link" onclick="openModal('iqac-modal')">IQAC</a>
+        <a href="#committees" class="top-link" onclick="openModal('committees-modal')">Committees</a>
+        <a href="#alumni" class="top-link" onclick="openModal('alumni-modal')">Alumni</a>
+        <a href="#career" class="top-link" onclick="openModal('career-modal')">Career</a>
+        <a href="#fee-structure" class="top-link highlight-fee" onclick="openModal('fee-modal')"><i class="fa-solid fa-receipt"></i> Fee Structure</a>
+        <a href="#student-login" class="top-link btn-top-login" onclick="openModal('login-modal')"><i class="fa-solid fa-user-lock"></i> Student Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN HEADER & BRANDING ================= -->
+  <header class="main-header" id="header">
+    <div class="container header-inner">
+      <div class="brand-block">
+        <a href="#" class="brand-logo-wrap">
+          <div class="logo-shield">
+            <img src="assets/slrtce_logo_crest.jpg" alt="SLRTCE Engineered for Excellence Crest" class="logo-crest-img">
+          </div>
+          <div class="brand-text">
+            <span class="rahul-group">RAHUL EDUCATION</span>
+            <h1 class="institute-name">SHREE L. R. TIWARI COLLEGE OF ENGINEERING</h1>
+            <p class="institute-affil">
+              An Autonomous Institute, Affiliated to University of Mumbai, Approved by AICTE & DTE, Maharashtra, NAAC & NBA Accredited, ISO 9001:2015
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-actions">
+        <div class="accreditation-badges-header">
+          <span class="badge-pill naac"><i class="fa-solid fa-award"></i> NAAC</span>
+          <span class="badge-pill nba"><i class="fa-solid fa-certificate"></i> NBA</span>
+          <span class="badge-pill auto"><i class="fa-solid fa-landmark"></i> Autonomous</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="main-nav" id="mainNav">
+      <div class="container nav-container">
+        <ul class="nav-links">
+          <!-- 1. About Us -->
+          <li class="has-dropdown">
+            <a href="#about" class="nav-item active">
+              <i class="fa-solid fa-house"></i> About Us <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#about" onclick="openModal('why-choose-more')"><i class="fa-solid fa-landmark"></i> Institute Overview</a>
+              <a href="#about" onclick="openModal('vision-modal')"><i class="fa-solid fa-bullseye"></i> Vision & Mission</a>
+              <a href="#about" onclick="openModal('leadership-modal')"><i class="fa-solid fa-user-tie"></i> Leadership (Rahul Education)</a>
+              <a href="#about" onclick="openModal('governing-modal')"><i class="fa-solid fa-users-gear"></i> Governing Body & Academic Council</a>
+              <a href="#disclosure" onclick="openModal('mandatory-disclosure')"><i class="fa-solid fa-file-shield"></i> Mandatory Disclosure</a>
+              <a href="#iqac" onclick="openModal('iqac-modal')"><i class="fa-solid fa-award"></i> IQAC Cell</a>
+            </div>
+          </li>
+
+          <!-- 2. Academics -->
+          <li class="has-dropdown">
+            <a href="#programmes" class="nav-item">
+              Academics <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#programmes" onclick="filterBranch('ug')"><i class="fa-solid fa-microchip"></i> B.E. Programmes (6 Branches)</a>
+              <a href="#programmes" onclick="filterBranch('pg')"><i class="fa-solid fa-laptop-code"></i> M.E. Programmes (2 Branches)</a>
+              <a href="#programmes" onclick="filterBranch('phd')"><i class="fa-solid fa-atom"></i> Ph.D. Research Centre</a>
+              <a href="#curriculum" onclick="openModal('curriculum-modal')"><i class="fa-solid fa-book-open"></i> Autonomy Curriculum & Scheme</a>
+              <a href="#calendar" onclick="openModal('calendar-modal')"><i class="fa-solid fa-calendar-days"></i> Academic Calendar 2026–27</a>
+              <a href="#fee-structure" onclick="openModal('fee-modal')"><i class="fa-solid fa-receipt"></i> Fee Structure</a>
+            </div>
+          </li>
+
+          <!-- 3. Life @ SLRTCE -->
+          <li class="has-dropdown">
+            <a href="#why-us" class="nav-item">
+              Life @ SLRTCE <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#why-us" onclick="openModal('gallery-modal')"><i class="fa-solid fa-images"></i> Campus Infrastructure & Labs</a>
+              <a href="#why-us" onclick="openModal('clubs-modal')"><i class="fa-solid fa-people-group"></i> Student Chapters (IEEE, CSI, ACM)</a>
+              <a href="#why-us" onclick="openModal('fests-modal')"><i class="fa-solid fa-masks-theater"></i> Cultural & Tech Fests (Utsav)</a>
+              <a href="#why-us" onclick="openModal('sports-modal')"><i class="fa-solid fa-volleyball"></i> Sports & Gymkhana</a>
+              <a href="#why-us" onclick="openModal('library-modal')"><i class="fa-solid fa-book-bookmark"></i> Central Digital Library</a>
+            </div>
+          </li>
+
+          <!-- 4. Career Development Cell -->
+          <li class="has-dropdown">
+            <a href="#placements" class="nav-item">
+              Career Development Cell <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#placements" onclick="openModal('cdc-overview-modal')"><i class="fa-solid fa-chart-pie"></i> CDC Overview & Vision</a>
+              <a href="#placements" onclick="openModal('training-modal')"><i class="fa-solid fa-graduation-cap"></i> Aptitude & Soft Skills Training</a>
+              <a href="#placements" onclick="openModal('cert-modal')"><i class="fa-solid fa-certificate"></i> Technical Certifications</a>
+              <a href="#placements" onclick="openModal('mou-modal')"><i class="fa-solid fa-handshake"></i> Industry MoUs & Tie-Ups</a>
+              <a href="#placements" onclick="openModal('internship-modal')"><i class="fa-solid fa-laptop-file"></i> Internship Cell</a>
+            </div>
+          </li>
+
+          <!-- 5. Placements -->
+          <li class="has-dropdown">
+            <a href="#placements" class="nav-item">
+              Placements <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#placements" onclick="openModal('placement-report-modal')"><i class="fa-solid fa-trophy"></i> Placement Records & Highlights</a>
+              <a href="#placements" onclick="openModal('recruiters-modal')"><i class="fa-solid fa-building-user"></i> Our Top Recruiters (1000+)</a>
+              <a href="#placements" onclick="openModal('placement-process-modal')"><i class="fa-solid fa-list-check"></i> Placement Policy & Process</a>
+              <a href="#alumni" onclick="openModal('alumni-modal')"><i class="fa-solid fa-comments"></i> Alumni Network & Testimonials</a>
+              <a href="#brochure" onclick="openModal('brochure-modal')"><i class="fa-solid fa-file-arrow-down"></i> Download Placement Brochure</a>
+            </div>
+          </li>
+
+          <!-- 6. R & D -->
+          <li class="has-dropdown align-right">
+            <a href="#mentors" class="nav-item">
+              R & D <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#mentors" onclick="openModal('rd-cell-modal')"><i class="fa-solid fa-flask-vial"></i> Research & Innovation Cell</a>
+              <a href="#mentors" onclick="openModal('publications-modal')"><i class="fa-solid fa-newspaper"></i> Faculty & Student Publications</a>
+              <a href="#mentors" onclick="openModal('patents-modal')"><i class="fa-solid fa-lightbulb"></i> Patents & IPR Cell</a>
+              <a href="#mentors" onclick="openModal('grants-modal')"><i class="fa-solid fa-hand-holding-dollar"></i> Funded Projects & Grants</a>
+              <a href="#mentors" onclick="openModal('phd-notice-modal')"><i class="fa-solid fa-microscope"></i> Ph.D. Research Guidelines</a>
+            </div>
+          </li>
+
+          <!-- 7. Contact -->
+          <li class="has-dropdown align-right">
+            <a href="#contact" class="nav-item">
+              Contact <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#contact" onclick="openModal('map-modal')"><i class="fa-solid fa-map-location-dot"></i> Campus Location (Mira Road)</a>
+              <a href="#enquiry-section"><i class="fa-solid fa-headset"></i> Admission Helpline & Enquiry</a>
+              <a href="#contact" onclick="openModal('directory-modal')"><i class="fa-solid fa-address-book"></i> Department Directory</a>
+              <a href="#committees" onclick="openModal('committees-modal')"><i class="fa-solid fa-scale-balanced"></i> Grievance & Redressal</a>
+            </div>
+          </li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <a href="#enquiry-section" class="btn-apply-pulse">
+            <span class="pulse-dot"></span>
+            Apply Now
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-bg"></div>
+    <div class="container hero-grid">
+      
+      <!-- Hero Left: Pitch & Value Proposition -->
+      <div class="hero-content">
+        <div class="admission-status-chip">
+          <span class="live-blink"></span>
+          <span>ADMISSIONS OPEN FOR 2026–27 ACADEMIC YEAR</span>
+        </div>
+        
+        <h2 class="hero-title">
+          Engineering education built around <span class="gradient-text">your career.</span>
+        </h2>
+        
+        <p class="hero-subtitle">
+          Six B.E. branches and two M.E. programmes in Mira Road, with accredited programmes and a strong placement record.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#enquiry-section" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-paper-plane"></i> Admission 2026-27
+          </a>
+          <button class="btn btn-outline btn-lg" onclick="openModal('brochure-modal')">
+            <i class="fa-solid fa-file-arrow-down"></i> Download Brochure
+          </button>
+        </div>
+
+        <div class="hero-trust-bar">
+          <span class="trust-label">Official Accreditations & Approvals:</span>
+          <div class="trust-tags">
+            <span class="trust-chip"><i class="fa-solid fa-shield-halved"></i> NAAC</span>
+            <span class="trust-chip"><i class="fa-solid fa-certificate"></i> NBA</span>
+            <span class="trust-chip"><i class="fa-solid fa-building-columns"></i> AICTE</span>
+            <span class="trust-chip"><i class="fa-solid fa-award"></i> ISO 9001:2015</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right: Real Campus Photo Showcase -->
+      <div class="hero-campus-showcase">
+        <div class="campus-img-frame">
+          <img src="assets/campus_building.png" alt="Shree L. R. Tiwari College of Engineering — Main Campus Building, Mira Road" class="campus-main-img">
+          
+          <!-- Image Floating Badges -->
+          <div class="campus-pin-badge">
+            <i class="fa-solid fa-location-dot"></i> SLRTCE Mira Road, Mumbai
+          </div>
+
+          <div class="campus-overlay-stats">
+            <div class="stat-pill"><i class="fa-solid fa-landmark"></i> Autonomous</div>
+            <div class="stat-pill"><i class="fa-solid fa-building-columns"></i> DTE: EN3218</div>
+            <div class="stat-pill"><i class="fa-solid fa-shield-halved"></i> NAAC & NBA</div>
+          </div>
+        </div>
+
+        <!-- Real Photo Strip -->
+        <div class="campus-photo-strip">
+          <div class="photo-strip-item">
+            <img src="assets/library.jpg" alt="SLRTCE Library" loading="lazy">
+            <span class="strip-label">Library</span>
+          </div>
+          <div class="photo-strip-item">
+            <img src="assets/campus_street.png" alt="SLRTCE Campus Entrance" loading="lazy">
+            <span class="strip-label">Campus</span>
+          </div>
+          <div class="photo-strip-item">
+            <img src="assets/campus_event.jpg" alt="SLRTCE Carpe Diem Festival" loading="lazy">
+            <span class="strip-label">Events</span>
+          </div>
+        </div>
+
+        <div class="campus-caption-strip">
+          <div class="caption-info">
+            <strong>Shree L. R. Tiwari Campus</strong>
+            <span>Autonomous Engineering &amp; Research Facility — Mira Road</span>
+          </div>
+          <a href="https://slrtce.in" target="_blank" rel="noopener" class="btn-tour-chip">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Official Site
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= KEY METRICS / STATS BAND ================= -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="fa-solid fa-handshake"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter" data-target="80">80%</span>
+          </div>
+          <span class="stat-label">Pre-placement offers</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="fa-solid fa-building-user"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter" data-target="1000">1000+</span>
+          </div>
+          <span class="stat-label">Industry partners</span>
+        </div>
+
+        <div class="stat-card highlight-stat">
+          <div class="stat-icon-wrap"><i class="fa-solid fa-trophy"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value">₹1.2 Cr</span>
+          </div>
+          <span class="stat-label">Highest UG package</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter" data-target="100">100%</span>
+          </div>
+          <span class="stat-label">Placement record</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMMES WE OFFER ================= -->
+  <section class="section programmes-section" id="programmes">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-book-bookmark"></i> Academic Excellence</span>
+        <h2 class="section-title">Programmes we offer</h2>
+        <p class="section-subtitle">
+          Designed to stimulate your intellectual curiosity and turn you into an innovator in the field of your choice.
+        </p>
+        
+        <div class="programme-filter-tabs">
+          <button class="tab-btn active" onclick="filterBranch('all', this)">All Programmes</button>
+          <button class="tab-btn" onclick="filterBranch('ug', this)">B.E. Undergraduate (6)</button>
+          <button class="tab-btn" onclick="filterBranch('pg', this)">M.E. Postgraduate (2)</button>
+          <button class="tab-btn" onclick="filterBranch('phd', this)">Ph.D. Research</button>
+        </div>
+      </div>
+
+      <div class="programmes-grid" id="programmesContainer">
+        <!-- 1. Computer Engineering -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 180 Intake</span>
+          </div>
+          <h3 class="prog-title">Computer Engineering</h3>
+          <p class="prog-desc">Comprehensive curriculum covering Cloud Computing, AI/ML, Full-Stack Development, Cyber Security and High-Performance Computing.</p>
+          <div class="prog-tags">
+            <span>AI / ML</span>
+            <span>Cloud & DevOps</span>
+            <span>Data Structures</span>
+            <span>NBA Accredited</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Computer Engineering')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 2. Information Technology -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 120 Intake</span>
+          </div>
+          <h3 class="prog-title">Information Technology</h3>
+          <p class="prog-desc">Focuses on enterprise system architecture, big data engineering, software engineering principles, and distributed cloud microservices.</p>
+          <div class="prog-tags">
+            <span>Distributed Systems</span>
+            <span>Big Data</span>
+            <span>Web 3.0</span>
+            <span>NBA Accredited</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Information Technology')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 3. Electronics & Computer Science -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 60 Intake</span>
+          </div>
+          <h3 class="prog-title">Electronics & Computer Science</h3>
+          <p class="prog-desc">Interdisciplinary fusion of embedded computing, IoT smart systems, hardware-software co-design, and modern robotics automation.</p>
+          <div class="prog-tags">
+            <span>Embedded Systems</span>
+            <span>IoT</span>
+            <span>VLSI Design</span>
+            <span>Robotics</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Electronics & Computer Science')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 4. Electronics & Telecommunication -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 60 Intake</span>
+          </div>
+          <h3 class="prog-title">Electronics & Telecommunication</h3>
+          <p class="prog-desc">Specialized training in 5G/6G wireless networks, RF microwave engineering, digital signal processing, and antenna design.</p>
+          <div class="prog-tags">
+            <span>5G Communications</span>
+            <span>DSP</span>
+            <span>Satellite Tech</span>
+            <span>NBA Accredited</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Electronics & Telecommunication')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 5. Mechanical Engineering -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 60 Intake</span>
+          </div>
+          <h3 class="prog-title">Mechanical Engineering</h3>
+          <p class="prog-desc">State-of-the-art CAD/CAM/CAE laboratories, Mechatronics, EV vehicle engineering, and automated additive manufacturing.</p>
+          <div class="prog-tags">
+            <span>EV Technology</span>
+            <span>Robotics & CAD</span>
+            <span>Thermal Fluidics</span>
+            <span>Industry 4.0</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Mechanical Engineering')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 6. Civil Engineering -->
+        <div class="programme-card" data-category="ug">
+          <div class="prog-top">
+            <span class="prog-level">B.E. • 4 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 60 Intake</span>
+          </div>
+          <h3 class="prog-title">Civil Engineering</h3>
+          <p class="prog-desc">Smart city infrastructure, structural health monitoring, BIM modeling, geospatial analytics, and green building technologies.</p>
+          <div class="prog-tags">
+            <span>Smart Cities</span>
+            <span>BIM Modeling</span>
+            <span>Structural Engg</span>
+            <span>Geotech</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('Civil Engineering')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 7. M.E. Computer Engineering -->
+        <div class="programme-card pg-card" data-category="pg">
+          <div class="prog-top">
+            <span class="prog-level pg-pill">M.E. Postgraduate • 2 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 18 Intake</span>
+          </div>
+          <h3 class="prog-title">M.E. in Computer Engineering</h3>
+          <p class="prog-desc">Advanced master's research programme centered on Deep Learning architectures, Distributed Parallel Algorithms, and Cyber Intelligence.</p>
+          <div class="prog-tags">
+            <span>Deep Learning</span>
+            <span>Research Thesis</span>
+            <span>High Compute</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('M.E. Computer Engineering')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 8. M.E. Electronics & Telecommunication -->
+        <div class="programme-card pg-card" data-category="pg">
+          <div class="prog-top">
+            <span class="prog-level pg-pill">M.E. Postgraduate • 2 Years</span>
+            <span class="prog-seats"><i class="fa-solid fa-users"></i> 18 Intake</span>
+          </div>
+          <h3 class="prog-title">M.E. in Electronics & Telecommunication</h3>
+          <p class="prog-desc">Specialized master's program focusing on Advanced Optical Communications, Microwave Systems, and AI-assisted Signal Processing.</p>
+          <div class="prog-tags">
+            <span>Optoelectronics</span>
+            <span>Microwave</span>
+            <span>Signal Analytics</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openCourseDetails('M.E. EXTC')">Explore Branch <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- 9. Ph.D. Research -->
+        <div class="programme-card phd-card" data-category="phd">
+          <div class="prog-top">
+            <span class="prog-level phd-pill">Ph.D. Doctoral Programme</span>
+            <span class="prog-seats"><i class="fa-solid fa-microscope"></i> Recognized Centre</span>
+          </div>
+          <h3 class="prog-title">Ph.D. Research Centre</h3>
+          <p class="prog-desc">University of Mumbai recognized research facility with high-end computing labs, patent assistance, and funded research initiatives.</p>
+          <div class="prog-tags">
+            <span>Patents & IPR</span>
+            <span>IEEE Publications</span>
+            <span>Industry Funded</span>
+          </div>
+          <div class="prog-footer">
+            <button class="btn-text-action" onclick="openModal('phd-notice-modal')">View Research Guidelines <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS & EVENTS ================= -->
+  <section class="section news-section" id="news">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <span class="section-tag"><i class="fa-solid fa-bullhorn"></i> Campus Pulse</span>
+          <h2 class="section-title">News & events</h2>
+          <p class="section-subtitle">Latest first. Each item links to the full notice.</p>
+        </div>
+        <div class="news-filter-chips">
+          <span class="news-chip active" onclick="filterNews('all', this)">Latest updates</span>
+          <span class="news-chip" onclick="filterNews('event', this)"><i class="fa-solid fa-calendar-day"></i> Events</span>
+          <span class="news-chip" onclick="filterNews('notice', this)"><i class="fa-solid fa-bell"></i> Notices</span>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        <!-- Item 1: Event - Alumni Meet -->
+        <div class="news-card" data-newstype="event" onclick="showNoticeModal('Alumni Meet: Invitation & Registration', 'Event', 'We cordially invite all alumni to reconnect, network, and celebrate achievements with faculty and students. Register online to join the official SLRTCE alumni network directory.', '2026-10-24')">
+          <div class="news-meta">
+            <span class="type-badge event-badge"><i class="fa-regular fa-calendar-check"></i> Event</span>
+            <span class="news-date"><i class="fa-regular fa-clock"></i> Upcoming</span>
+          </div>
+          <h3 class="news-title">Alumni Meet: Invitation & Registration</h3>
+          <p class="news-snippet">Register online to join the alumni network.</p>
+          <span class="news-action-link">View Event Details & Register <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+
+        <!-- Item 2: Notice - Ph.D. Admission -->
+        <div class="news-card" data-newstype="notice" onclick="showNoticeModal('Ph.D. Admission Notification', 'Notice', 'Applications are invited for admission to the Ph.D. Programme in Computer Engineering and EXTC for Academic Year 2026-27 under the University of Mumbai. Detailed eligibility criteria, fee schedule, and application forms are available.', '2026-10-02')">
+          <div class="news-meta">
+            <span class="type-badge notice-badge"><i class="fa-solid fa-bullhorn"></i> Notice</span>
+            <span class="news-date"><i class="fa-regular fa-clock"></i> Official</span>
+          </div>
+          <h3 class="news-title">Ph.D. Admission Notification</h3>
+          <p class="news-snippet">Eligibility and application details.</p>
+          <span class="news-action-link">Download Notification PDF <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+
+        <!-- Item 3: Notice - Autonomy Undertaking -->
+        <div class="news-card" data-newstype="notice" onclick="showNoticeModal('Autonomy Undertaking', 'Notice', 'Public disclosure of autonomous status compliance, UGC undertakings, and academic governance framework applicable for all affiliated undergraduate and postgraduate programs.', '2026-09-28')">
+          <div class="news-meta">
+            <span class="type-badge notice-badge"><i class="fa-solid fa-bullhorn"></i> Notice</span>
+            <span class="news-date"><i class="fa-regular fa-clock"></i> Public Disclosure</span>
+          </div>
+          <h3 class="news-title">Autonomy Undertaking</h3>
+          <p class="news-snippet">Official undertaking document.</p>
+          <span class="news-action-link">Read Undertaking Document <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+
+        <!-- Item 4: Event - Voter Awareness Session -->
+        <div class="news-card highlight-event" data-newstype="event" onclick="showNoticeModal('Voter Awareness Session (ELC Club)', 'Event', 'The Electoral Literacy Club (ELC) of SLRTCE is organizing a voter registration and awareness drive in association with the Election Commission to empower young student voters on campus.', '2026-10-12')">
+          <div class="news-meta">
+            <span class="type-badge event-badge"><i class="fa-regular fa-calendar-check"></i> Event</span>
+            <span class="news-date"><i class="fa-regular fa-clock"></i> Next Week</span>
+          </div>
+          <h3 class="news-title"><strong>Voter Awareness Session (ELC Club)</strong></h3>
+          <p class="news-snippet">Helping students understand the power of their vote.</p>
+          <span class="news-action-link">View Session Schedule <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="section why-us-section" id="why-us">
+    <div class="container">
+      <div class="why-us-grid">
+        <div class="why-us-intro">
+          <span class="section-tag"><i class="fa-solid fa-compass"></i> Why choose us</span>
+          <h2 class="section-title">The best path to a bright career.</h2>
+          <p class="why-intro-desc">
+            At Shree L. R. Tiwari College of Engineering, autonomy empowers our curriculum to stay dynamic, industry-aligned, and deeply rooted in practical engineering problem-solving.
+          </p>
+          <button class="btn btn-primary" onclick="openModal('why-choose-more')">
+            <span>View more</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="why-cards-col">
+          <!-- Pillar 1 -->
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="why-card-body">
+              <h3>Excellent educational record</h3>
+              <p>Meritorious achievements in academics, research and placement.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="why-card-body">
+              <h3>Model of transparency</h3>
+              <p>From admission to evaluation and placements.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="why-card-body">
+              <h3>Unparalleled teaching-learning</h3>
+              <p>Technology-enabled classrooms and updated methods.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHERE OUR STUDENTS WORK / RECRUITERS ================= -->
+  <section class="section recruiters-section" id="placements">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Placements & Career Cell</span>
+        <h2 class="section-title">Where our students work</h2>
+        <p class="section-subtitle">
+          Our placement cell works with recruiters across IT, core engineering and consulting.
+        </p>
+      </div>
+
+      <!-- Recruiter Logos / Badges Grid -->
+      <div class="recruiter-logo-grid">
+        <div class="recruiter-pill"><i class="fa-brands fa-amazon"></i> Amazon AWS</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-shield-halved"></i> Hexaware</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-microchip"></i> TCS</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-laptop-code"></i> Infosys</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-network-wired"></i> Capgemini</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-gears"></i> L&T Infotech</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-code"></i> Tech Mahindra</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-bolt"></i> Accenture</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-building"></i> Reliance Jio</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-chart-pie"></i> Morgan Stanley</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-cloud"></i> Wipro</div>
+        <div class="recruiter-pill"><i class="fa-solid fa-server"></i> Cognizant</div>
+      </div>
+
+      <!-- Placement Cell CTA Banner -->
+      <div class="placement-cta-card">
+        <div class="placement-cta-content">
+          <h3>Empowering 1000+ student careers every year</h3>
+          <p>Continuous aptitude drills, mock interviews, live capstone projects, and direct corporate connect.</p>
+        </div>
+        <div class="placement-cta-btn-wrap">
+          <button class="btn btn-white" onclick="openModal('placement-report-modal')">
+            <i class="fa-solid fa-user-graduate"></i> Our placement cell
+          </button>
+        </div>
+      </div>
+
+      <!-- Alumni Quote / Testimonial -->
+      <div class="alumni-quote-box">
+        <div class="quote-mark"><i class="fa-solid fa-quote-left"></i></div>
+        <blockquote class="quote-text">
+          “As a proud alum of Shree L. R. Tiwari College of Engineering, I owe a big thank you to this top-notch institution. [...] The placement cell deserves a special mention for helping me land my dream job at Hexaware Technologies.”
+        </blockquote>
+        <div class="quote-author-info">
+          <div class="author-avatar"><i class="fa-solid fa-user-check"></i></div>
+          <div>
+            <strong class="author-name">Shweta Singh</strong>
+            <span class="author-desc">Computer Science, placed at Hexaware (copied from the current site)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEARN FROM THE FINEST MENTORS ================= -->
+  <section class="section mentors-section" id="mentors">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-user-tie"></i> Academic Leadership</span>
+        <h2 class="section-title">Learn from the finest mentors</h2>
+        <p class="section-subtitle">
+          Heads of department, with regular guest lectures from industry leaders.
+        </p>
+      </div>
+
+      <div class="mentors-grid">
+        <!-- Mentor 1: BN -->
+        <div class="mentor-card">
+          <div class="mentor-avatar-badge bn">BN</div>
+          <div class="mentor-details">
+            <h3 class="mentor-name">Dr. Bhushan Kumar Nemade</h3>
+            <span class="mentor-designation">HOD, Computer Engineering</span>
+            <p class="mentor-spec"><i class="fa-solid fa-check"></i> Ph.D. in Computer Engg, 20+ Yrs Research & High Performance Systems</p>
+          </div>
+        </div>
+
+        <!-- Mentor 2: AS -->
+        <div class="mentor-card">
+          <div class="mentor-avatar-badge as">AS</div>
+          <div class="mentor-details">
+            <h3 class="mentor-name">Mr. Abhijit A. Samanta</h3>
+            <span class="mentor-designation">HOD, Mechanical Engineering</span>
+            <p class="mentor-spec"><i class="fa-solid fa-check"></i> Thermal Fluidics, CAD/CAM Optimization & EV Powertrains</p>
+          </div>
+        </div>
+
+        <!-- Mentor 3: SB -->
+        <div class="mentor-card">
+          <div class="mentor-avatar-badge sb">SB</div>
+          <div class="mentor-details">
+            <h3 class="mentor-name">Mrs. Sarnita Bhandari</h3>
+            <span class="mentor-designation">HOD, Electronics & Computer Science</span>
+            <p class="mentor-spec"><i class="fa-solid fa-check"></i> Embedded Architectures, IoT & Hardware Co-Design</p>
+          </div>
+        </div>
+
+        <!-- Mentor 4: SP -->
+        <div class="mentor-card">
+          <div class="mentor-avatar-badge sp">SP</div>
+          <div class="mentor-details">
+            <h3 class="mentor-name">Mrs. Swapna Patil</h3>
+            <span class="mentor-designation">HOD, Electronics & Telecommunication</span>
+            <p class="mentor-spec"><i class="fa-solid fa-check"></i> 5G Wireless Standards, Antenna Simulation & Signal Analysis</p>
+          </div>
+        </div>
+
+        <!-- Mentor 5: VK -->
+        <div class="mentor-card">
+          <div class="mentor-avatar-badge vk">VK</div>
+          <div class="mentor-details">
+            <h3 class="mentor-name">Dr. Vikas Kaul</h3>
+            <span class="mentor-designation">HOD, Information Technology</span>
+            <p class="mentor-spec"><i class="fa-solid fa-check"></i> Data Analytics, Information Security & Cloud Infrastructure</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEND ENQUIRY (ADMISSION COUNSELING) ================= -->
+  <section class="section enquiry-full-section" id="enquiry-section">
+    <div class="container">
+      <div class="enquiry-layout-grid">
+        
+        <!-- Left: Admission Counseling Guidance Info -->
+        <div class="enquiry-info-col">
+          <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Admission 2026–27</span>
+          <h2 class="section-title">Ready to take the first step towards your engineering career?</h2>
+          <p class="enquiry-info-desc">
+            Connect with our dedicated academic counsellors for personalized guidance regarding cutoffs, seat matrices, autonomous curriculum options, fee concessions, and campus tours.
+          </p>
+
+          <div class="counseling-features">
+            <div class="counsel-item">
+              <div class="counsel-icon"><i class="fa-solid fa-headset"></i></div>
+              <div>
+                <h4>Direct Admission Helpline</h4>
+                <p>Call our admission counselors at <strong>+91 (022) 2812 0144 / 45</strong> (Mon – Sat, 9 AM – 5 PM)</p>
+              </div>
+            </div>
+
+            <div class="counsel-item">
+              <div class="counsel-icon"><i class="fa-solid fa-map-pin"></i></div>
+              <div>
+                <h4>Campus Visit & Lab Tour</h4>
+                <p>Visit our Mira Road campus for live lab demonstrations, library walkthrough, and direct interaction with HODs.</p>
+              </div>
+            </div>
+
+            <div class="counsel-item">
+              <div class="counsel-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div>
+                <h4>Scholarships & Fee Concessions</h4>
+                <p>Guidance on MahaDBT schemes, EBC, TFWS quota, and merit-based financial aid.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Send Enquiry Form Card -->
+        <div class="enquiry-form-wrapper">
+          <div class="hero-form-card">
+            <div class="form-header">
+              <div class="form-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div>
+                <h3>Send enquiry</h3>
+                <p>Get immediate counseling & admission guidance</p>
+              </div>
+            </div>
+
+            <form id="enquiryForm" onsubmit="handleEnquirySubmit(event)">
+              <div class="form-group">
+                <label for="leadName"><i class="fa-regular fa-user"></i> Name</label>
+                <input type="text" id="leadName" name="name" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="leadEmail"><i class="fa-regular fa-envelope"></i> Email</label>
+                <input type="email" id="leadEmail" name="email" placeholder="example@domain.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="leadPhone"><i class="fa-solid fa-phone"></i> Phone</label>
+                <input type="tel" id="leadPhone" name="phone" placeholder="+91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label for="leadCourse"><i class="fa-solid fa-graduation-cap"></i> Course</label>
+                <select id="leadCourse" name="course" required>
+                  <option value="" disabled selected>Select desired engineering branch</option>
+                  <optgroup label="B.E. Undergraduate (4 Years)">
+                    <option value="Computer Engineering">B.E. Computer Engineering</option>
+                    <option value="Information Technology">B.E. Information Technology</option>
+                    <option value="Electronics & Computer Science">B.E. Electronics & Computer Science</option>
+                    <option value="Electronics & Telecommunication">B.E. Electronics & Telecommunication</option>
+                    <option value="Mechanical Engineering">B.E. Mechanical Engineering</option>
+                    <option value="Civil Engineering">B.E. Civil Engineering</option>
+                  </optgroup>
+                  <optgroup label="M.E. Postgraduate (2 Years)">
+                    <option value="M.E. Computer Engineering">M.E. Computer Engineering</option>
+                    <option value="M.E. Electronics & Telecommunication">M.E. Electronics & Telecommunication</option>
+                  </optgroup>
+                  <optgroup label="Doctoral Studies">
+                    <option value="Ph.D. Research">Ph.D. Research Programme</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-submit">
+                <span>Submit Enquiry</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+
+            <div class="demo-feedback-notice" id="enquirySuccessNotice">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Thanks! (Demo form, nothing is sent.)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ACTIVE APPROVALS COMPACT BAND ================= -->
+  <section class="approvals-band">
+    <div class="container">
+      <div class="approvals-header">
+        <span class="approvals-title">Active approvals</span>
+        <span class="approvals-subtitle">Shown once, as a compact band.</span>
+      </div>
+      <div class="approvals-row">
+        <div class="approval-item"><i class="fa-solid fa-award"></i> NAAC</div>
+        <div class="approval-item"><i class="fa-solid fa-certificate"></i> NBA</div>
+        <div class="approval-item"><i class="fa-solid fa-building-columns"></i> AICTE</div>
+        <div class="approval-item"><i class="fa-solid fa-landmark"></i> DTE Maharashtra</div>
+        <div class="approval-item"><i class="fa-solid fa-file-contract"></i> UGC 2(f)</div>
+        <div class="approval-item"><i class="fa-solid fa-graduation-cap"></i> University of Mumbai</div>
+        <div class="approval-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN FOOTER ================= -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-main-grid">
+      
+      <!-- Footer Col 1: Institute Details -->
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <span class="footer-crest">SLRTCE</span>
+          <div>
+            <h3 class="footer-institute-name">Shree L. R. Tiwari College of Engineering</h3>
+            <span class="footer-tagline">Excellence in Engineering & Technology</span>
+          </div>
+        </div>
+        <address class="footer-address">
+          <p><i class="fa-solid fa-location-dot"></i> Kanakia Park, Mira Road (East), Mira Bhayandar 401107</p>
+          <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@slrtce.in">info@slrtce.in</a></p>
+          <p><i class="fa-solid fa-phone"></i> +91 (022) 2812 0144 / 45</p>
+        </address>
+        <div class="footer-social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Footer Col 2: Information for -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Information for</h4>
+        <ul class="footer-links">
+          <li><a href="#alumni" onclick="openModal('alumni-modal')"><i class="fa-solid fa-chevron-right"></i> Alumni</a></li>
+          <li><a href="#fee-structure" onclick="openModal('fee-modal')"><i class="fa-solid fa-chevron-right"></i> Fee structure</a></li>
+          <li><a href="#careers" onclick="openModal('career-modal')"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+          <li><a href="#gallery" onclick="openModal('gallery-modal')"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Col 3: Quick links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="#brochure" onclick="openModal('brochure-modal')"><i class="fa-solid fa-chevron-right"></i> Admission brochure</a></li>
+          <li><a href="#calendar" onclick="openModal('calendar-modal')"><i class="fa-solid fa-chevron-right"></i> Academic calendar</a></li>
+          <li><a href="#placements" onclick="openModal('placement-report-modal')"><i class="fa-solid fa-chevron-right"></i> Placement</a></li>
+          <li><a href="#mht-cet" onclick="openModal('mht-cet-modal')"><i class="fa-solid fa-chevron-right"></i> MHT-CET</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Col 4: Know more -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Know more</h4>
+        <ul class="footer-links">
+          <li><a href="#iqac" onclick="openModal('iqac-modal')"><i class="fa-solid fa-chevron-right"></i> IQAC</a></li>
+          <li><a href="#disclosure" onclick="openModal('mandatory-disclosure')"><i class="fa-solid fa-chevron-right"></i> Mandatory disclosure</a></li>
+          <li><a href="#student-login" onclick="openModal('login-modal')"><i class="fa-solid fa-chevron-right"></i> Student login</a></li>
+          <li><a href="#terms" onclick="openModal('terms-modal')"><i class="fa-solid fa-chevron-right"></i> Terms of use</a></li>
+          <li><a href="#privacy" onclick="openModal('privacy-modal')"><i class="fa-solid fa-chevron-right"></i> Privacy policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© Shree L. R. Tiwari College of Engineering. Layout upgrade demo.</p>
+        <p class="demo-tag">Designed with SLRTCE Brand Identity & Autonomous Academic Standards</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & POPUPS FOR ALL MENTIONED ITEMS ================= -->
+
+  <!-- Generic Modal Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal Header</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content inserted dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
