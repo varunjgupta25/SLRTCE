@@ -5,6 +5,14 @@
 .gsd/
 .kilo/
 
+# GSD framework files
+GSD-STYLE.md
+PROJECT_RULES.md
+VERSION
+model_capabilities.yaml
+adapters/
+scripts/
+
 # Node
 node_modules/
 npm-debug.log*
