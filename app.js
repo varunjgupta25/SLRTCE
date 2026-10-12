@@ -5,7 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initMobileMenu();
+  // initMobileMenu(); // Delegated to shared nav-footer.js
   initStatsCounter();
   initTicker();
   initCarousel();
@@ -148,10 +148,22 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>Shree L. R. Tiwari College of Engineering operates under the aegis of <strong>Rahul Education</strong>, a pioneer education conglomerate managing 50+ prestigious institutions since 1992.</p>
-        <div style="margin-top: 1rem; background: #fffbeb; padding: 1rem; border-radius: 8px; border: 1px solid #fef08a;">
+        <div style="margin-top: 1rem; background: #faf6f4; padding: 1rem; border: 1px solid #f59e0b;">
           <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Shri Ramdhar J. Tiwari</h4>
           <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Founder Chairman, Rahul Education</span>
           <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">"Empowering young minds with accessible, world-class technical education rooted in values and innovation."</p>
+        </div>
+        <div style="margin-top: 0.75rem; background: #faf6f4; padding: 1rem; border: 1px solid #ecdcd7;">
+          <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Secretary</h4>
+          <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
+          <!-- TODO: Update with specific Secretary name when officially designated on portal -->
+          <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">Overseeing institutional governance, autonomous policy execution, and infrastructure planning.</p>
+        </div>
+        <div style="margin-top: 0.75rem; background: #faf6f4; padding: 1rem; border: 1px solid #ecdcd7;">
+          <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Joint Secretary</h4>
+          <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
+          <!-- TODO: Update with specific Joint Secretary name when officially designated on portal -->
+          <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">Managing academic collaborations, university liaisons, student affairs, and career development initiatives.</p>
         </div>
       </div>
     `
@@ -332,10 +344,13 @@ const modalContentMap = {
     `
   },
   'publications-modal': {
-    title: 'Faculty & Student Research Publications',
+    title: 'Research Publications & Raw Ink Magazine',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <p>Over 500+ Scopus, SCI, and IEEE indexed research papers authored by SLRTCE faculty and students across international conferences.</p>
+        <h4 style="color: #4e0712; margin-bottom: 0.5rem;">Raw Ink - Annual Institute Magazine</h4>
+        <p style="margin-bottom: 1rem; color: #5c2830;">Raw Ink is SLRTCE's flagship student magazine showcasing creative writing, technical research essays, design portfolios, and campus highlights edited by student editorial boards.</p>
+        <h4 style="color: #4e0712; margin-bottom: 0.5rem;">Faculty & Student Research</h4>
+        <p style="color: #5c2830;">Over 350+ indexed research papers published across Scopus, IEEE Xplore, Springer, and UGC Care journals by our departments.</p>
       </div>
     `
   },
@@ -361,7 +376,7 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p><strong>Address:</strong> Shree L. R. Tiwari College of Engineering, Kanakia Park, Mira Road (East), Mira Bhayandar 401107, Maharashtra.</p>
-        <p style="margin-top: 0.75rem; color: #5c2830;"><i class="fa-solid fa-train"></i> <strong>Nearest Station:</strong> Mira Road Railway Station (Western Line) — 7 minutes by auto/bus.</p>
+        <p style="margin-top: 0.75rem; color: #5c2830;"><i class="fa-solid fa-train"></i> <strong>Nearest Station:</strong> Mira Road Railway Station (Western Line)  -  7 minutes by auto/bus.</p>
         <p style="margin-top: 0.5rem; color: #5c2830;"><i class="fa-solid fa-road"></i> <strong>By Road:</strong> Direct connectivity from Western Express Highway (WEH).</p>
       </div>
     `
@@ -370,23 +385,25 @@ const modalContentMap = {
     title: 'Department Contact Directory',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.85rem;">
-          <tr style="border-bottom: 1px solid #ecdcd7;">
-            <td style="padding: 0.5rem; font-weight: 700; color: #4e0712;">Principal Office</td>
-            <td style="padding: 0.5rem; color: #700c1b;">principal@slrtce.in</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #ecdcd7; background: #fffbeb;">
-            <td style="padding: 0.5rem; font-weight: 700; color: #4e0712;">Admission Cell</td>
-            <td style="padding: 0.5rem; color: #700c1b;">admissions@slrtce.in</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #ecdcd7;">
-            <td style="padding: 0.5rem; font-weight: 700; color: #4e0712;">Placement Cell</td>
-            <td style="padding: 0.5rem; color: #700c1b;">placements@slrtce.in</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #ecdcd7; background: #fffbeb;">
-            <td style="padding: 0.5rem; font-weight: 700; color: #4e0712;">Registrar Office</td>
-            <td style="padding: 0.5rem; color: #700c1b;">registrar@slrtce.in</td>
-          </tr>
+        <table class="modal-data-table">
+          <tbody>
+            <tr>
+              <td class="tbl-label">Principal Office</td>
+              <td class="tbl-value"><a href="mailto:principal@slrtce.in">principal@slrtce.in</a></td>
+            </tr>
+            <tr class="tbl-alt">
+              <td class="tbl-label">Admission Cell</td>
+              <td class="tbl-value"><a href="mailto:admissions@slrtce.in">admissions@slrtce.in</a></td>
+            </tr>
+            <tr>
+              <td class="tbl-label">Placement Cell</td>
+              <td class="tbl-value"><a href="mailto:placements@slrtce.in">placements@slrtce.in</a></td>
+            </tr>
+            <tr class="tbl-alt">
+              <td class="tbl-label">Registrar Office</td>
+              <td class="tbl-value"><a href="mailto:registrar@slrtce.in">registrar@slrtce.in</a></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     `
@@ -426,7 +443,7 @@ const modalContentMap = {
     `
   },
   'career-modal': {
-    title: 'Careers @ SLRTCE — Join Our Academic Team',
+    title: 'Careers @ SLRTCE  -  Join Our Academic Team',
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>SLRTCE invites applications from qualified and passionate academicians and research scholars for Professor, Associate Professor, and Assistant Professor positions in:</p>
@@ -441,41 +458,41 @@ const modalContentMap = {
     `
   },
   'fee-modal': {
-    title: 'Fee Structure — Academic Year 2026–27',
+    title: 'Fee Structure  -  Academic Year 2026–27',
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>Approved by the Fee Regulating Authority (FRA), Maharashtra for Autonomous Courses:</p>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.875rem;">
+        <table class="modal-data-table modal-data-table--fees">
           <thead>
-            <tr style="background: #4e0712; color: #fbbf24; text-align: left;">
-              <th style="padding: 0.6rem;">Category</th>
-              <th style="padding: 0.6rem;">Tuition Fee</th>
-              <th style="padding: 0.6rem;">Development Fee</th>
-              <th style="padding: 0.6rem;">Total Fee</th>
+            <tr class="tbl-head">
+              <th>Category</th>
+              <th>Tuition Fee</th>
+              <th>Development Fee</th>
+              <th>Total Fee</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #ecdcd7;">
-              <td style="padding: 0.6rem;"><strong>Open / General</strong></td>
-              <td style="padding: 0.6rem;">₹1,15,000</td>
-              <td style="padding: 0.6rem;">₹15,000</td>
-              <td style="padding: 0.6rem; color: #700c1b; font-weight: 800;">₹1,30,000</td>
+            <tr>
+              <td class="tbl-label"><strong>Open / General</strong></td>
+              <td>&#x20B9;1,15,000</td>
+              <td>&#x20B9;15,000</td>
+              <td class="tbl-total">&#x20B9;1,30,000</td>
             </tr>
-            <tr style="border-bottom: 1px solid #ecdcd7; background: #fffbeb;">
-              <td style="padding: 0.6rem;"><strong>OBC / EBC / EWS</strong></td>
-              <td style="padding: 0.6rem;">₹57,500</td>
-              <td style="padding: 0.6rem;">₹15,000</td>
-              <td style="padding: 0.6rem; color: #700c1b; font-weight: 800;">₹72,500</td>
+            <tr class="tbl-alt">
+              <td class="tbl-label"><strong>OBC / EBC / EWS</strong></td>
+              <td>&#x20B9;57,500</td>
+              <td>&#x20B9;15,000</td>
+              <td class="tbl-total">&#x20B9;72,500</td>
             </tr>
-            <tr style="border-bottom: 1px solid #ecdcd7;">
-              <td style="padding: 0.6rem;"><strong>SC / ST / TFWS</strong></td>
-              <td style="padding: 0.6rem;">₹0</td>
-              <td style="padding: 0.6rem;">₹15,000</td>
-              <td style="padding: 0.6rem; color: #700c1b; font-weight: 800;">₹15,000</td>
+            <tr>
+              <td class="tbl-label"><strong>SC / ST / TFWS</strong></td>
+              <td>&#x20B9;0</td>
+              <td>&#x20B9;15,000</td>
+              <td class="tbl-total">&#x20B9;15,000</td>
             </tr>
           </tbody>
         </table>
-        <p style="margin-top: 0.75rem; font-size: 0.8rem; color: #7d424b;">* Scholarships and government schemes as per MahaDBT guidelines.</p>
+        <p class="tbl-footnote">* Scholarships and government schemes as per MahaDBT guidelines.</p>
       </div>
     `
   },
@@ -499,15 +516,36 @@ const modalContentMap = {
     `
   },
   'brochure-modal': {
-    title: 'Download Official Admission Brochure 2026-27',
+    title: 'SLRTCE Information Brochure 2026\u201327',
     body: `
-      <div style="line-height: 1.7; text-align: center; padding: 1rem 0; color: #240408;">
-        <div style="font-size: 3rem; color: #700c1b; margin-bottom: 1rem;"><i class="fa-solid fa-file-pdf"></i></div>
-        <h3 style="color: #4e0712;">SLRTCE Information Brochure 2026-27</h3>
-        <p style="color: #5c2830; margin-bottom: 1.5rem;">Includes full curriculum breakdown, department laboratories, placement records, and campus facilities.</p>
-        <button class="btn btn-primary" onclick="alert('Download demo started! Brochure PDF would download in live production.')" style="background: #700c1b; color: white; border: 1px solid #f59e0b;">
-          <i class="fa-solid fa-download"></i> Download PDF (4.8 MB)
-        </button>
+      <div class="drive-preview-wrap">
+        <div class="drive-preview-header">
+          <i class="fa-solid fa-file-pdf drive-preview-icon"></i>
+          <div>
+            <h3 class="drive-preview-title">SLRTCE Information Brochure 2026&#x2013;27</h3>
+            <p class="drive-preview-sub">Curriculum breakdown, department labs, placement records and campus facilities.</p>
+          </div>
+        </div>
+        <!-- TODO: Replace DRIVE_FILE_ID below with the actual Google Drive file ID from the brochure share link -->
+        <!-- Share link format: https://drive.google.com/file/d/DRIVE_FILE_ID/view -->
+        <div class="drive-iframe-wrap">
+          <iframe
+            src="https://drive.google.com/file/d/DRIVE_FILE_ID/preview"
+            class="drive-iframe"
+            allow="autoplay"
+            aria-label="SLRTCE Admission Brochure preview"
+          ></iframe>
+          <div class="drive-placeholder" id="brochurePlaceholder">
+            <i class="fa-solid fa-file-pdf"></i>
+            <p>Brochure preview</p>
+            <small>Replace DRIVE_FILE_ID in app.js to enable the embedded viewer.</small>
+          </div>
+        </div>
+        <div class="drive-preview-actions">
+          <a href="https://drive.google.com/file/d/DRIVE_FILE_ID/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Drive
+          </a>
+        </div>
       </div>
     `
   },
@@ -566,25 +604,67 @@ const modalContentMap = {
         <div style="border-radius: 12px; overflow: hidden; margin-bottom: 1rem; border: 2px solid #f59e0b;">
           <img src="assets/slrtce_campus.jpg" alt="SLRTCE Campus Building" style="width: 100%; height: auto; display: block;">
         </div>
-        <h4 style="color: #4e0712; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus — Mira Road (East)</h4>
+        <h4 style="color: #4e0712; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus  -  Mira Road (East)</h4>
         <p style="color: #5c2830;">Spread across a modern sprawling educational complex equipped with advanced computing centres, NVIDIA GPU workstations, robotics lab, smart auditoriums, and gymkhana facilities.</p>
       </div>
     `
   },
   'calendar-modal': {
-    title: 'Academic Calendar 2026–27',
+    title: 'Academic Calendar 2026\u201327',
     body: `
-      <div style="line-height: 1.7; color: #240408;">
-        <p><strong style="color: #4e0712;">Term Dates & Examination Schedule:</strong></p>
-        <ul style="margin: 0.75rem 0 1rem 1.5rem; list-style-type: disc; color: #5c2830;">
-          <li><strong>Odd Semester Commencement:</strong> July 2026</li>
-          <li><strong>Mid-Semester Assessment (In-Sem):</strong> September 2026</li>
-          <li><strong>Autonomous End-Semester Exams:</strong> November – December 2026</li>
-          <li><strong>Even Semester Commencement:</strong> January 2027</li>
-        </ul>
+      <div class="drive-preview-wrap">
+        <div class="drive-preview-header">
+          <i class="fa-solid fa-calendar-days drive-preview-icon"></i>
+          <div>
+            <h3 class="drive-preview-title">Academic Calendar 2026&#x2013;27</h3>
+            <p class="drive-preview-sub">Term dates, internal assessment schedule, and autonomous end-semester examinations.</p>
+          </div>
+        </div>
+        <!-- TODO: Replace CALENDAR_FILE_ID below with the actual Google Drive file ID -->
+        <!-- Share link format: https://drive.google.com/file/d/CALENDAR_FILE_ID/view -->
+        <div class="drive-iframe-wrap">
+          <iframe
+            src="https://drive.google.com/file/d/CALENDAR_FILE_ID/preview"
+            class="drive-iframe"
+            allow="autoplay"
+            aria-label="Academic Calendar preview"
+          ></iframe>
+          <div class="drive-placeholder">
+            <i class="fa-solid fa-calendar-days"></i>
+            <p>Calendar preview</p>
+            <small>Replace CALENDAR_FILE_ID in app.js to enable the embedded viewer.</small>
+          </div>
+        </div>
+        <table class="modal-data-table" style="margin-top:1rem;">
+          <tbody>
+            <tr>
+              <td class="tbl-label">Odd Semester Commencement</td>
+              <td>July 2026</td>
+            </tr>
+            <tr class="tbl-alt">
+              <td class="tbl-label">Mid-Semester Assessment (In-Sem)</td>
+              <td>September 2026</td>
+            </tr>
+            <tr>
+              <td class="tbl-label">Autonomous End-Semester Exams</td>
+              <td>November &#x2013; December 2026</td>
+            </tr>
+            <tr class="tbl-alt">
+              <td class="tbl-label">Even Semester Commencement</td>
+              <td>January 2027</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="drive-preview-actions">
+          <a href="https://drive.google.com/file/d/CALENDAR_FILE_ID/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Drive
+          </a>
+        </div>
       </div>
     `
   },
+
+
   'mht-cet-modal': {
     title: 'MHT-CET & JEE Main Admission Guidance',
     body: `
@@ -747,7 +827,7 @@ function initTicker() {
   const play   = document.getElementById('tickerPlay');
   if (!list || !pause || !play) return;
 
-  // Respect prefers-reduced-motion — CSS already hides animation; just bail.
+  // Respect prefers-reduced-motion  -  CSS already hides animation; just bail.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   // Clone all items to create a seamless loop.
@@ -891,11 +971,11 @@ function initCarousel() {
     const rawIdx = Math.round(-pct / (100 / vis));
 
     if (rawIdx <= prependCount - 1) {
-      // Jumped before first real slide — jump to equivalent real slide at end.
+      // Jumped before first real slide  -  jump to equivalent real slide at end.
       currentIndex = total - 1;
       goTo(prependCount + currentIndex, false);
     } else if (rawIdx >= prependCount + total) {
-      // Jumped past last real slide — jump to first.
+      // Jumped past last real slide  -  jump to first.
       currentIndex = 0;
       goTo(prependCount + currentIndex, false);
     } else {
