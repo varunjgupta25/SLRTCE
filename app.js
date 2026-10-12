@@ -115,7 +115,7 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>The <strong>Internal Quality Assurance Cell (IQAC)</strong> at SLRTCE ensures continuous enhancement of academic and administrative performance.</p>
-        <h4 style="margin: 1rem 0 0.5rem; color: #4e0712;">Key Objectives:</h4>
+        <h4 style="margin: 1rem 0 0.5rem; color: #8F0A0B;">Key Objectives:</h4>
         <ul style="margin-left: 1.5rem; list-style-type: disc; color: #5c2830;">
           <li>Institutionalize quality practices in teaching-learning and research</li>
           <li>Facilitate learner-centric environment conducive for quality education</li>
@@ -129,11 +129,11 @@ const modalContentMap = {
     title: 'Vision & Mission of the Institute',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <h4 style="color: #700c1b; margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Vision</h4>
-        <p style="background: #fffbeb; padding: 1rem; border-radius: 8px; border-left: 4px solid #700c1b; margin-bottom: 1rem;">
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Vision</h4>
+        <p style="background: #faf6f4; padding: 1rem; border-radius: 0; border-left: 4px solid #8F0A0B; margin-bottom: 1rem;">
           To become a globally recognized centre of excellence in engineering education and research, fostering ethical leaders and innovative entrepreneurs for sustainable nation building.
         </p>
-        <h4 style="color: #700c1b; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Mission</h4>
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Mission</h4>
         <ul style="margin-left: 1.5rem; list-style-type: disc; color: #5c2830;">
           <li>Impart rigorous autonomous outcome-based technical education.</li>
           <li>Foster strong industry-institute collaborations for hands-on experiential learning.</li>
@@ -148,20 +148,20 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>Shree L. R. Tiwari College of Engineering operates under the aegis of <strong>Rahul Education</strong>, a pioneer education conglomerate managing 50+ prestigious institutions since 1992.</p>
-        <div style="margin-top: 1rem; background: #faf6f4; padding: 1rem; border: 1px solid #f59e0b;">
-          <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Shri Ramdhar J. Tiwari</h4>
-          <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Founder Chairman, Rahul Education</span>
+        <div style="margin-top: 1rem; background: #faf6f4; padding: 1rem; border: 1px solid #E0AA24;">
+          <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">Shri Ramdhar J. Tiwari</h4>
+          <span style="color: #8F0A0B; font-weight: 700; font-size: 0.85rem;">Founder Chairman, Rahul Education</span>
           <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">"Empowering young minds with accessible, world-class technical education rooted in values and innovation."</p>
         </div>
         <div style="margin-top: 0.75rem; background: #faf6f4; padding: 1rem; border: 1px solid #ecdcd7;">
-          <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Secretary</h4>
-          <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
+          <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">Secretary</h4>
+          <span style="color: #8F0A0B; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
           <!-- TODO: Update with specific Secretary name when officially designated on portal -->
           <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">Overseeing institutional governance, autonomous policy execution, and infrastructure planning.</p>
         </div>
         <div style="margin-top: 0.75rem; background: #faf6f4; padding: 1rem; border: 1px solid #ecdcd7;">
-          <h4 style="color: #4e0712; margin-bottom: 0.35rem;">Joint Secretary</h4>
-          <span style="color: #700c1b; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
+          <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">Joint Secretary</h4>
+          <span style="color: #8F0A0B; font-weight: 700; font-size: 0.85rem;">Rahul Education Trust</span>
           <!-- TODO: Update with specific Joint Secretary name when officially designated on portal -->
           <p style="font-size: 0.85rem; color: #5c2830; margin-top: 0.5rem;">Managing academic collaborations, university liaisons, student affairs, and career development initiatives.</p>
         </div>
@@ -187,17 +187,17 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>SLRTCE has a thriving student club ecosystem encouraging leadership and project hackathons:</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem;">
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">IEEE Student Branch</strong><br><small style="color: #5c2830;">Global tech papers & conferences</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">IEEE Student Branch</strong><br><small style="color: #5c2830;">Global tech papers & conferences</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">CSI & ACM Chapter</strong><br><small style="color: #5c2830;">Hackathons & competitive coding</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">CSI & ACM Chapter</strong><br><small style="color: #5c2830;">Hackathons & competitive coding</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">Robotics & IOT Club</strong><br><small style="color: #5c2830;">Autonomous drones & bots</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">Robotics & IOT Club</strong><br><small style="color: #5c2830;">Autonomous drones & bots</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">ELC (Electoral Club)</strong><br><small style="color: #5c2830;">Social awareness & civic drives</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">ELC (Electoral Club)</strong><br><small style="color: #5c2830;">Social awareness & civic drives</small>
           </div>
         </div>
       </div>
@@ -307,12 +307,12 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>Premier MNCs, core engineering firms, and product startups hiring from SLRTCE:</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 1rem; text-align: center;">
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">Amazon AWS</div>
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">Hexaware</div>
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">TCS</div>
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">Infosys</div>
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">Capgemini</div>
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #4e0712;">L&T Infotech</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Amazon AWS</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Hexaware</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">TCS</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Infosys</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Capgemini</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">L&T Infotech</div>
         </div>
       </div>
     `
@@ -347,9 +347,9 @@ const modalContentMap = {
     title: 'Research Publications & Raw Ink Magazine',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <h4 style="color: #4e0712; margin-bottom: 0.5rem;">Raw Ink - Annual Institute Magazine</h4>
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;">Raw Ink - Annual Institute Magazine</h4>
         <p style="margin-bottom: 1rem; color: #5c2830;">Raw Ink is SLRTCE's flagship student magazine showcasing creative writing, technical research essays, design portfolios, and campus highlights edited by student editorial boards.</p>
-        <h4 style="color: #4e0712; margin-bottom: 0.5rem;">Faculty & Student Research</h4>
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;">Faculty & Student Research</h4>
         <p style="color: #5c2830;">Over 350+ indexed research papers published across Scopus, IEEE Xplore, Springer, and UGC Care journals by our departments.</p>
       </div>
     `
@@ -414,17 +414,17 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>SLRTCE has constituted statutory committees in compliance with UGC/AICTE guidelines:</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem;">
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">Internal Complaints Committee (ICC)</strong><br><small style="color: #5c2830;">Women Safety & Prevention of Harassment</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">Internal Complaints Committee (ICC)</strong><br><small style="color: #5c2830;">Women Safety & Prevention of Harassment</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">Anti-Ragging Committee</strong><br><small style="color: #5c2830;">Zero Tolerance Policy on Campus</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">Anti-Ragging Committee</strong><br><small style="color: #5c2830;">Zero Tolerance Policy on Campus</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">SC/ST Committee</strong><br><small style="color: #5c2830;">Equal Opportunity Cell</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">SC/ST Committee</strong><br><small style="color: #5c2830;">Equal Opportunity Cell</small>
           </div>
-          <div style="background: #fffbeb; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
-            <strong style="color: #4e0712;">Student Grievance Cell</strong><br><small style="color: #5c2830;">Ombudsperson Representation</small>
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+            <strong style="color: #8F0A0B;">Student Grievance Cell</strong><br><small style="color: #5c2830;">Ombudsperson Representation</small>
           </div>
         </div>
       </div>
@@ -436,8 +436,8 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>Join over 10,000+ engineers making an impact globally in top companies like Amazon, TCS, Hexaware, Infosys, and high-growth tech startups.</p>
         <p style="margin-top: 0.75rem;"><strong>Upcoming:</strong> Annual Global Alumni Meet 2026 registration is currently live. Reconnect with batchmates, mentor current students, and attend guest speaker sessions.</p>
-        <div style="margin-top: 1.25rem; background: #fffbeb; padding: 1rem; border-radius: 8px; border: 1px solid #f59e0b;">
-          <i class="fa-solid fa-graduation-cap" style="color: #700c1b;"></i> <strong style="color: #4e0712;">Alumni Portal:</strong> alumni.slrtce.in
+        <div style="margin-top: 1.25rem; background: #faf6f4; padding: 1rem; border-radius: 0; border: 1px solid #E0AA24;">
+          <i class="fa-solid fa-graduation-cap" style="color: #8F0A0B;"></i> <strong style="color: #8F0A0B;">Alumni Portal:</strong> alumni.slrtce.in
         </div>
       </div>
     `
@@ -453,7 +453,7 @@ const modalContentMap = {
           <li>Electronics & Computer Science / VLSI / IoT</li>
           <li>Mechanical (EV / Mechatronics) & Civil Engineering</li>
         </ul>
-        <p>Send your updated CV to <strong style="color: #700c1b;">careers@slrtce.in</strong> with branch specialization in the subject line.</p>
+        <p>Send your updated CV to <strong style="color: #8F0A0B;">careers@slrtce.in</strong> with branch specialization in the subject line.</p>
       </div>
     `
   },
@@ -503,14 +503,14 @@ const modalContentMap = {
         <p>Access your attendance, internal marks, autonomous exam hall tickets, and fee receipts.</p>
         <form onsubmit="event.preventDefault(); alert('Demo Login Portal: Authenticated successfully (Demo)');" style="margin-top: 1rem;">
           <div style="margin-bottom: 0.85rem;">
-            <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #4e0712; margin-bottom: 0.25rem;">PRN / Roll Number</label>
+            <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #8F0A0B; margin-bottom: 0.25rem;">PRN / Roll Number</label>
             <input type="text" placeholder="e.g. 2024BECE014" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 6px;">
           </div>
           <div style="margin-bottom: 1rem;">
-            <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #4e0712; margin-bottom: 0.25rem;">Password</label>
+            <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #8F0A0B; margin-bottom: 0.25rem;">Password</label>
             <input type="password" placeholder="••••••••" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 6px;">
           </div>
-          <button type="submit" class="btn btn-primary btn-block" style="background: #700c1b; color: white;">Sign In to Student ERP</button>
+          <button type="submit" class="btn btn-primary btn-block" style="background: #8F0A0B; color: white;">Sign In to Student ERP</button>
         </form>
       </div>
     `
@@ -567,7 +567,7 @@ const modalContentMap = {
     title: 'Why Shree L. R. Tiwari College of Engineering?',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <h4 style="color: #4e0712;">The SLRTCE Advantage</h4>
+        <h4 style="color: #8F0A0B;">The SLRTCE Advantage</h4>
         <p style="color: #5c2830;">Located strategically in Mira Road with sprawling infrastructure, SLRTCE combines academic rigor with career outcomes:</p>
         <ul style="margin: 0.75rem 0 1rem 1.5rem; list-style-type: disc; color: #5c2830;">
           <li><strong>Autonomous Freedom:</strong> Immediate syllabus upgrades matching tech industry evolution.</li>
@@ -584,12 +584,12 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>The Career Development Cell (CDC) at SLRTCE bridges the gap between campus talent and industry recruiters.</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
-          <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 1rem; border-radius: 8px; text-align: center;">
-            <div style="font-size: 1.75rem; font-weight: 800; color: #700c1b;">₹1.2 Cr</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 1rem; border-radius: 0; text-align: center;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: #8F0A0B;">₹1.2 Cr</div>
             <div style="font-size: 0.8rem; color: #5c2830;">Highest UG Package</div>
           </div>
-          <div style="background: #4e0712; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
-            <div style="font-size: 1.75rem; font-weight: 800; color: #fbbf24;">1000+</div>
+          <div style="background: #8F0A0B; padding: 1rem; border-radius: 0; text-align: center; color: white;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: #E0AA24;">1000+</div>
             <div style="font-size: 0.8rem; color: #f7deda;">Corporate Hiring Partners</div>
           </div>
         </div>
@@ -601,10 +601,10 @@ const modalContentMap = {
     title: 'Campus Life & Infrastructure Gallery',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 1rem; border: 2px solid #f59e0b;">
+        <div style="border-radius: 0; overflow: hidden; margin-bottom: 1rem; border: 2px solid #E0AA24;">
           <img src="assets/slrtce_campus.jpg" alt="SLRTCE Campus Building" style="width: 100%; height: auto; display: block;">
         </div>
-        <h4 style="color: #4e0712; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus  -  Mira Road (East)</h4>
+        <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus  -  Mira Road (East)</h4>
         <p style="color: #5c2830;">Spread across a modern sprawling educational complex equipped with advanced computing centres, NVIDIA GPU workstations, robotics lab, smart auditoriums, and gymkhana facilities.</p>
       </div>
     `
@@ -670,7 +670,7 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>Admissions to First Year Engineering (B.E.) are conducted via State Common Entrance Test Cell (CET Cell), Government of Maharashtra Centralized Admission Process (CAP).</p>
-        <p style="margin-top: 0.5rem;"><strong style="color: #700c1b;">Institute Choice Code:</strong> 3218</p>
+        <p style="margin-top: 0.5rem;"><strong style="color: #8F0A0B;">Institute Choice Code:</strong> 3218</p>
         <p style="margin-top: 0.5rem; color: #5c2830;">Institute Level & Against CAP vacancy rounds are also conducted as per DTE norms.</p>
       </div>
     `
@@ -718,14 +718,14 @@ function showNoticeModal(title, type, content, date) {
   const modalBody = document.getElementById('modalBody');
 
   if (modalBackdrop && modalTitle && modalBody) {
-    modalTitle.innerHTML = `<span style="font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 4px; background: #f59e0b; color: #36050c; font-weight: 800; margin-right: 0.5rem;">${type}</span> ${title}`;
+    modalTitle.innerHTML = `<span style="font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 0; background: #E0AA24; color: #8F0A0B; font-weight: 800; margin-right: 0.5rem;">${type}</span> ${title}`;
     modalBody.innerHTML = `
       <div style="line-height: 1.7; color: #240408;">
         <div style="font-size: 0.8rem; color: #7d424b; margin-bottom: 1rem;"><i class="fa-regular fa-calendar"></i> Date: ${date} | Official SLRTCE Circular</div>
         <p style="font-size: 1rem; color: #240408; margin-bottom: 1.5rem;">${content}</p>
-        <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 1rem; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-weight: 700; color: #4e0712;"><i class="fa-solid fa-file-arrow-down" style="color: #700c1b;"></i> Official Circular Document.pdf</span>
-          <button class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: #700c1b; color: white;" onclick="alert('Circular PDF Download Started (Demo)')">Download</button>
+        <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 1rem; border-radius: 0; display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-weight: 700; color: #8F0A0B;"><i class="fa-solid fa-file-arrow-down" style="color: #8F0A0B;"></i> Official Circular Document.pdf</span>
+          <button class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: #8F0A0B; color: white;" onclick="alert('Circular PDF Download Started (Demo)')">Download</button>
         </div>
       </div>
     `;
@@ -744,7 +744,7 @@ function openCourseDetails(courseName) {
     modalBody.innerHTML = `
       <div style="line-height: 1.7; color: #240408;">
         <p><strong>Programme Overview:</strong> The Department of ${courseName} at SLRTCE offers cutting-edge autonomous engineering education integrating theoretical rigor with industrial applications.</p>
-        <h4 style="margin: 1rem 0 0.5rem; color: #4e0712;">Key Laboratory Highlights:</h4>
+        <h4 style="margin: 1rem 0 0.5rem; color: #8F0A0B;">Key Laboratory Highlights:</h4>
         <ul style="margin-left: 1.5rem; list-style-type: disc; color: #5c2830;">
           <li>Modern Computing and Hardware Experimentation Labs</li>
           <li>High-Speed Gigabit LAN & Specialized Simulation Suites</li>
@@ -752,7 +752,7 @@ function openCourseDetails(courseName) {
           <li>Hands-on industry certification mapped modules</li>
         </ul>
         <div style="margin-top: 1.5rem; text-align: right;">
-          <a href="#enquiry-section" class="btn btn-primary" style="background: #700c1b; color: white; border: 1px solid #f59e0b;" onclick="closeAllModals()">Apply for this Branch</a>
+          <a href="#enquiry-section" class="btn btn-primary" style="background: #8F0A0B; color: white; border: 1px solid #E0AA24;" onclick="closeAllModals()">Apply for this Branch</a>
         </div>
       </div>
     `;
@@ -1062,3 +1062,4 @@ function initCarousel() {
     }, 200);
   });
 }
+

@@ -5,36 +5,29 @@
    ========================================================================== */
 
 :root {
-  /* Exclusive Brand Color Palette: Maroon, Yellow & White */
-  --color-maroon-darkest: #36050c; /* Deep Charcoal Maroon */
-  --color-maroon-dark:    #4e0712; /* Dark Imperial Maroon */
-  --color-maroon-primary: #700c1b; /* Classic Rich Maroon */
-  --color-maroon-mid:     #8a1224; /* Crimson Maroon */
-  --color-maroon-light:   #a81930; /* Bright Maroon Accent */
+  /* Official Brand Colours — DO NOT add other shades */
+  --color-maroon: #8F0A0B;           /* SLRTCE official maroon */
+  --color-gold:   #E0AA24;           /* SLRTCE official gold */
 
-  /* Yellow / Gold */
-  --color-yellow-primary: #f59e0b; /* Vibrant Yellow / Gold */
-  --color-yellow-bright:  #fbbf24; /* Bright Golden Yellow */
-  --color-yellow-light:   #fef3c7; /* Soft Warm Yellow Tint */
-  --color-yellow-subtle:  #fffbeb; /* Very Light Yellow Background */
-  --color-yellow-dark:    #b45309; /* Deep Amber Gold */
+  /* Convenience aliases used throughout the stylesheet */
+  --color-maroon-primary: #8F0A0B;
+  --color-yellow-primary: #E0AA24;
 
   /* White & Cream Neutrals */
   --color-white:          #ffffff;
-  --bg-main:              #faf6f4; /* Clean Soft White-Warm */
-  --bg-card:              #faf6f4; /* Off-white card background (avoid pure white) */
-  --text-main:            #240408; /* Deep Maroon-tinted Dark Text */
-  --text-muted:           #5c2830; /* Muted Warm Maroon */
-  --text-light:           #7d424b; /* Subtle Maroon-Gray */
-  --border-color:         #ecdcd7; /* Warm Border */
+  --bg-main:              #faf6f4;   /* Clean soft white-warm */
+  --bg-card:              #faf6f4;   /* Off-white card background */
+  --text-main:            #240408;   /* Deep maroon-tinted dark text */
+  --text-muted:           #5c2830;   /* Muted warm maroon */
+  --text-light:           #7d424b;   /* Subtle maroon-gray */
+  --border-color:         #ecdcd7;   /* Warm border */
   --border-color-light:   #f5ede9;
 
-  /* Typography */
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography — Plus Jakarta Sans only */
+  --font-main:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-mono: 'Space Grotesk', monospace;
 
-  /* Elevations - Flattened to avoid drop shadows as required */
+  /* Elevations — none (flat design) */
   --shadow-sm: none;
   --shadow-md: none;
   --shadow-lg: none;
@@ -42,10 +35,10 @@
   --shadow-gold: none;
 
   /* Transitions */
-  --transition-fast: 0.15s ease;
+  --transition-fast:   0.15s ease;
   --transition-normal: 0.2s ease;
 
-  /* Radii - Strictly square corners as required */
+  /* Radii — square corners site-wide */
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
@@ -2765,4 +2758,5 @@ button, input, select, textarea, .btn, .card, .stat-card, .programme-card,
   gap: 0.5rem;
   padding-top: 0.25rem;
 }
+
 

@@ -7,8 +7,7 @@
  * This file serves as the SINGLE SOURCE OF TRUTH for the global header,
  * navigation bar, footer, and mobile WhatsApp contact widget across all pages.
  *
- * Brand Palette: Strictly Maroon (#700c1b, #4e0712, #36050c), Gold/Yellow (#f59e0b, #fbbf24),
- * and Warm Off-White (#faf6f4, #fffbeb).
+ * Brand Palette: Maroon #8F0A0B, Gold #E0AA24, Off-White #faf6f4.
  * Square geometry (border-radius: 0), no gradients, no drop shadows, no emojis, no em dashes.
  */
 
@@ -516,3 +515,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ensure WhatsApp button is present
   injectWhatsAppButton();
 });
+
