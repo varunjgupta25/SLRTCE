@@ -2036,7 +2036,7 @@ site-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 10000;
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-normal);
@@ -2049,11 +2049,11 @@ site-footer {
 }
 
 .modal-container {
-  background: var(--color-white);
+  background: var(--bg-main);
   width: 100%;
   max-width: 600px;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 25px 50px -12px rgba(54, 5, 12, 0.6);
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
   transform: scale(0.95);
   transition: all var(--transition-normal);

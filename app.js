@@ -776,6 +776,19 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+/* Open modal from URL query param if present (?modal=modalKey) */
+window.addEventListener('DOMContentLoaded', () => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const modalKey = params.get('modal');
+    if (modalKey && typeof openModal === 'function') {
+      setTimeout(() => openModal(modalKey), 50);
+    }
+  } catch (err) {
+    // Ignore URL parse errors
+  }
+});
+
 /* Animated Counter */
 function initStatsCounter() {
   const counters = document.querySelectorAll('.counter');
