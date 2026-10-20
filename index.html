@@ -4832,7 +4832,7 @@ function getHeaderMarkup() {
     <div class="container header-inner">
       <div class="brand-block">
         <a href="#/home" class="brand-logo-wrap" onclick="navigate('#/home')">
-          <img src="assets/slrtce_logo_crest.jpg" alt="SLRTCE Crest" class="logo-crest-img">
+          <img src="assets/optimized/slrtce_logo_crest.webp" alt="SLRTCE Crest" class="logo-crest-img" width="54" height="54" loading="lazy" decoding="async">
           <div class="brand-text">
             <h1 class="institute-name">SHREE L. R. TIWARI COLLEGE OF ENGINEERING</h1>
             <div class="institute-affil">
@@ -4890,7 +4890,7 @@ function getFooterMarkup() {
     <div class="container footer-main-grid">
       <div class="footer-col brand-col">
         <div class="footer-logo">
-          <img src="assets/slrtce_logo_crest.jpg" alt="SLRTCE Crest Logo" class="footer-crest-img">
+          <img src="assets/optimized/slrtce_logo_crest.webp" alt="SLRTCE Crest Logo" class="footer-crest-img" width="54" height="54" loading="lazy" decoding="async">
           <div class="footer-brand-titles">
             <h3 class="footer-institute-name">Shree L. R. Tiwari College of Engineering</h3>
             <span class="footer-tagline">Autonomous Institute &bull; University of Mumbai</span>
@@ -5571,7 +5571,7 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <div style="border-radius: 0; overflow: hidden; margin-bottom: 1rem; border: 2px solid #E0AA24;">
-          <img src="assets/slrtce_campus.jpg" alt="SLRTCE Campus Building" style="width: 100%; height: auto; display: block;">
+          <img src="assets/optimized/slrtce_campus.webp" srcset="assets/optimized/slrtce_campus-640.webp 640w, assets/optimized/slrtce_campus-1024.webp 1024w, assets/optimized/slrtce_campus.webp 1376w" sizes="(max-width: 768px) 100vw, 1200px" alt="SLRTCE Campus Building" style="width: 100%; height: auto; display: block;" width="1376" height="768" loading="lazy" decoding="async">
         </div>
         <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus  -  Mira Road (East)</h4>
         <p style="color: #5c2830;">Spread across a modern sprawling educational complex equipped with advanced computing centres, NVIDIA GPU workstations, robotics lab, smart auditoriums, and gymkhana facilities.</p>
@@ -5906,6 +5906,7 @@ function initCarousel() {
   let vis, slideW, prependCount;
   let currentIndex = 0; // index into origSlides (0-based)
   let isTransitioning = false;
+  let transitionSafetyTimer = null;
   let autoTimer = null;
 
   function getAllSlides() {
@@ -5933,6 +5934,9 @@ function initCarousel() {
     slideW = res.slideW;
     prependCount = res.prependCount;
 
+    // Constrain index within valid range
+    currentIndex = Math.min(currentIndex, Math.max(0, total - 1));
+
     const allSlides = getAllSlides();
     // Initial position: prependCount = offset to first real slide.
     goTo(prependCount + currentIndex, false);
@@ -5941,7 +5945,9 @@ function initCarousel() {
   setup();
 
   // ---- After transition: jump instantly if on a clone ----
-  track.addEventListener('transitionend', () => {
+  track.addEventListener('transitionend', (e) => {
+    if (e && e.target !== track) return;
+    clearTimeout(transitionSafetyTimer);
     isTransitioning = false;
     const allSlides = getAllSlides();
     const totalAll  = allSlides.length;
@@ -5967,6 +5973,10 @@ function initCarousel() {
   function step(dir) {
     if (isTransitioning) return;
     isTransitioning = true;
+    clearTimeout(transitionSafetyTimer);
+    transitionSafetyTimer = setTimeout(() => {
+      isTransitioning = false;
+    }, 460);
 
     const allSlides = getAllSlides();
     const curAllIdx = prependCount + currentIndex;
@@ -6009,24 +6019,33 @@ function initCarousel() {
 
   startAuto();
 
-  // Stop auto when a carousel button has focus.
+  // Stop auto when tab is hidden or a button has focus.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAuto();
+      isTransitioning = false;
+      clearTimeout(transitionSafetyTimer);
+    } else {
+      startAuto();
+    }
+  });
+
   [btnPrev, btnNext].forEach(btn => {
     btn.addEventListener('focus', stopAuto);
     btn.addEventListener('blur',  startAuto);
   });
 
-  // ---- Resize: rebuild with correct slide count ----
+  // ---- Resize: rebuild with correct slide count and realign ----
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      const newVis = getSlidesVisible();
-      if (newVis !== vis) {
-        stopAuto();
-        setup();
-        startAuto();
-      }
-    }, 200);
+      isTransitioning = false;
+      clearTimeout(transitionSafetyTimer);
+      stopAuto();
+      setup();
+      startAuto();
+    }, 150);
   });
 }
 
@@ -6057,7 +6076,7 @@ function initHODCarousel() {
     <div class="hod-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" role="group" aria-label="Slide ${idx + 1} of ${total}">
       <div class="hod-card-inner">
         <div class="hod-photo-frame">
-          <img src="${hod.image}" alt="${hod.name} - Head of Department, ${hod.department}" width="220" height="260" loading="lazy" class="hod-photo">
+          <img src="${hod.image}" alt="${hod.name} - Head of Department, ${hod.department}" class="hod-photo" width="220" height="260" loading="lazy" decoding="async">
           <div class="hod-dept-tag">${hod.department}</div>
         </div>
         <div class="hod-info">
@@ -6304,7 +6323,7 @@ function initRecruiters() {
 
   track.innerHTML = recruiters.map(r => `
     <div class="recruiter-logo-item">
-      <img src="${r.logo}" alt="${r.name} - SLRTCE Placement Partner" width="120" height="60" loading="lazy">
+      <img src="${r.logo}" alt="${r.name} - SLRTCE Placement Partner" width="120" height="60" loading="lazy" decoding="async">
     </div>
   `).join('');
 
@@ -6334,7 +6353,7 @@ function initApprovals() {
 
   row.innerHTML = approvals.map(a => {
     const inner = `
-      <img src="${a.logo}" alt="${a.name} logo" width="80" height="50" loading="lazy">
+      <img src="${a.logo}" alt="${a.name} logo" width="80" height="50" loading="lazy" decoding="async">
       <span class="approval-name">${a.name}</span>
     `;
     if (a.url) {
@@ -6356,7 +6375,7 @@ function initCollaborators() {
 
   grid.innerHTML = collabs.map(c => `
     <div class="collab-item">
-      <img src="${c.logo}" alt="${c.name} - SLRTCE Collaborator" width="130" height="70" loading="lazy">
+      <img src="${c.logo}" alt="${c.name} - SLRTCE Collaborator" width="130" height="70" loading="lazy" decoding="async">
       <span class="collab-name">${c.name}</span>
     </div>
   `).join('');
@@ -6375,7 +6394,7 @@ function initBlog() {
   grid.innerHTML = blogs.map(b => `
     <article class="blog-card">
       <div class="blog-img-wrap">
-        <img src="${b.image}" alt="${b.title} - SLRTCE Knowledge Centre" width="380" height="210" loading="lazy">
+        <img src="${b.image}" alt="${b.title} - SLRTCE Knowledge Centre" width="380" height="210" loading="lazy" decoding="async">
       </div>
       <div class="blog-body">
         <div class="blog-meta-row">
@@ -6702,11 +6721,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 1: DLLE Voter Card Session -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_dlle_voter_session.jpg"
- alt="SLRTCE students displaying voter ID cards at the DLLE voter registration drive, part of Department of Lifelong Learning and Extension, University of Mumbai"
- loading="eager"
- >
+ <img src="assets/optimized/slide_dlle_voter_session.webp" srcset="assets/optimized/slide_dlle_voter_session-640.webp 640w, assets/optimized/slide_dlle_voter_session.webp 930w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE students displaying voter ID cards at the DLLE voter registration drive, part of Department of Lifelong Learning and Extension, University of Mumbai" width="930" height="692" loading="eager" fetchpriority="high" decoding="async">
  <div class="slide-caption">
  <span>DLLE Voter Awareness Drive</span>
  </div>
@@ -6714,11 +6729,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 2: Carpe Diem 2025 -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_carpe_diem_2025.jpg"
- alt="SLRTCE students celebrating victory at Carpe Diem 2025, the Rahul Education inter-departmental cultural festival, holding the championship trophy"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE students celebrating victory at Carpe Diem 2025, the Rahul Education inter-departmental cultural festival, holding the championship trophy" width="631" height="520" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Carpe Diem 2025 - Champions</span>
  </div>
@@ -6726,11 +6737,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 3: Campus Lawn -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_campus_lawn.jpg"
- alt="SLRTCE main campus building with manicured lawn, showing the multi-storey academic block at Mira Road, Mumbai"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE main campus building with manicured lawn, showing the multi-storey academic block at Mira Road, Mumbai" width="1024" height="773" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>SLRTCE Campus, Mira Road</span>
  </div>
@@ -6738,11 +6745,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 4: College Entrance Gate -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_college_entrance.jpg"
- alt="Front entrance gate of Shree L. R. Tiwari College of Engineering with the institute name displayed in gold lettering"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_college_entrance.webp" srcset="assets/optimized/slide_college_entrance-640.webp 640w, assets/optimized/slide_college_entrance.webp 938w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Front entrance gate of Shree L. R. Tiwari College of Engineering with the institute name displayed in gold lettering" width="938" height="570" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>SLRTCE Main Entrance</span>
  </div>
@@ -6750,11 +6753,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 5: Alumni Meet / Seminar Hall -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_alumni_meet.jpg"
- alt="Attendees at an SLRTCE seminar or alumni meet, seated in the college auditorium with faculty and guests"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 936w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Attendees at an SLRTCE seminar or alumni meet, seated in the college auditorium with faculty and guests" width="936" height="626" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Alumni Meet &amp; Institute Events</span>
  </div>
@@ -6762,11 +6761,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 6: Student Innovation & Project Demo -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_project_demo.jpg"
- alt="Faculty and dignitaries reviewing a student robotics and electronics project demonstration at SLRTCE"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_project_demo.webp" alt="Faculty and dignitaries reviewing a student robotics and electronics project demonstration at SLRTCE" width="631" height="440" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Student Innovation &amp; Project Demonstrations</span>
  </div>
@@ -6774,11 +6769,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 7: Technical Exhibition & Robotics -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_robot_exhibition.jpg"
- alt="SLRTCE engineering students with a humanoid astronaut robot project at the college technical exhibition"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE engineering students with a humanoid astronaut robot project at the college technical exhibition" width="635" height="443" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Technical Exhibition &amp; Robotics Showcase</span>
  </div>
@@ -6786,11 +6777,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 8: Project Review & Research -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_project_review.jpg"
- alt="Faculty and academic dignitaries evaluating student engineering projects and research posters"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_project_review.webp" alt="Faculty and academic dignitaries evaluating student engineering projects and research posters" width="377" height="252" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Project Review &amp; Research Exhibition</span>
  </div>
@@ -6798,11 +6785,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 9: Modern Computer & Electronics Labs -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_computer_lab.jpg"
- alt="Students and faculty engaged in practical learning inside the modern computer and electronics laboratories at SLRTCE"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Students and faculty engaged in practical learning inside the modern computer and electronics laboratories at SLRTCE" width="1024" height="584" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Advanced Computing &amp; Electronics Labs</span>
  </div>
@@ -6810,11 +6793,7 @@ PAGES['home'] = function() {
 
  <!-- Slide 10: Smart Classrooms & Lectures -->
  <li class="carousel-slide" role="listitem">
- <img
- src="assets/slide_classroom.jpg"
- alt="Interactive classroom lecture session in progress with students and faculty at SLRTCE"
- loading="lazy"
- >
+ <img src="assets/optimized/slide_classroom.webp" alt="Interactive classroom lecture session in progress with students and faculty at SLRTCE" width="752" height="535" loading="lazy" decoding="async">
  <div class="slide-caption">
  <span>Interactive Academic Sessions &amp; Smart Classrooms</span>
  </div>
@@ -6868,7 +6847,7 @@ PAGES['home'] = function() {
  <!-- Hero Right: Real Campus Photo Showcase -->
  <div class="hero-campus-showcase">
  <div class="campus-img-frame">
- <img src="assets/campus_building.png" alt="Shree L. R. Tiwari College of Engineering - Main Campus Building, Mira Road" class="campus-main-img">
+ <img src="assets/optimized/campus_building.webp" alt="Shree L. R. Tiwari College of Engineering - Main Campus Building, Mira Road" class="campus-main-img" width="613" height="347" loading="lazy" decoding="async">
  
  <!-- Image Floating Badges -->
  <div class="campus-pin-badge">
@@ -6885,15 +6864,15 @@ PAGES['home'] = function() {
  <!-- Real Photo Strip -->
  <div class="campus-photo-strip">
  <div class="photo-strip-item">
- <img src="assets/library.jpg" alt="SLRTCE Library" loading="lazy">
+ <img src="assets/optimized/library.webp" srcset="assets/optimized/library-640.webp 640w, assets/optimized/library-1024.webp 1024w, assets/optimized/library.webp 1600w" sizes="(max-width: 768px) 100vw, 1200px" alt="SLRTCE Library" width="1600" height="1066" loading="lazy" decoding="async">
  <span class="strip-label">Library</span>
  </div>
  <div class="photo-strip-item">
- <img src="assets/campus_street.png" alt="SLRTCE Campus Entrance" loading="lazy">
+ <img src="assets/optimized/campus_street.webp" alt="SLRTCE Campus Entrance" width="1200" height="800" loading="lazy" decoding="async">
  <span class="strip-label">Campus</span>
  </div>
  <div class="photo-strip-item">
- <img src="assets/campus_event.jpg" alt="SLRTCE Carpe Diem Festival" loading="lazy">
+ <img src="assets/optimized/campus_event.webp" srcset="assets/optimized/campus_event-640.webp 640w, assets/optimized/campus_event.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px" alt="SLRTCE Carpe Diem Festival" width="1200" height="800" loading="lazy" decoding="async">
  <span class="strip-label">Events</span>
  </div>
  </div>
@@ -7391,7 +7370,7 @@ PAGES['about-college'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Main Campus Building, Mira Road" class="inner-banner-photo">
+        <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Main Campus Building, Mira Road" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7578,7 +7557,7 @@ PAGES['achievements'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Students with Championship Trophy" class="inner-banner-photo">
+        <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Students with Championship Trophy" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7670,7 +7649,7 @@ PAGES['admission-process'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Campus — Admissions" class="inner-banner-photo">
+        <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Campus - Admissions" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7752,7 +7731,7 @@ PAGES['aiml'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE AI & ML Laboratory" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE AI & ML Laboratory" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7838,7 +7817,7 @@ PAGES['blockchain-login'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Blockchain Transcript System" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Blockchain Transcript System" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7909,7 +7888,7 @@ PAGES['blockchain-verify'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Blockchain Verification System" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Blockchain Verification System" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -7995,7 +7974,7 @@ PAGES['bvoc'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE B.Voc Laboratory" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE B.Voc Laboratory" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8085,7 +8064,7 @@ PAGES['career-development-cell'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Placement and Career Development" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Placement and Career Development" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8179,7 +8158,7 @@ PAGES['chairman'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management Address" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Management Address" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8258,7 +8237,7 @@ PAGES['civil-engineering'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_review.jpg" alt="SLRTCE Civil Engineering Project Review" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_review.webp" alt="SLRTCE Civil Engineering Project Review" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8343,7 +8322,7 @@ PAGES['clubs-chapters'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Students at Technical Exhibition" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Students at Technical Exhibition" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8686,7 +8665,7 @@ PAGES['college-toppers'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_review.jpg" alt="SLRTCE Academic Excellence" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_review.webp" alt="SLRTCE Academic Excellence" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -8791,7 +8770,7 @@ PAGES['computer-engineering'] = function(query) {
         <h1 class="inner-banner-title">Computer Engineering</h1>
         <p class="inner-banner-desc">NBA Accredited B.E. &amp; M.E. &mdash; AI/ML, Cloud, Cybersecurity &amp; High Performance Systems. Est. 2010.</p>
       </div>
-      <div class="inner-banner-photo-wrap"><img src="assets/slide_computer_lab.jpg" alt="SLRTCE Computer Engineering Lab" class="inner-banner-photo"></div>
+      <div class="inner-banner-photo-wrap"><img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Computer Engineering Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async"></div>
     </div>
   </section>
   <main class="container inner-layout-container">
@@ -8952,7 +8931,7 @@ PAGES['contact'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_college_entrance.jpg" alt="SLRTCE College Entrance Gate" class="inner-banner-photo">
+        <img src="assets/optimized/slide_college_entrance.webp" srcset="assets/optimized/slide_college_entrance-640.webp 640w, assets/optimized/slide_college_entrance.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE College Entrance Gate" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9077,7 +9056,7 @@ PAGES['coo'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management - COO's Address" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Management - COO's Address" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9154,7 +9133,7 @@ PAGES['core-values'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_review.jpg" alt="SLRTCE Faculty and Students at Project Review" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_review.webp" alt="SLRTCE Faculty and Students at Project Review" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9293,7 +9272,7 @@ PAGES['counselling'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_classroom.jpg" alt="SLRTCE Student Support and Counselling" class="inner-banner-photo">
+        <img src="assets/optimized/slide_classroom.webp" alt="SLRTCE Student Support and Counselling" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9397,7 +9376,7 @@ PAGES['courses-offered'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Labs and Programmes" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Labs and Programmes" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9499,7 +9478,7 @@ PAGES['cse-ai'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE AI & Data Science Lab" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE AI & Data Science Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9581,7 +9560,7 @@ PAGES['cse-cyber'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Cybersecurity Lab" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Cybersecurity Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9667,7 +9646,7 @@ PAGES['cse-ds'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Data Science Lab" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Data Science Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9752,7 +9731,7 @@ PAGES['dlle'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_dlle_voter_session.jpg" alt="SLRTCE DLLE Voter Awareness Drive" class="inner-banner-photo">
+        <img src="assets/optimized/slide_dlle_voter_session.webp" srcset="assets/optimized/slide_dlle_voter_session-640.webp 640w, assets/optimized/slide_dlle_voter_session.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE DLLE Voter Awareness Drive" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9833,7 +9812,7 @@ PAGES['ecs'] = function(query) {
 <div class="inner-breadcrumbs"><a href="#/home">Home</a> / <span>Academics</span> / <span>Electronics &amp; Computer Science</span></div>
 <h1 class="inner-banner-title">Electronics &amp; Computer Science</h1>
 <p class="inner-banner-desc">Interdisciplinary B.E. &mdash; Embedded Computing, IoT Smart Systems, VLSI Design, Hardware-Software Co-Design &amp; Robotics. Est. 2012.</p>
-</div><div class="inner-banner-photo-wrap"><img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE ECS Lab" class="inner-banner-photo"></div></div></section>
+</div><div class="inner-banner-photo-wrap"><img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE ECS Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async"></div></div></section>
 <main class="container inner-layout-container"><article class="inner-main-content">
 <div class="dept-stats-strip"><span class="dept-stat-chip">AICTE Approved</span><span class="dept-stat-chip">B.E. Intake: 60</span><span class="dept-stat-chip">Interdisciplinary</span><span class="dept-stat-chip">Est. 2012</span></div>
 <div class="dept-tabs" role="tablist"><button class="dept-tab-btn active" onclick="switchTab(event,'ov')">Overview</button><button class="dept-tab-btn" onclick="switchTab(event,'cur')">Curriculum</button><button class="dept-tab-btn" onclick="switchTab(event,'lab')">Labs</button><button class="dept-tab-btn" onclick="switchTab(event,'car')">Careers</button></div>
@@ -9867,7 +9846,7 @@ PAGES['eligibility-criteria'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_classroom.jpg" alt="SLRTCE Academic Environment" class="inner-banner-photo">
+        <img src="assets/optimized/slide_classroom.webp" alt="SLRTCE Academic Environment" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -9979,7 +9958,7 @@ PAGES['exam-notices'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_classroom.jpg" alt="SLRTCE Examination Hall" class="inner-banner-photo">
+        <img src="assets/optimized/slide_classroom.webp" alt="SLRTCE Examination Hall" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10078,7 +10057,7 @@ PAGES['extc'] = function(query) {
 <div class="inner-breadcrumbs"><a href="#/home">Home</a> / <span>Academics</span> / <span>Electronics &amp; Telecommunication</span></div>
 <h1 class="inner-banner-title">Electronics &amp; Telecommunication Engineering</h1>
 <p class="inner-banner-desc">NBA Accredited B.E. &amp; M.E. &mdash; 5G/6G Wireless, Digital Signal Processing, RF Microwave &amp; Antenna Design. Est. 2006.</p>
-</div><div class="inner-banner-photo-wrap"><img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Electronics Lab" class="inner-banner-photo"></div></div></section>
+</div><div class="inner-banner-photo-wrap"><img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Electronics Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async"></div></div></section>
 <main class="container inner-layout-container"><article class="inner-main-content">
 <div class="dept-stats-strip"><span class="dept-stat-chip">NBA Accredited</span><span class="dept-stat-chip">B.E. Intake: 60</span><span class="dept-stat-chip">M.E. Intake: 18</span><span class="dept-stat-chip">Est. 2006</span></div>
 <div class="dept-tabs" role="tablist"><button class="dept-tab-btn active" onclick="switchTab(event,'ov')">Overview</button><button class="dept-tab-btn" onclick="switchTab(event,'cur')">Curriculum</button><button class="dept-tab-btn" onclick="switchTab(event,'lab')">Labs</button><button class="dept-tab-btn" onclick="switchTab(event,'car')">Careers</button></div>
@@ -10112,7 +10091,7 @@ PAGES['facilities'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Advanced Computer Labs" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Advanced Computer Labs" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10200,7 +10179,7 @@ PAGES['fee-structure'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Campus" class="inner-banner-photo">
+        <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Campus" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10297,7 +10276,7 @@ PAGES['gallery'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Carpe Diem Cultural Festival 2025" class="inner-banner-photo">
+        <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Carpe Diem Cultural Festival 2025" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10318,62 +10297,62 @@ PAGES['gallery'] = function(query) {
       <div class="gallery-grid" id="galleryGrid">
 
         <div class="gallery-item" data-cat="campus" onclick="openLightbox(0)">
-          <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Main Campus Building with manicured lawn">
+          <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Main Campus Building with manicured lawn" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">SLRTCE Campus — Mira Road</div>
         </div>
 
         <div class="gallery-item" data-cat="campus" onclick="openLightbox(1)">
-          <img src="assets/slide_college_entrance.jpg" alt="SLRTCE Main College Entrance Gate">
+          <img src="assets/optimized/slide_college_entrance.webp" srcset="assets/optimized/slide_college_entrance-640.webp 640w, assets/optimized/slide_college_entrance.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Main College Entrance Gate" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Main Entrance Gate</div>
         </div>
 
         <div class="gallery-item" data-cat="campus" onclick="openLightbox(2)">
-          <img src="assets/campus_building.png" alt="SLRTCE Multi-storey Academic Block">
+          <img src="assets/optimized/campus_building.webp" alt="SLRTCE Multi-storey Academic Block" width="613" height="347" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Academic Block</div>
         </div>
 
         <div class="gallery-item" data-cat="events" onclick="openLightbox(3)">
-          <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Students at Carpe Diem 2025 Cultural Festival">
+          <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Students at Carpe Diem 2025 Cultural Festival" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Carpe Diem 2025 — Champions</div>
         </div>
 
         <div class="gallery-item" data-cat="events" onclick="openLightbox(4)">
-          <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Alumni Meet and Seminar Event">
+          <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Alumni Meet and Seminar Event" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Alumni Meet & Institute Events</div>
         </div>
 
         <div class="gallery-item" data-cat="events" onclick="openLightbox(5)">
-          <img src="assets/slide_dlle_voter_session.jpg" alt="SLRTCE DLLE Voter Awareness Drive">
+          <img src="assets/optimized/slide_dlle_voter_session.webp" srcset="assets/optimized/slide_dlle_voter_session-640.webp 640w, assets/optimized/slide_dlle_voter_session.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE DLLE Voter Awareness Drive" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">DLLE Voter Awareness Drive</div>
         </div>
 
         <div class="gallery-item" data-cat="labs" onclick="openLightbox(6)">
-          <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Modern Computer and Electronics Laboratories">
+          <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Modern Computer and Electronics Laboratories" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Advanced Computing & Electronics Labs</div>
         </div>
 
         <div class="gallery-item" data-cat="labs" onclick="openLightbox(7)">
-          <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Students with Humanoid Robot at Technical Exhibition">
+          <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Students with Humanoid Robot at Technical Exhibition" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Technical Exhibition & Robotics</div>
         </div>
 
         <div class="gallery-item" data-cat="academic" onclick="openLightbox(8)">
-          <img src="assets/slide_project_demo.jpg" alt="Faculty reviewing student engineering project demonstrations">
+          <img src="assets/optimized/slide_project_demo.webp" alt="Faculty reviewing student engineering project demonstrations" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Student Innovation & Project Demos</div>
         </div>
 
         <div class="gallery-item" data-cat="academic" onclick="openLightbox(9)">
-          <img src="assets/slide_project_review.jpg" alt="Academic dignitaries evaluating student research posters">
+          <img src="assets/optimized/slide_project_review.webp" alt="Academic dignitaries evaluating student research posters" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Project Review & Research Exhibition</div>
         </div>
 
         <div class="gallery-item" data-cat="academic" onclick="openLightbox(10)">
-          <img src="assets/slide_classroom.jpg" alt="Interactive lecture session in SLRTCE smart classroom">
+          <img src="assets/optimized/slide_classroom.webp" alt="Interactive lecture session in SLRTCE smart classroom" width="1200" height="800" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Smart Classrooms & Academic Sessions</div>
         </div>
 
         <div class="gallery-item" data-cat="campus" onclick="openLightbox(11)">
-          <img src="assets/library.jpg" alt="SLRTCE Central Library with book stacks">
+          <img src="assets/optimized/library.webp" srcset="assets/optimized/library-640.webp 640w, assets/optimized/library-1024.webp 1024w, assets/optimized/library.webp 1600w" sizes="(max-width: 768px) 100vw, 1200px" alt="SLRTCE Central Library with book stacks" width="1600" height="1067" loading="lazy" decoding="async">
           <div class="gallery-item-caption">Central Library</div>
         </div>
 
@@ -10393,7 +10372,7 @@ PAGES['information-technology'] = function(query) {
         <h1 class="inner-banner-title">Information Technology</h1>
         <p class="inner-banner-desc">NBA Accredited B.E. &mdash; Enterprise Systems, Big Data, Distributed Cloud &amp; Web 3.0. Est. 2010.</p>
       </div>
-      <div class="inner-banner-photo-wrap"><img src="assets/slide_computer_lab.jpg" alt="SLRTCE IT Department Lab" class="inner-banner-photo"></div>
+      <div class="inner-banner-photo-wrap"><img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE IT Department Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async"></div>
     </div>
   </section>
   <main class="container inner-layout-container">
@@ -10433,7 +10412,7 @@ PAGES['joint-secretary'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management - Joint Secretary's Address" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Management - Joint Secretary's Address" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10492,7 +10471,7 @@ PAGES['library'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/library.jpg" alt="SLRTCE Central Library" class="inner-banner-photo">
+        <img src="assets/optimized/library.webp" srcset="assets/optimized/library-640.webp 640w, assets/optimized/library-1024.webp 1024w, assets/optimized/library.webp 1600w" sizes="(max-width: 768px) 100vw, 1200px" alt="SLRTCE Central Library" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10588,7 +10567,7 @@ PAGES['mandatory-disclosure'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Campus" class="inner-banner-photo">
+        <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Campus" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10693,7 +10672,7 @@ PAGES['mca'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE MCA Programme" class="inner-banner-photo">
+        <img src="assets/optimized/slide_computer_lab.webp" srcset="assets/optimized/slide_computer_lab-640.webp 640w, assets/optimized/slide_computer_lab.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE MCA Programme" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10778,7 +10757,7 @@ PAGES['me-computer'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_review.jpg" alt="SLRTCE M.E. Research Programme" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_review.webp" alt="SLRTCE M.E. Research Programme" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10863,7 +10842,7 @@ PAGES['me-extc'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE EXTC Research Lab" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE EXTC Research Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -10935,7 +10914,7 @@ PAGES['mechanical-engineering'] = function(query) {
 <div class="inner-breadcrumbs"><a href="#/home">Home</a> / <span>Academics</span> / <span>Mechanical Engineering</span></div>
 <h1 class="inner-banner-title">Mechanical Engineering</h1>
 <p class="inner-banner-desc">B.E. &mdash; CAD/CAM/CAE, EV Technology, Mechatronics &amp; Additive Manufacturing. Industry 4.0 Curriculum. Est. 2006.</p>
-</div><div class="inner-banner-photo-wrap"><img src="assets/slide_project_demo.jpg" alt="SLRTCE Mechanical Engineering Lab" class="inner-banner-photo"></div></div></section>
+</div><div class="inner-banner-photo-wrap"><img src="assets/optimized/slide_project_demo.webp" alt="SLRTCE Mechanical Engineering Lab" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async"></div></div></section>
 <main class="container inner-layout-container"><article class="inner-main-content">
 <div class="dept-stats-strip"><span class="dept-stat-chip">AICTE Approved</span><span class="dept-stat-chip">B.E. Intake: 60</span><span class="dept-stat-chip">Industry 4.0</span><span class="dept-stat-chip">Est. 2006</span></div>
 <div class="dept-tabs" role="tablist"><button class="dept-tab-btn active" onclick="switchTab(event,'ov')">Overview</button><button class="dept-tab-btn" onclick="switchTab(event,'cur')">Curriculum</button><button class="dept-tab-btn" onclick="switchTab(event,'lab')">Labs</button><button class="dept-tab-btn" onclick="switchTab(event,'car')">Careers</button></div>
@@ -10969,7 +10948,7 @@ PAGES['nss'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_dlle_voter_session.jpg" alt="SLRTCE NSS Community Activity" class="inner-banner-photo">
+        <img src="assets/optimized/slide_dlle_voter_session.webp" srcset="assets/optimized/slide_dlle_voter_session-640.webp 640w, assets/optimized/slide_dlle_voter_session.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE NSS Community Activity" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11054,7 +11033,7 @@ PAGES['pgdm'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE PGDM Management Programme" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE PGDM Management Programme" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11126,7 +11105,7 @@ PAGES['phd-programmes'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_review.jpg" alt="SLRTCE Ph.D. Research Centre" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_review.webp" alt="SLRTCE Ph.D. Research Centre" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11232,7 +11211,7 @@ PAGES['placeholder'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Campus Activity" class="inner-banner-photo" id="bannerImg">
+        <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Campus Activity" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11301,7 +11280,7 @@ PAGES['president'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management - President's Address" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Management - President's Address" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11363,7 +11342,7 @@ PAGES['principals-message'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Principal's Address at Institute Event" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Principal's Address at Institute Event" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11470,7 +11449,7 @@ PAGES['research-development'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_project_demo.jpg" alt="SLRTCE Students demonstrating Engineering Research Project" class="inner-banner-photo">
+        <img src="assets/optimized/slide_project_demo.webp" alt="SLRTCE Students demonstrating Engineering Research Project" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11638,7 +11617,7 @@ PAGES['scholarship'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Campus" class="inner-banner-photo">
+        <img src="assets/optimized/slide_campus_lawn.webp" srcset="assets/optimized/slide_campus_lawn-640.webp 640w, assets/optimized/slide_campus_lawn.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Campus" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11775,7 +11754,7 @@ PAGES['secretary'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management - Secretary's Address" class="inner-banner-photo">
+        <img src="assets/optimized/slide_alumni_meet.webp" srcset="assets/optimized/slide_alumni_meet-640.webp 640w, assets/optimized/slide_alumni_meet.webp 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="SLRTCE Management - Secretary's Address" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11837,7 +11816,7 @@ PAGES['skills'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Technical Skills and Industry Partnerships" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Technical Skills and Industry Partnerships" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -11948,7 +11927,7 @@ PAGES['student-chapters'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Students at Professional Conference" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Students at Professional Conference" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -12102,7 +12081,7 @@ PAGES['student-clubs'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Students at Technical Exhibition" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Students at Technical Exhibition" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -12445,7 +12424,7 @@ PAGES['student-council'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Student Council and Annual Celebration" class="inner-banner-photo">
+        <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Student Council and Annual Celebration" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -12478,7 +12457,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- President -->
           <div class="council-card council-card--president">
-            <img src="assets/council/shreyash_chaturvedi.jpg" alt="Shreyash Chaturvedi" class="council-card-photo">
+            <img src="assets/optimized/council/shreyash_chaturvedi.webp" alt="Shreyash Chaturvedi" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Shreyash Chaturvedi</p>
               <p class="council-card-role">President</p>
@@ -12487,7 +12466,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- General Secretary -->
           <div class="council-card">
-            <img src="assets/council/vidhi_tripathi.jpg" alt="Vidhi Tripathi" class="council-card-photo">
+            <img src="assets/optimized/council/vidhi_tripathi.webp" alt="Vidhi Tripathi" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Vidhi Tripathi</p>
               <p class="council-card-role">General Secretary</p>
@@ -12496,7 +12475,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Cultural Secretary -->
           <div class="council-card">
-            <img src="assets/council/soumya_thakur.jpg" alt="Soumya Thakur" class="council-card-photo">
+            <img src="assets/optimized/council/soumya_thakur.webp" alt="Soumya Thakur" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Soumya Thakur</p>
               <p class="council-card-role">Cultural Secretary</p>
@@ -12505,7 +12484,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Jt. Cultural Secretary -->
           <div class="council-card">
-            <img src="assets/council/atharva_jadhav.jpg" alt="Atharva Jadhav" class="council-card-photo">
+            <img src="assets/optimized/council/atharva_jadhav.webp" alt="Atharva Jadhav" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Atharva Jadhav</p>
               <p class="council-card-role">Jt. Cultural Secretary</p>
@@ -12514,7 +12493,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Jt. Cultural Secretary -->
           <div class="council-card">
-            <img src="assets/council/shantanu_thakur.png" alt="Shantanu Thakur" class="council-card-photo">
+            <img src="assets/optimized/council/shantanu_thakur.webp" alt="Shantanu Thakur" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Shantanu Thakur</p>
               <p class="council-card-role">Jt. Cultural Secretary</p>
@@ -12523,7 +12502,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Technical Head -->
           <div class="council-card">
-            <img src="assets/council/vaibhav_dubey.jpg" alt="Vaibhav Dubey" class="council-card-photo">
+            <img src="assets/optimized/council/vaibhav_dubey.webp" alt="Vaibhav Dubey" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Vaibhav Dubey</p>
               <p class="council-card-role">Technical Head</p>
@@ -12532,7 +12511,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Technical Co-head -->
           <div class="council-card">
-            <img src="assets/council/aditya_parab.jpg" alt="Aditya Parab" class="council-card-photo">
+            <img src="assets/optimized/council/aditya_parab.webp" alt="Aditya Parab" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Aditya Parab</p>
               <p class="council-card-role">Technical Co-head</p>
@@ -12541,7 +12520,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Technical Co-head -->
           <div class="council-card">
-            <img src="assets/council/indresh_suresh.jpg" alt="Indresh Suresh" class="council-card-photo">
+            <img src="assets/optimized/council/indresh_suresh.webp" alt="Indresh Suresh" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Indresh Suresh</p>
               <p class="council-card-role">Technical Co-head</p>
@@ -12550,7 +12529,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Sports Head -->
           <div class="council-card">
-            <img src="assets/council/divya_sharma.jpg" alt="Divya Sharma" class="council-card-photo">
+            <img src="assets/optimized/council/divya_sharma.webp" alt="Divya Sharma" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Divya Sharma</p>
               <p class="council-card-role">Sports Head</p>
@@ -12559,7 +12538,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Sports Co-Head -->
           <div class="council-card">
-            <img src="assets/council/rihan_ali.jpg" alt="Rihan Ali" class="council-card-photo">
+            <img src="assets/optimized/council/rihan_ali.webp" alt="Rihan Ali" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Rihan Ali</p>
               <p class="council-card-role">Sports Co-Head</p>
@@ -12568,7 +12547,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Social Media Head -->
           <div class="council-card">
-            <img src="assets/council/akansha_barai.jpg" alt="Akansha Barai" class="council-card-photo">
+            <img src="assets/optimized/council/akansha_barai.webp" alt="Akansha Barai" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Akansha Barai</p>
               <p class="council-card-role">Social Media Head</p>
@@ -12577,7 +12556,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Social Media Co-head -->
           <div class="council-card">
-            <img src="assets/council/rishabh_upadhyay.jpg" alt="Rishabh Upadhyay" class="council-card-photo">
+            <img src="assets/optimized/council/rishabh_upadhyay.webp" alt="Rishabh Upadhyay" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Rishabh Upadhyay</p>
               <p class="council-card-role">Social Media Co-head</p>
@@ -12586,7 +12565,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Lady Representative -->
           <div class="council-card">
-            <img src="assets/council/smruti_vishwakarma.jpg" alt="Smruti Vishwakarma" class="council-card-photo">
+            <img src="assets/optimized/council/smruti_vishwakarma.webp" alt="Smruti Vishwakarma" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Smruti Vishwakarma</p>
               <p class="council-card-role">Lady Representative</p>
@@ -12595,7 +12574,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Lady Representative -->
           <div class="council-card">
-            <img src="assets/council/yutika_gosain.jpg" alt="Yutika Gosain" class="council-card-photo">
+            <img src="assets/optimized/council/yutika_gosain.webp" alt="Yutika Gosain" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Yutika Gosain</p>
               <p class="council-card-role">Lady Representative</p>
@@ -12604,7 +12583,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- B-Voc Head -->
           <div class="council-card">
-            <img src="assets/council/shrishti_vishwakarma.jpg" alt="Shrishti Vishwakarma" class="council-card-photo">
+            <img src="assets/optimized/council/shrishti_vishwakarma.webp" alt="Shrishti Vishwakarma" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Shrishti Vishwakarma</p>
               <p class="council-card-role">B-Voc Head</p>
@@ -12613,7 +12592,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- B-Voc Co-head -->
           <div class="council-card">
-            <img src="assets/council/dhairya_goyal.jpg" alt="Dhairya Goyal" class="council-card-photo">
+            <img src="assets/optimized/council/dhairya_goyal.webp" alt="Dhairya Goyal" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Dhairya Goyal</p>
               <p class="council-card-role">B-Voc Co-head</p>
@@ -12622,7 +12601,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Content Editor -->
           <div class="council-card">
-            <img src="assets/council/aarti_gupta.jpg" alt="Aarti Gupta" class="council-card-photo">
+            <img src="assets/optimized/council/aarti_gupta.webp" alt="Aarti Gupta" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Aarti Gupta</p>
               <p class="council-card-role">Content Editor</p>
@@ -12631,7 +12610,7 @@ PAGES['student-council'] = function(query) {
 
           <!-- Content Editor -->
           <div class="council-card">
-            <img src="assets/council/priyanka_sharma.jpg" alt="Priyanka Sharma" class="council-card-photo">
+            <img src="assets/optimized/council/priyanka_sharma.webp" alt="Priyanka Sharma" class="council-card-photo" width="280" height="340" loading="lazy" decoding="async">
             <div class="council-card-info">
               <p class="council-card-name">Priyanka Sharma</p>
               <p class="council-card-role">Content Editor</p>
@@ -12804,7 +12783,7 @@ PAGES['student-life'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Students at Carpe Diem Cultural Festival" class="inner-banner-photo">
+        <img src="assets/optimized/slide_carpe_diem_2025.webp" alt="SLRTCE Students at Carpe Diem Cultural Festival" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -12921,7 +12900,7 @@ PAGES['vision-mission'] = function(query) {
         </p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_classroom.jpg" alt="SLRTCE Smart Classroom - Academic Excellence" class="inner-banner-photo">
+        <img src="assets/optimized/slide_classroom.webp" alt="SLRTCE Smart Classroom - Academic Excellence" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -13042,7 +13021,7 @@ PAGES['placeholder'] = function(query) {
         <p class="inner-banner-desc">Official documentation and updates for ${pTitle} under ${pSection} at SLRTCE.</p>
       </div>
       <div class="inner-banner-photo-wrap">
-        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Campus" class="inner-banner-photo">
+        <img src="assets/optimized/slide_robot_exhibition.webp" alt="SLRTCE Campus" class="inner-banner-photo" width="1600" height="400" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
