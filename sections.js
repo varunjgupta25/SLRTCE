@@ -74,7 +74,7 @@
 
       let contentHtml = '';
       if (hasLogo) {
-        contentHtml += `<img src="${item.logo}" alt="Logo of ${item.name}" class="ap-logo" loading="lazy" width="90" height="60">`;
+        contentHtml += `<img src="${item.logo}" alt="Logo of ${item.name}" class="ap-logo" loading="lazy" decoding="async" width="90" height="60">`;
       }
       contentHtml += `<p class="ap-name">${item.name}</p>`;
 
@@ -133,7 +133,7 @@
       // Skip any company whose logo file is missing
       return window.isSet(item.logo);
     }).map(function(item) {
-      const imgHtml = `<img src="${item.logo}" alt="Logo of ${item.name}" class="co-logo" width="120" height="60" loading="lazy">`;
+      const imgHtml = `<img src="${item.logo}" alt="Logo of ${item.name}" class="co-logo" width="120" height="60" loading="lazy" decoding="async">`;
       if (window.isSet(item.url)) {
         return `
           <div class="co-tile">
@@ -181,7 +181,7 @@
       if (window.isSet(item.image)) {
         thumbHtml = `
           <div class="bl-media">
-            <img src="${item.image}" alt="${item.title}" class="bl-thumb" width="120" height="80" loading="lazy">
+            <img src="${item.image}" alt="${item.title}" class="bl-thumb" width="120" height="80" loading="lazy" decoding="async">
           </div>
         `;
       }
@@ -248,7 +248,7 @@
         if (hasPhoto) {
           mediaHtml = `
             <div class="hd-photo-wrap">
-              <img src="${item.photo}" alt="${item.name}" class="hd-photo" width="160" height="160" loading="lazy">
+              <img src="${item.photo}" alt="${item.name}" class="hd-photo" width="160" height="160" loading="lazy" decoding="async">
             </div>
           `;
         } else {
@@ -430,7 +430,7 @@
           const hasLogo = window.isSet(item.logo);
           let innerHtml = '';
           if (hasLogo) {
-            innerHtml = `<img src="${item.logo}" alt="Logo of ${item.name}" class="pp-logo" loading="lazy" width="160" height="80">`;
+            innerHtml = `<img src="${item.logo}" alt="Logo of ${item.name}" class="pp-logo" loading="lazy" decoding="async" width="160" height="80">`;
           } else {
             innerHtml = `<span class="pp-name-fallback">${item.name}</span>`;
           }

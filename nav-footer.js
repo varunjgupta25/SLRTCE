@@ -407,7 +407,7 @@ function getHeaderMarkup() {
     <div class="container header-inner">
       <div class="brand-block">
         <a href="index.html" class="brand-logo-wrap">
-          <img src="assets/slrtce_logo_crest.jpg" alt="Shree L. R. Tiwari College of Engineering Crest Logo" class="logo-crest-img" width="48" height="48" loading="eager">
+          <img src="assets/optimized/slrtce_logo_crest.webp" alt="Shree L. R. Tiwari College of Engineering Crest Logo" class="logo-crest-img" width="48" height="48" loading="lazy" decoding="async">
           <div class="brand-text">
             <h1 class="institute-name">SHREE L. R. TIWARI COLLEGE OF ENGINEERING</h1>
             <div class="institute-affil">
@@ -474,7 +474,7 @@ function getFooterMarkup() {
       <!-- Col 1: Institute Brand Identity -->
       <div class="footer-col brand-col">
         <div class="footer-logo">
-          <img src="assets/slrtce_logo_crest.jpg" alt="Shree L. R. Tiwari College of Engineering Official Crest" class="footer-crest-img" width="54" height="54" loading="lazy">
+          <img src="assets/optimized/slrtce_logo_crest.webp" alt="Shree L. R. Tiwari College of Engineering Official Crest" class="footer-crest-img" width="54" height="54" loading="lazy" decoding="async">
           <div>
             <h3 class="footer-institute-name">Shree L. R. Tiwari College of Engineering</h3>
             <span class="footer-tagline">Excellence in Engineering & Technology</span>

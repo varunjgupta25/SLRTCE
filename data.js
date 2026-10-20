@@ -47,7 +47,7 @@
         id: 'aicte',
         name: 'AICTE',
         fullName: 'All India Council for Technical Education',
-        logo: 'assets/logos/approvals/aicte.jpg',
+        logo: 'assets/optimized/logos/approvals/aicte.webp',
         url: 'https://www.aicte-india.org',
         isBadge: false
       },
@@ -55,7 +55,7 @@
         id: 'ugc',
         name: 'UGC',
         fullName: 'University Grants Commission',
-        logo: 'assets/logos/approvals/ugc.png',
+        logo: 'assets/optimized/logos/approvals/ugc.webp',
         url: 'https://www.ugc.gov.in',
         isBadge: false
       },
@@ -63,7 +63,7 @@
         id: 'naac',
         name: 'NAAC',
         fullName: 'National Assessment and Accreditation Council',
-        logo: 'assets/logos/approvals/naac.jpg',
+        logo: 'assets/optimized/logos/approvals/naac.webp',
         url: 'https://www.naac.gov.in',
         isBadge: false
       },
@@ -71,7 +71,7 @@
         id: 'nba',
         name: 'NBA',
         fullName: 'National Board of Accreditation',
-        logo: 'assets/logos/approvals/nba.png',
+        logo: 'assets/optimized/logos/approvals/nba.webp',
         url: 'https://www.nbaind.org',
         isBadge: false
       },
@@ -79,7 +79,7 @@
         id: 'dte',
         name: 'DTE Maharashtra',
         fullName: 'Directorate of Technical Education, Maharashtra State',
-        logo: 'assets/logos/approvals/dte_maharashtra.jpg',
+        logo: 'assets/optimized/logos/approvals/dte_maharashtra.webp',
         url: 'https://dtemaharashtra.gov.in',
         isBadge: false
       },
@@ -87,7 +87,7 @@
         id: 'mu',
         name: 'University of Mumbai',
         fullName: 'University of Mumbai',
-        logo: 'assets/logos/approvals/mumbai_university.png',
+        logo: 'assets/optimized/logos/approvals/mumbai_university.webp',
         url: 'https://mu.ac.in',
         isBadge: false
       },
@@ -105,77 +105,77 @@
     collaborators: [
       {
         name: 'Cisco Networking Academy',
-        logo: 'assets/logos/collaborators/cisco.jpg',
+        logo: 'assets/optimized/logos/collaborators/cisco.webp',
         url: 'https://www.netacad.com'
       },
       {
         name: 'IBM',
-        logo: 'assets/logos/collaborators/ibm.jpg',
+        logo: 'assets/optimized/logos/collaborators/ibm.webp',
         url: 'https://www.ibm.com'
       },
       {
         name: 'Red Hat',
-        logo: 'assets/logos/collaborators/redhat.jpg',
+        logo: 'assets/optimized/logos/collaborators/redhat.webp',
         url: 'https://www.redhat.com'
       },
       {
         name: 'AWS Academy',
-        logo: 'assets/logos/collaborators/aws.jpg',
+        logo: 'assets/optimized/logos/collaborators/aws.webp',
         url: 'https://aws.amazon.com/training/awsacademy/'
       },
       {
         name: 'Palo Alto Networks',
-        logo: 'assets/logos/collaborators/palo_alto.jpg',
+        logo: 'assets/optimized/logos/collaborators/palo_alto.webp',
         url: 'https://www.paloaltonetworks.com'
       },
       {
         name: 'C-DAC',
-        logo: 'assets/logos/collaborators/cdac.jpg',
+        logo: 'assets/optimized/logos/collaborators/cdac.webp',
         url: 'https://www.cdac.in'
       },
       {
         name: 'IIT Bombay',
-        logo: 'assets/logos/collaborators/iitb_ict.jpg',
+        logo: 'assets/optimized/logos/collaborators/iitb_ict.webp',
         url: ''
       },
       {
         name: 'e-Yantra',
-        logo: 'assets/logos/collaborators/eyantra.jpg',
+        logo: 'assets/optimized/logos/collaborators/eyantra.webp',
         url: 'https://www.e-yantra.org'
       },
       {
         name: 'Virtual Labs',
-        logo: 'assets/logos/collaborators/virtual_lab.jpg',
+        logo: 'assets/optimized/logos/collaborators/virtual_lab.webp',
         url: 'https://www.vlab.co.in'
       },
       {
         name: 'Atal Incubation Centre',
-        logo: 'assets/logos/collaborators/atal_incubation.jpg',
+        logo: 'assets/optimized/logos/collaborators/atal_incubation.webp',
         url: 'https://aim.gov.in'
       },
       {
         name: 'EduSkills Foundation',
-        logo: 'assets/logos/collaborators/eduskills.jpg',
+        logo: 'assets/optimized/logos/collaborators/eduskills.webp',
         url: 'https://eduskillsfoundation.org'
       },
       {
         name: 'Blue Prism',
-        logo: 'assets/logos/collaborators/blue_prism.jpg',
+        logo: 'assets/optimized/logos/collaborators/blue_prism.webp',
         url: 'https://www.blueprism.com'
       },
       {
         name: 'Microchip Technology',
-        logo: 'assets/logos/collaborators/microchip.jpg',
+        logo: 'assets/optimized/logos/collaborators/microchip.webp',
         url: ''
       },
       {
         name: 'Pratibha Syntex',
-        logo: 'assets/logos/collaborators/pratibha_syntex.jpg',
+        logo: 'assets/optimized/logos/collaborators/pratibha_syntex.webp',
         url: 'https://www.pratibhasyntex.com'
       },
       {
         name: 'Unnat Bharat Abhiyan',
-        logo: 'assets/logos/collaborators/unnat_bharat.jpg',
+        logo: 'assets/optimized/logos/collaborators/unnat_bharat.webp',
         url: 'https://unnatbharatabhiyan.gov.in'
       }
     ],
@@ -187,35 +187,35 @@
         date: '08 Oct 2022',
         excerpt: 'Agricultural technology is advancing rapidly with targeted crop genome modifications. Modern editing tools are enhancing yield resilience and food security throughout India.',
         url: 'https://slrtce.in/blogs/genenome-editing-the-next-big-revolution-inindian-agriculture',
-        image: 'assets/blog/agriculture.jpg'
+        image: 'assets/optimized/blog/agriculture.webp'
       },
       {
         title: 'Demystifying Blockchain Technology: Revolutionizing Data Security and Trust',
         date: '08 Oct 2022',
         excerpt: 'Blockchain frameworks establish tamper-evident decentralized record systems. Distributed consensus protocols eliminate single-point vulnerabilities across data networks.',
         url: 'https://slrtce.in/blogs/blockchain-technology',
-        image: 'assets/blog/blockchain.jpg'
+        image: 'assets/optimized/blog/blockchain.webp'
       },
       {
         title: 'All About Cyber Security: Layered Protection in a Hyperconnected Era',
         date: '08 Oct 2022',
         excerpt: 'Modern network defence demands proactive security protocols across digital systems. Robust cryptography and security audits protect critical infrastructure from evolving threats.',
         url: 'https://slrtce.in/blogs/cyber-security',
-        image: 'assets/blog/cyber_security.jpg'
+        image: 'assets/optimized/blog/cyber_security.webp'
       },
       {
         title: 'Private Equity: Transforming Enterprise Valuation and Capital Growth',
         date: '08 Oct 2022',
         excerpt: 'Private equity investments provide strategic liquidity and operational discipline. Institutional funding accelerates product development and sustainable business expansion.',
         url: 'https://slrtce.in/blogs/private-equity',
-        image: 'assets/blog/private_equity.jpg'
+        image: 'assets/optimized/blog/private_equity.webp'
       },
       {
         title: 'Importance of Soft Skills for Engineering Professionals',
         date: '08 Oct 2022',
         excerpt: 'Technical expertise yields maximum impact when paired with effective team collaboration. Structured communication and problem-solving enable engineers to lead multidisciplinary projects.',
         url: 'https://slrtce.in/blogs/importance-of-soft-skills',
-        image: 'assets/blog/soft_skills.jpg'
+        image: 'assets/optimized/blog/soft_skills.webp'
       }
     ],
 
@@ -225,62 +225,62 @@
         name: 'Dr. Bhushan Nemade',
         designation: 'Professor & HOD',
         department: 'Computer Engineering',
-        photo: 'assets/hods/bhushan_nemade.png'
+        photo: 'assets/optimized/hods/bhushan_nemade.webp'
       },
       {
         name: 'Mr. Abhijit A. Samanta',
         designation: 'Associate Professor & HOD',
         department: 'Information Technology',
-        photo: 'assets/hods/abhijit_samanta.png'
+        photo: 'assets/optimized/hods/abhijit_samanta.webp'
       },
       {
         name: 'Mrs. Samita Bhandari',
         designation: 'Assistant Professor & HOD',
         department: 'Electronics & Telecommunication',
-        photo: 'assets/hods/samita_bhandari.png'
+        photo: 'assets/optimized/hods/samita_bhandari.webp'
       },
       {
         name: 'Mrs. Swapna Patil',
         designation: 'Assistant Professor & HOD',
         department: 'Civil Engineering',
-        photo: 'assets/hods/swapna_patil.jpg'
+        photo: 'assets/optimized/hods/swapna_patil.webp'
       },
       {
         name: 'Dr. Umesh Bhadade',
         designation: 'Professor & HOD',
         department: 'Mechanical Engineering',
-        photo: 'assets/hods/umesh_bhadade.png'
+        photo: 'assets/optimized/hods/umesh_bhadade.webp'
       },
       {
         name: 'Dr. Lahu Teli',
         designation: 'Associate Professor & HOD',
         department: 'Applied Sciences & Humanities',
-        photo: 'assets/hods/lahu_teli.png'
+        photo: 'assets/optimized/hods/lahu_teli.webp'
       },
       {
         name: 'Dr. Vikas Kaul',
         designation: 'Professor & HOD',
         department: 'Master of Computer Applications (MCA)',
-        photo: 'assets/hods/vikas_kaul.jpg'
+        photo: 'assets/optimized/hods/vikas_kaul.webp'
       }
     ],
 
     recruiters: [
-      { name: 'TCS', logo: 'assets/logos/placement/tcs.jpg' },
-      { name: 'Infosys', logo: 'assets/logos/placement/infosys.jpg' },
-      { name: 'Capgemini', logo: 'assets/logos/placement/capgemini.jpg' },
-      { name: 'Wipro', logo: 'assets/logos/placement/wipro.jpg' },
-      { name: 'Accenture', logo: 'assets/logos/placement/accenture.jpg' },
-      { name: 'Cognizant', logo: 'assets/logos/placement/cognizant.jpg' },
-      { name: 'LTI Mindtree', logo: 'assets/logos/placement/lti_mindtree.jpg' },
-      { name: 'Tech Mahindra', logo: 'assets/logos/placement/tech_mahindra.jpg' },
-      { name: 'Hexaware', logo: 'assets/logos/placement/hexaware.jpg' },
-      { name: 'Persistent Systems', logo: 'assets/logos/placement/persistent.jpg' },
-      { name: 'Jio Platforms', logo: 'assets/logos/placement/jio.jpg' },
-      { name: 'Reliance Industries', logo: 'assets/logos/placement/reliance.jpg' },
-      { name: 'Amazon AWS', logo: 'assets/logos/placement/amazon_aws.jpg' },
-      { name: 'QualityKiosk', logo: 'assets/logos/placement/qualitykiosk.jpg' },
-      { name: 'Zeus Learning', logo: 'assets/logos/placement/zeus_learning.jpg' }
+      { name: 'TCS', logo: 'assets/optimized/logos/placement/tcs.webp' },
+      { name: 'Infosys', logo: 'assets/optimized/logos/placement/infosys.webp' },
+      { name: 'Capgemini', logo: 'assets/optimized/logos/placement/capgemini.webp' },
+      { name: 'Wipro', logo: 'assets/optimized/logos/placement/wipro.webp' },
+      { name: 'Accenture', logo: 'assets/optimized/logos/placement/accenture.webp' },
+      { name: 'Cognizant', logo: 'assets/optimized/logos/placement/cognizant.webp' },
+      { name: 'LTI Mindtree', logo: 'assets/optimized/logos/placement/lti_mindtree.webp' },
+      { name: 'Tech Mahindra', logo: 'assets/optimized/logos/placement/tech_mahindra.webp' },
+      { name: 'Hexaware', logo: 'assets/optimized/logos/placement/hexaware.webp' },
+      { name: 'Persistent Systems', logo: 'assets/optimized/logos/placement/persistent.webp' },
+      { name: 'Jio Platforms', logo: 'assets/optimized/logos/placement/jio.webp' },
+      { name: 'Reliance Industries', logo: 'assets/optimized/logos/placement/reliance.webp' },
+      { name: 'Amazon AWS', logo: 'assets/optimized/logos/placement/amazon_aws.webp' },
+      { name: 'QualityKiosk', logo: 'assets/optimized/logos/placement/qualitykiosk.webp' },
+      { name: 'Zeus Learning', logo: 'assets/optimized/logos/placement/zeus_learning.webp' }
     ],
 
     whyChooseUs: [

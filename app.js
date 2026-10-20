@@ -600,7 +600,7 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <div style="border-radius: 0; overflow: hidden; margin-bottom: 1rem; border: 2px solid #E0AA24;">
-          <img src="assets/slrtce_campus.jpg" alt="SLRTCE Campus Building" style="width: 100%; height: auto; display: block;">
+          <img src="assets/optimized/slrtce_campus.webp" alt="SLRTCE Campus Building" width="1600" height="1066" style="width: 100%; height: auto; display: block;" loading="lazy" decoding="async">
         </div>
         <h4 style="color: #8F0A0B; margin-bottom: 0.35rem;">SLRTCE Autonomous Campus  -  Mira Road (East)</h4>
         <p style="color: #5c2830;">Spread across a modern sprawling educational complex equipped with advanced computing centres, NVIDIA GPU workstations, robotics lab, smart auditoriums, and gymkhana facilities.</p>
@@ -1086,7 +1086,7 @@ function initHODCarousel() {
     <div class="hod-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" role="group" aria-label="Slide ${idx + 1} of ${total}">
       <div class="hod-card-inner">
         <div class="hod-photo-frame">
-          <img src="${hod.image}" alt="${hod.name} - Head of Department, ${hod.department}" width="220" height="260" loading="lazy" class="hod-photo">
+          <img src="${hod.image}" alt="${hod.name} - Head of Department, ${hod.department}" width="220" height="260" loading="lazy" decoding="async" class="hod-photo">
           <div class="hod-dept-tag">${hod.department}</div>
         </div>
         <div class="hod-info">
@@ -1333,7 +1333,7 @@ function initRecruiters() {
 
   track.innerHTML = recruiters.map(r => `
     <div class="recruiter-logo-item">
-      <img src="${r.logo}" alt="${r.name} - SLRTCE Placement Partner" width="120" height="60" loading="lazy">
+      <img src="${r.logo}" alt="${r.name} - SLRTCE Placement Partner" width="120" height="60" loading="lazy" decoding="async">
     </div>
   `).join('');
 
@@ -1363,7 +1363,7 @@ function initApprovals() {
 
   row.innerHTML = approvals.map(a => {
     const inner = `
-      <img src="${a.logo}" alt="${a.name} logo" width="80" height="50" loading="lazy">
+      <img src="${a.logo}" alt="${a.name} logo" width="80" height="50" loading="lazy" decoding="async">
       <span class="approval-name">${a.name}</span>
     `;
     if (a.url) {
@@ -1385,7 +1385,7 @@ function initCollaborators() {
 
   grid.innerHTML = collabs.map(c => `
     <div class="collab-item">
-      <img src="${c.logo}" alt="${c.name} - SLRTCE Collaborator" width="130" height="70" loading="lazy">
+      <img src="${c.logo}" alt="${c.name} - SLRTCE Collaborator" width="130" height="70" loading="lazy" decoding="async">
       <span class="collab-name">${c.name}</span>
     </div>
   `).join('');
@@ -1404,7 +1404,7 @@ function initBlog() {
   grid.innerHTML = blogs.map(b => `
     <article class="blog-card">
       <div class="blog-img-wrap">
-        <img src="${b.image}" alt="${b.title} - SLRTCE Knowledge Centre" width="380" height="210" loading="lazy">
+        <img src="${b.image}" alt="${b.title} - SLRTCE Knowledge Centre" width="380" height="210" loading="lazy" decoding="async">
       </div>
       <div class="blog-body">
         <div class="blog-meta-row">
