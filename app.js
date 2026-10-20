@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initTicker();
   initCarousel();
+  initHODCarousel();
+  initUpdatesHub();
+  initWhyUs();
+  initRecruiters();
+  initApprovals();
+  initCollaborators();
+  initBlog();
 });
 
 /* Mobile Menu Toggle */
@@ -18,15 +25,8 @@ function initMobileMenu() {
 
   if (mobileBtn && mainNav) {
     mobileBtn.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-      const icon = mobileBtn.querySelector('i');
-      if (mainNav.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-xmark');
-      } else {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-      }
+      const isOpen = mainNav.classList.toggle('open');
+      mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   }
 }
@@ -129,11 +129,11 @@ const modalContentMap = {
     title: 'Vision & Mission of the Institute',
     body: `
       <div style="line-height: 1.7; color: #240408;">
-        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Vision</h4>
-        <p style="background: #faf6f4; padding: 1rem; border-radius: 0; border-left: 4px solid #8F0A0B; margin-bottom: 1rem;">
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;">Vision</h4>
+        <p style="background: #faf6f4; padding: 1rem; border-radius: 0; border: 1px solid #8F0A0B; margin-bottom: 1rem;">
           To become a globally recognized centre of excellence in engineering education and research, fostering ethical leaders and innovative entrepreneurs for sustainable nation building.
         </p>
-        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Mission</h4>
+        <h4 style="color: #8F0A0B; margin-bottom: 0.5rem;">Mission</h4>
         <ul style="margin-left: 1.5rem; list-style-type: disc; color: #5c2830;">
           <li>Impart rigorous autonomous outcome-based technical education.</li>
           <li>Foster strong industry-institute collaborations for hands-on experiential learning.</li>
@@ -187,16 +187,16 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>SLRTCE has a thriving student club ecosystem encouraging leadership and project hackathons:</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem;">
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">IEEE Student Branch</strong><br><small style="color: #5c2830;">Global tech papers & conferences</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">CSI & ACM Chapter</strong><br><small style="color: #5c2830;">Hackathons & competitive coding</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">Robotics & IOT Club</strong><br><small style="color: #5c2830;">Autonomous drones & bots</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">ELC (Electoral Club)</strong><br><small style="color: #5c2830;">Social awareness & civic drives</small>
           </div>
         </div>
@@ -307,12 +307,12 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>Premier MNCs, core engineering firms, and product startups hiring from SLRTCE:</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 1rem; text-align: center;">
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Amazon AWS</div>
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Hexaware</div>
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">TCS</div>
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Infosys</div>
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">Capgemini</div>
-          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 6px; font-weight: 700; color: #8F0A0B;">L&T Infotech</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">Amazon AWS</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">Hexaware</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">TCS</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">Infosys</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">Capgemini</div>
+          <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 0.6rem; border-radius: 0; font-weight: 700; color: #8F0A0B;">L&T Infotech</div>
         </div>
       </div>
     `
@@ -376,8 +376,8 @@ const modalContentMap = {
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p><strong>Address:</strong> Shree L. R. Tiwari College of Engineering, Kanakia Park, Mira Road (East), Mira Bhayandar 401107, Maharashtra.</p>
-        <p style="margin-top: 0.75rem; color: #5c2830;"><i class="fa-solid fa-train"></i> <strong>Nearest Station:</strong> Mira Road Railway Station (Western Line)  -  7 minutes by auto/bus.</p>
-        <p style="margin-top: 0.5rem; color: #5c2830;"><i class="fa-solid fa-road"></i> <strong>By Road:</strong> Direct connectivity from Western Express Highway (WEH).</p>
+        <p style="margin-top: 0.75rem; color: #5c2830;"><strong>Nearest Station:</strong> Mira Road Railway Station (Western Line)  -  7 minutes by auto/bus.</p>
+        <p style="margin-top: 0.5rem; color: #5c2830;"><strong>By Road:</strong> Direct connectivity from Western Express Highway (WEH).</p>
       </div>
     `
   },
@@ -414,16 +414,16 @@ const modalContentMap = {
       <div style="line-height: 1.7; color: #240408;">
         <p>SLRTCE has constituted statutory committees in compliance with UGC/AICTE guidelines:</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem;">
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">Internal Complaints Committee (ICC)</strong><br><small style="color: #5c2830;">Women Safety & Prevention of Harassment</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">Anti-Ragging Committee</strong><br><small style="color: #5c2830;">Zero Tolerance Policy on Campus</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">SC/ST Committee</strong><br><small style="color: #5c2830;">Equal Opportunity Cell</small>
           </div>
-          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 6px; border: 1px solid #fef08a;">
+          <div style="background: #faf6f4; padding: 0.75rem; border-radius: 0; border: 1px solid #fef08a;">
             <strong style="color: #8F0A0B;">Student Grievance Cell</strong><br><small style="color: #5c2830;">Ombudsperson Representation</small>
           </div>
         </div>
@@ -437,7 +437,7 @@ const modalContentMap = {
         <p>Join over 10,000+ engineers making an impact globally in top companies like Amazon, TCS, Hexaware, Infosys, and high-growth tech startups.</p>
         <p style="margin-top: 0.75rem;"><strong>Upcoming:</strong> Annual Global Alumni Meet 2026 registration is currently live. Reconnect with batchmates, mentor current students, and attend guest speaker sessions.</p>
         <div style="margin-top: 1.25rem; background: #faf6f4; padding: 1rem; border-radius: 0; border: 1px solid #E0AA24;">
-          <i class="fa-solid fa-graduation-cap" style="color: #8F0A0B;"></i> <strong style="color: #8F0A0B;">Alumni Portal:</strong> alumni.slrtce.in
+          <strong style="color: #8F0A0B;">Alumni Portal:</strong> alumni.slrtce.in
         </div>
       </div>
     `
@@ -458,7 +458,7 @@ const modalContentMap = {
     `
   },
   'fee-modal': {
-    title: 'Fee Structure  -  Academic Year 2026–27',
+    title: 'Fee Structure  -  Academic Year 2026-27',
     body: `
       <div style="line-height: 1.7; color: #240408;">
         <p>Approved by the Fee Regulating Authority (FRA), Maharashtra for Autonomous Courses:</p>
@@ -504,11 +504,11 @@ const modalContentMap = {
         <form onsubmit="event.preventDefault(); alert('Demo Login Portal: Authenticated successfully (Demo)');" style="margin-top: 1rem;">
           <div style="margin-bottom: 0.85rem;">
             <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #8F0A0B; margin-bottom: 0.25rem;">PRN / Roll Number</label>
-            <input type="text" placeholder="e.g. 2024BECE014" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 6px;">
+            <input type="text" placeholder="e.g. 2024BECE014" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 0;">
           </div>
           <div style="margin-bottom: 1rem;">
             <label style="display: block; font-size: 0.8rem; font-weight: 800; color: #8F0A0B; margin-bottom: 0.25rem;">Password</label>
-            <input type="password" placeholder="••••••••" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 6px;">
+            <input type="password" placeholder="••••••••" style="width: 100%; padding: 0.65rem; border: 1px solid #ecdcd7; border-radius: 0;">
           </div>
           <button type="submit" class="btn btn-primary btn-block" style="background: #8F0A0B; color: white;">Sign In to Student ERP</button>
         </form>
@@ -516,13 +516,12 @@ const modalContentMap = {
     `
   },
   'brochure-modal': {
-    title: 'SLRTCE Information Brochure 2026\u201327',
+    title: 'SLRTCE Information Brochure 2026-27',
     body: `
       <div class="drive-preview-wrap">
         <div class="drive-preview-header">
-          <i class="fa-solid fa-file-pdf drive-preview-icon"></i>
           <div>
-            <h3 class="drive-preview-title">SLRTCE Information Brochure 2026&#x2013;27</h3>
+            <h3 class="drive-preview-title">SLRTCE Information Brochure 2026-27</h3>
             <p class="drive-preview-sub">Curriculum breakdown, department labs, placement records and campus facilities.</p>
           </div>
         </div>
@@ -536,14 +535,13 @@ const modalContentMap = {
             aria-label="SLRTCE Admission Brochure preview"
           ></iframe>
           <div class="drive-placeholder" id="brochurePlaceholder">
-            <i class="fa-solid fa-file-pdf"></i>
             <p>Brochure preview</p>
             <small>Replace DRIVE_FILE_ID in app.js to enable the embedded viewer.</small>
           </div>
         </div>
         <div class="drive-preview-actions">
           <a href="https://drive.google.com/file/d/DRIVE_FILE_ID/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Drive
+            Open in Google Drive
           </a>
         </div>
       </div>
@@ -590,7 +588,7 @@ const modalContentMap = {
           </div>
           <div style="background: #8F0A0B; padding: 1rem; border-radius: 0; text-align: center; color: white;">
             <div style="font-size: 1.75rem; font-weight: 800; color: #E0AA24;">1000+</div>
-            <div style="font-size: 0.8rem; color: #f7deda;">Corporate Hiring Partners</div>
+            <div style="font-size: 0.8rem; color: #faf6f4;">Corporate Hiring Partners</div>
           </div>
         </div>
         <p style="color: #5c2830;">Key Recruiters include: Hexaware, TCS, Infosys, Amazon, L&T Infotech, Capgemini, Accenture, Tech Mahindra, and Reliance Jio.</p>
@@ -610,13 +608,12 @@ const modalContentMap = {
     `
   },
   'calendar-modal': {
-    title: 'Academic Calendar 2026\u201327',
+    title: 'Academic Calendar 2026-27',
     body: `
       <div class="drive-preview-wrap">
         <div class="drive-preview-header">
-          <i class="fa-solid fa-calendar-days drive-preview-icon"></i>
           <div>
-            <h3 class="drive-preview-title">Academic Calendar 2026&#x2013;27</h3>
+            <h3 class="drive-preview-title">Academic Calendar 2026-27</h3>
             <p class="drive-preview-sub">Term dates, internal assessment schedule, and autonomous end-semester examinations.</p>
           </div>
         </div>
@@ -630,7 +627,6 @@ const modalContentMap = {
             aria-label="Academic Calendar preview"
           ></iframe>
           <div class="drive-placeholder">
-            <i class="fa-solid fa-calendar-days"></i>
             <p>Calendar preview</p>
             <small>Replace CALENDAR_FILE_ID in app.js to enable the embedded viewer.</small>
           </div>
@@ -647,7 +643,7 @@ const modalContentMap = {
             </tr>
             <tr>
               <td class="tbl-label">Autonomous End-Semester Exams</td>
-              <td>November &#x2013; December 2026</td>
+              <td>November - December 2026</td>
             </tr>
             <tr class="tbl-alt">
               <td class="tbl-label">Even Semester Commencement</td>
@@ -657,7 +653,7 @@ const modalContentMap = {
         </table>
         <div class="drive-preview-actions">
           <a href="https://drive.google.com/file/d/CALENDAR_FILE_ID/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Drive
+            Open in Google Drive
           </a>
         </div>
       </div>
@@ -721,10 +717,10 @@ function showNoticeModal(title, type, content, date) {
     modalTitle.innerHTML = `<span style="font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 0; background: #E0AA24; color: #8F0A0B; font-weight: 800; margin-right: 0.5rem;">${type}</span> ${title}`;
     modalBody.innerHTML = `
       <div style="line-height: 1.7; color: #240408;">
-        <div style="font-size: 0.8rem; color: #7d424b; margin-bottom: 1rem;"><i class="fa-regular fa-calendar"></i> Date: ${date} | Official SLRTCE Circular</div>
+        <div style="font-size: 0.8rem; color: #7d424b; margin-bottom: 1rem;">Date: ${date} | Official SLRTCE Circular</div>
         <p style="font-size: 1rem; color: #240408; margin-bottom: 1.5rem;">${content}</p>
         <div style="background: #faf6f4; border: 1px solid #fef08a; padding: 1rem; border-radius: 0; display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-weight: 700; color: #8F0A0B;"><i class="fa-solid fa-file-arrow-down" style="color: #8F0A0B;"></i> Official Circular Document.pdf</span>
+          <span style="font-weight: 700; color: #8F0A0B;">Official Circular Document.pdf</span>
           <button class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; background: #8F0A0B; color: white;" onclick="alert('Circular PDF Download Started (Demo)')">Download</button>
         </div>
       </div>
@@ -1063,3 +1059,365 @@ function initCarousel() {
   });
 }
 
+
+
+/* ==========================================================================
+   HOD DYNAMIC CAROUSEL (Item 1)
+   Dynamic from window.SLRTCE_DATA.hods
+   Loops cleanly, previous/next buttons & pagination dots, keyboard accessible
+   ========================================================================== */
+function initHODCarousel() {
+  const container = document.getElementById('hodCarouselTrack');
+  const dotsContainer = document.getElementById('hodCarouselDots');
+  const prevBtn = document.getElementById('hodCarouselPrev');
+  const nextBtn = document.getElementById('hodCarouselNext');
+  const wrapper = document.getElementById('hodCarousel');
+
+  if (!container || !window.SLRTCE_DATA || !Array.isArray(window.SLRTCE_DATA.hods) || window.SLRTCE_DATA.hods.length === 0) {
+    return;
+  }
+
+  const hods = window.SLRTCE_DATA.hods;
+  const total = hods.length;
+  let currentIndex = 0;
+
+  // Render slides
+  container.innerHTML = hods.map((hod, idx) => `
+    <div class="hod-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" role="group" aria-label="Slide ${idx + 1} of ${total}">
+      <div class="hod-card-inner">
+        <div class="hod-photo-frame">
+          <img src="${hod.image}" alt="${hod.name} - Head of Department, ${hod.department}" width="220" height="260" loading="lazy" class="hod-photo">
+          <div class="hod-dept-tag">${hod.department}</div>
+        </div>
+        <div class="hod-info">
+          <div class="hod-header-row">
+            <h3 class="hod-name">${hod.name}</h3>
+            <span class="hod-designation">${hod.designation}</span>
+          </div>
+          <div class="hod-meta-grid">
+            <div class="hod-meta-item">
+              <span class="hod-meta-label">Qualification</span>
+              <span class="hod-meta-value">${hod.qualification}</span>
+            </div>
+            <div class="hod-meta-item">
+              <span class="hod-meta-label">Experience</span>
+              <span class="hod-meta-value">${hod.experience}</span>
+            </div>
+          </div>
+          <div class="hod-research-wrap">
+            <span class="hod-research-label">Research Areas</span>
+            <div class="hod-chips">
+              ${(hod.researchAreas || []).map(area => `<span class="hod-chip">${area}</span>`).join('')}
+            </div>
+          </div>
+          <div class="hod-contact">
+            <span class="hod-contact-label">Email:</span>
+            <a href="mailto:${hod.email}" class="hod-email-link" aria-label="Email ${hod.name}">${hod.email}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Render dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = hods.map((hod, idx) => `
+      <button type="button" class="hod-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="Slide ${idx + 1}: ${hod.name}"></button>
+    `).join('');
+  }
+
+  function showSlide(index) {
+    currentIndex = (index + total) % total;
+    const slides = container.querySelectorAll('.hod-slide');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.hod-dot') : [];
+
+    slides.forEach((slide, idx) => {
+      if (idx === currentIndex) {
+        slide.classList.add('active');
+        slide.setAttribute('aria-hidden', 'false');
+      } else {
+        slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      if (idx === currentIndex) {
+        dot.classList.add('active');
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.classList.remove('active');
+        dot.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.onclick = () => showSlide(currentIndex - 1);
+  }
+  if (nextBtn) {
+    nextBtn.onclick = () => showSlide(currentIndex + 1);
+  }
+
+  if (dotsContainer) {
+    dotsContainer.onclick = (e) => {
+      const dot = e.target.closest('.hod-dot');
+      if (dot) {
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) showSlide(idx);
+      }
+    };
+  }
+
+  // Keyboard navigation
+  if (wrapper) {
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        showSlide(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        showSlide(currentIndex + 1);
+      }
+    });
+  }
+
+  showSlide(0);
+}
+
+
+/* ==========================================================================
+   INTEGRATED UPDATES HUB (Item 3)
+   Pulls from window.SLRTCE_DATA.news and window.SLRTCE_DATA.social
+   Tab filter, "New" badges, category badges, clean social feed cards
+   ========================================================================== */
+function initUpdatesHub() {
+  const grid = document.getElementById('updatesGrid');
+  const tabBtns = document.querySelectorAll('.updates-tab-btn');
+
+  if (!grid || !window.SLRTCE_DATA) return;
+
+  const newsItems = (window.SLRTCE_DATA.news || []).map(item => ({ ...item, type: 'news' }));
+  const socialItems = (window.SLRTCE_DATA.social || []).map(item => ({ ...item, type: 'social', category: 'social' }));
+
+  let activeTab = 'all';
+
+  function render() {
+    let items = [];
+    if (activeTab === 'all') {
+      items = [...newsItems, ...socialItems];
+    } else if (activeTab === 'social') {
+      items = socialItems;
+    } else {
+      items = newsItems.filter(item => item.category === activeTab);
+    }
+
+    if (items.length === 0) {
+      grid.innerHTML = '<div class="updates-empty"><p>No updates currently posted in this category.</p></div>';
+      return;
+    }
+
+    grid.innerHTML = items.map(item => {
+      if (item.type === 'news') {
+        return `
+          <article class="update-card news-update-card" data-category="${item.category}">
+            <div class="update-card-header">
+              <div class="update-card-tags">
+                <span class="category-badge cat-${item.category}">${item.category.toUpperCase()}</span>
+                ${item.isNew ? '<span class="badge-new">NEW</span>' : ''}
+              </div>
+              <time class="update-date" datetime="${item.date}">${item.dateFormatted || item.date}</time>
+            </div>
+            <h3 class="update-title">${item.title}</h3>
+            <p class="update-summary">${item.summary}</p>
+            <div class="update-card-footer">
+              <button type="button" class="update-action-btn" onclick="showNoticeModal('${item.title.replace(/'/g, "\'")}', '${item.category.toUpperCase()}', '${item.summary.replace(/'/g, "\'")}', '${item.date}')">
+                Read Notice Details
+              </button>
+            </div>
+          </article>
+        `;
+      } else {
+        return `
+          <article class="update-card social-update-card" data-category="social">
+            <div class="update-card-header">
+              <div class="update-card-tags">
+                <span class="social-platform-badge platform-${item.platform.toLowerCase()}">${item.platform}</span>
+                ${item.tag ? `<span class="social-tag">${item.tag}</span>` : ''}
+              </div>
+              <time class="update-date" datetime="${item.date}">${item.dateFormatted || item.date}</time>
+            </div>
+            <div class="social-author-row">
+              <strong class="social-author">${item.author}</strong>
+              <span class="social-handle">${item.handle}</span>
+            </div>
+            <p class="social-content">${item.content}</p>
+            <div class="update-card-footer">
+              <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="View post on ${item.platform}">
+                View on ${item.platform}
+              </a>
+            </div>
+          </article>
+        `;
+      }
+    }).join('');
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      activeTab = btn.getAttribute('data-tab');
+      render();
+    });
+  });
+
+  render();
+}
+
+
+/* ==========================================================================
+   PROBLEM 4: WHY CHOOSE US – data-driven from SLRTCE_DATA.whyChooseUs
+   + Brochure download from SLRTCE_DATA.brochure
+   ========================================================================== */
+function initWhyUs() {
+  const grid = document.getElementById('whyUsGrid');
+  const descEl = document.getElementById('whyUsDesc');
+  const brochureWrap = document.getElementById('brochureDownloadWrap');
+  if (!grid || !window.SLRTCE_DATA) return;
+
+  const pillars = window.SLRTCE_DATA.whyChooseUs || [];
+  if (pillars.length === 0) return;
+
+  grid.innerHTML = pillars.map(p => `
+    <div class="why-pillar">
+      <div class="why-pillar-head">
+        <div class="why-pillar-num">${String(pillars.indexOf(p) + 1).padStart(2, '0')}</div>
+        <h3 class="why-pillar-title">${p.title}</h3>
+      </div>
+      <p class="why-pillar-desc">${p.description}</p>
+      ${p.stat ? `<div class="why-pillar-stat">${p.stat}</div>` : ''}
+    </div>
+  `).join('');
+
+  const brochure = window.SLRTCE_DATA.brochure;
+  if (brochureWrap && brochure && brochure.url) {
+    const sizeLabel = brochure.size ? ` (PDF, ${brochure.size})` : '';
+    brochureWrap.innerHTML = `
+      <a href="${brochure.url}" class="btn btn-primary brochure-btn" download aria-label="Download SLRTCE Brochure ${brochure.year}">
+        Download Brochure ${brochure.year}${sizeLabel}
+      </a>
+    `;
+  }
+}
+
+/* ==========================================================================
+   PROBLEM 5: RECRUITERS LOGO CAROUSEL – from SLRTCE_DATA.recruiters
+   ========================================================================== */
+function initRecruiters() {
+  const track = document.getElementById('recruiterLogoTrack');
+  const prevBtn = document.getElementById('recruiterPrev');
+  const nextBtn = document.getElementById('recruiterNext');
+  if (!track || !window.SLRTCE_DATA) return;
+
+  const recruiters = window.SLRTCE_DATA.recruiters || [];
+  if (recruiters.length === 0) return;
+
+  const VISIBLE = 5;
+  let offset = 0;
+  const total = recruiters.length;
+
+  track.innerHTML = recruiters.map(r => `
+    <div class="recruiter-logo-item">
+      <img src="${r.logo}" alt="${r.name} - SLRTCE Placement Partner" width="120" height="60" loading="lazy">
+    </div>
+  `).join('');
+
+  const items = track.querySelectorAll('.recruiter-logo-item');
+
+  function updateVisible() {
+    items.forEach((item, idx) => {
+      const pos = ((idx - offset) % total + total) % total;
+      item.style.display = pos < VISIBLE ? '' : 'none';
+    });
+  }
+
+  if (prevBtn) prevBtn.onclick = () => { offset = (offset - 1 + total) % total; updateVisible(); };
+  if (nextBtn) nextBtn.onclick = () => { offset = (offset + 1) % total; updateVisible(); };
+  updateVisible();
+}
+
+/* ==========================================================================
+   PROBLEM 6: APPROVALS – logo images with official external links
+   ========================================================================== */
+function initApprovals() {
+  const row = document.getElementById('approvalsRow');
+  if (!row || !window.SLRTCE_DATA) return;
+
+  const approvals = window.SLRTCE_DATA.approvals || [];
+  if (approvals.length === 0) return;
+
+  row.innerHTML = approvals.map(a => {
+    const inner = `
+      <img src="${a.logo}" alt="${a.name} logo" width="80" height="50" loading="lazy">
+      <span class="approval-name">${a.name}</span>
+    `;
+    if (a.url) {
+      return `<a href="${a.url}" class="approval-logo-item" target="_blank" rel="noopener noreferrer" aria-label="${a.name} - Official Website">${inner}</a>`;
+    }
+    return `<div class="approval-logo-item">${inner}</div>`;
+  }).join('');
+}
+
+/* ==========================================================================
+   PROBLEM 7: COLLABORATORS – logo grid from SLRTCE_DATA.collaborators
+   ========================================================================== */
+function initCollaborators() {
+  const grid = document.getElementById('collabLogoGrid');
+  if (!grid || !window.SLRTCE_DATA) return;
+
+  const collabs = window.SLRTCE_DATA.collaborators || [];
+  if (collabs.length === 0) return;
+
+  grid.innerHTML = collabs.map(c => `
+    <div class="collab-item">
+      <img src="${c.logo}" alt="${c.name} - SLRTCE Collaborator" width="130" height="70" loading="lazy">
+      <span class="collab-name">${c.name}</span>
+    </div>
+  `).join('');
+}
+
+/* ==========================================================================
+   PROBLEM 8: BLOG SECTION – card grid from SLRTCE_DATA.blogs
+   ========================================================================== */
+function initBlog() {
+  const grid = document.getElementById('blogGrid');
+  if (!grid || !window.SLRTCE_DATA) return;
+
+  const blogs = window.SLRTCE_DATA.blogs || [];
+  if (blogs.length === 0) return;
+
+  grid.innerHTML = blogs.map(b => `
+    <article class="blog-card">
+      <div class="blog-img-wrap">
+        <img src="${b.image}" alt="${b.title} - SLRTCE Knowledge Centre" width="380" height="210" loading="lazy">
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta-row">
+          <span class="blog-category">${b.category}</span>
+          <time class="blog-date" datetime="${b.date}">${b.dateFormatted || b.date}</time>
+        </div>
+        <h3 class="blog-title">${b.title}</h3>
+        <p class="blog-excerpt">${b.excerpt}</p>
+        <div class="blog-footer">
+          <span class="blog-author">By ${b.author}</span>
+          <a href="${b.url || '#'}" class="blog-read-link" ${b.url ? 'target="_blank" rel="noopener noreferrer"' : ''} aria-label="Read article: ${b.title}">Read article</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}

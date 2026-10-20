@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Shree L. R. Tiwari College of Engineering (SLRTCE) | Autonomous Institute</title>
+ <meta name="description" content="Shree L. R. Tiwari College of Engineering (SLRTCE) - Autonomous Institute affiliated to University of Mumbai, Approved by AICTE & DTE Maharashtra, NAAC & NBA Accredited.">
+ <!-- Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="styles.css">
+ <script src="config.js"></script>
+ <script src="nav-footer.js"></script>
+</head>
+<body>
+
+ <!-- ================= SHARED GLOBAL HEADER & NAV ================= -->
+ <site-header></site-header>
+
+ <!-- ================= NEWS TICKER ================= -->
+ <!--
+ TICKER CONFIG: Edit the <li> items inside #ticker-list to update announcements.
+ Each <li> should be one announcement. The separator dot is added automatically by CSS.
+ -->
+ <div class="ticker-bar" role="complementary" aria-label="Latest announcements">
+ <span class="ticker-label" aria-hidden="true">
+ Latest
+ </span>
+ <div class="ticker-track-wrap">
+ <ul class="ticker-list" id="tickerList" aria-live="off">
+ <li>Alumni Meet 2025 - Reconnect, Reminisce and Rejuvenate with your SLRTCE family. Register now.</li>
+ <li>Ph.D. Admission Notification 2025-26 - Applications invited for Ph.D. Research programmes. Last date: 31 Oct 2025.</li>
+ <li>Autonomy Undertaking - SLRTCE reaffirms its autonomous status under University of Mumbai for AY 2025-26.</li>
+ <li>Voter Awareness Session - SLRTCE in association with DLLE conducted a voter registration drive for students.</li>
+ <li>MoU with SUC Sharjah - SLRTCE signs academic collaboration MoU with Skyline University College, Sharjah, UAE.</li>
+ </ul>
+ </div>
+ <div class="ticker-controls">
+ <button class="ticker-btn" id="tickerPause" aria-label="Pause ticker" title="Pause">Pause</button>
+ <button class="ticker-btn ticker-btn--hidden" id="tickerPlay" aria-label="Play ticker" title="Play">Play</button>
+ </div>
+ </div>
+
+ <!-- ================= CAMPUS CAROUSEL ================= -->
+ <!--
+ CAROUSEL CONFIG: Slides are the <li> elements inside .carousel-track.
+ To add/remove slides: add/remove <li class="carousel-slide"> with your img and .slide-caption.
+ Image order must match the order images were provided.
+ Slide images are in: assets/
+ -->
+ <section class="campus-carousel-section" aria-label="Campus photo gallery">
+ <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous slide">&lt;</button>
+
+ <div class="carousel-viewport" id="carouselViewport">
+ <ul class="carousel-track" id="carouselTrack" role="list">
+
+ <!-- Slide 1: DLLE Voter Card Session -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_dlle_voter_session.jpg"
+ alt="SLRTCE students displaying voter ID cards at the DLLE voter registration drive, part of Department of Lifelong Learning and Extension, University of Mumbai"
+ loading="eager"
+ >
+ <div class="slide-caption">
+ <span>DLLE Voter Awareness Drive</span>
+ </div>
+ </li>
+
+ <!-- Slide 2: Carpe Diem 2025 -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_carpe_diem_2025.jpg"
+ alt="SLRTCE students celebrating victory at Carpe Diem 2025, the Rahul Education inter-departmental cultural festival, holding the championship trophy"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Carpe Diem 2025 - Champions</span>
+ </div>
+ </li>
+
+ <!-- Slide 3: Campus Lawn -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_campus_lawn.jpg"
+ alt="SLRTCE main campus building with manicured lawn, showing the multi-storey academic block at Mira Road, Mumbai"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>SLRTCE Campus, Mira Road</span>
+ </div>
+ </li>
+
+ <!-- Slide 4: College Entrance Gate -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_college_entrance.jpg"
+ alt="Front entrance gate of Shree L. R. Tiwari College of Engineering with the institute name displayed in gold lettering"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>SLRTCE Main Entrance</span>
+ </div>
+ </li>
+
+ <!-- Slide 5: Alumni Meet / Seminar Hall -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_alumni_meet.jpg"
+ alt="Attendees at an SLRTCE seminar or alumni meet, seated in the college auditorium with faculty and guests"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Alumni Meet &amp; Institute Events</span>
+ </div>
+ </li>
+
+ <!-- Slide 6: Student Innovation & Project Demo -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_project_demo.jpg"
+ alt="Faculty and dignitaries reviewing a student robotics and electronics project demonstration at SLRTCE"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Student Innovation &amp; Project Demonstrations</span>
+ </div>
+ </li>
+
+ <!-- Slide 7: Technical Exhibition & Robotics -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_robot_exhibition.jpg"
+ alt="SLRTCE engineering students with a humanoid astronaut robot project at the college technical exhibition"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Technical Exhibition &amp; Robotics Showcase</span>
+ </div>
+ </li>
+
+ <!-- Slide 8: Project Review & Research -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_project_review.jpg"
+ alt="Faculty and academic dignitaries evaluating student engineering projects and research posters"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Project Review &amp; Research Exhibition</span>
+ </div>
+ </li>
+
+ <!-- Slide 9: Modern Computer & Electronics Labs -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_computer_lab.jpg"
+ alt="Students and faculty engaged in practical learning inside the modern computer and electronics laboratories at SLRTCE"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Advanced Computing &amp; Electronics Labs</span>
+ </div>
+ </li>
+
+ <!-- Slide 10: Smart Classrooms & Lectures -->
+ <li class="carousel-slide" role="listitem">
+ <img
+ src="assets/slide_classroom.jpg"
+ alt="Interactive classroom lecture session in progress with students and faculty at SLRTCE"
+ loading="lazy"
+ >
+ <div class="slide-caption">
+ <span>Interactive Academic Sessions &amp; Smart Classrooms</span>
+ </div>
+ </li>
+ </ul>
+ </div>
+
+ <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next slide">&gt;</button>
+ </section>
+
+ <!-- ================= HERO SECTION ================= -->
+ <section class="hero-section" id="hero">
+ <div class="hero-glow-bg"></div>
+ <div class="container hero-grid">
+ 
+ <!-- Hero Left: Pitch & Value Proposition -->
+ <div class="hero-content">
+ <div class="admission-status-chip">
+ <span class="live-blink"></span>
+ <span>ADMISSIONS OPEN FOR 2026-27 ACADEMIC YEAR</span>
+ </div>
+ 
+ <h2 class="hero-title">
+ Engineering education built around <span style="color: var(--color-gold);">your career.</span>
+ </h2>
+ 
+ <p class="hero-subtitle">
+ Six B.E. branches and two M.E. programmes in Mira Road, with accredited programmes and a strong placement record.
+ </p>
+
+ <div class="hero-cta-group">
+ <a href="#enquiry-section" class="btn btn-primary btn-lg">
+ Admission 2026-27
+ </a>
+ <button class="btn btn-outline btn-lg" onclick="openModal('brochure-modal')">
+ Download Brochure
+ </button>
+ </div>
+
+ <div class="hero-trust-bar">
+ <span class="trust-label">Official Accreditations & Approvals:</span>
+ <div class="trust-tags">
+ <span class="trust-chip">NAAC</span>
+ <span class="trust-chip">NBA</span>
+ <span class="trust-chip">AICTE</span>
+ <span class="trust-chip">ISO 9001:2015</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Hero Right: Real Campus Photo Showcase -->
+ <div class="hero-campus-showcase">
+ <div class="campus-img-frame">
+ <img src="assets/campus_building.png" alt="Shree L. R. Tiwari College of Engineering - Main Campus Building, Mira Road" class="campus-main-img">
+ 
+ <!-- Image Floating Badges -->
+ <div class="campus-pin-badge">
+ SLRTCE Mira Road, Mumbai
+ </div>
+
+ <div class="campus-overlay-stats">
+ <div class="stat-pill">Autonomous</div>
+ <div class="stat-pill">DTE: EN3218</div>
+ <div class="stat-pill">NAAC & NBA</div>
+ </div>
+ </div>
+
+ <!-- Real Photo Strip -->
+ <div class="campus-photo-strip">
+ <div class="photo-strip-item">
+ <img src="assets/library.jpg" alt="SLRTCE Library" loading="lazy">
+ <span class="strip-label">Library</span>
+ </div>
+ <div class="photo-strip-item">
+ <img src="assets/campus_street.png" alt="SLRTCE Campus Entrance" loading="lazy">
+ <span class="strip-label">Campus</span>
+ </div>
+ <div class="photo-strip-item">
+ <img src="assets/campus_event.jpg" alt="SLRTCE Carpe Diem Festival" loading="lazy">
+ <span class="strip-label">Events</span>
+ </div>
+ </div>
+
+ <div class="campus-caption-strip">
+ <div class="caption-info">
+ <strong>Shree L. R. Tiwari Campus</strong>
+ <span>Autonomous Engineering &amp; Research Facility - Mira Road</span>
+ </div>
+ <a href="https://slrtce.in" target="_blank" rel="noopener" class="btn-tour-chip">
+ Official Site
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- ================= KEY METRICS / STATS BAND ================= -->
+ <section class="stats-band">
+ <div class="container">
+ <div class="stats-grid">
+ <div class="stat-card">
+ <div class="stat-number-wrap">
+ <span class="stat-value counter" data-target="80">80%</span>
+ </div>
+ <span class="stat-label">Pre-placement offers</span>
+ </div>
+
+ <div class="stat-card">
+ <div class="stat-number-wrap">
+ <span class="stat-value counter" data-target="1000">1000+</span>
+ </div>
+ <span class="stat-label">Industry partners</span>
+ </div>
+
+ <div class="stat-card highlight-stat">
+ <div class="stat-number-wrap">
+ <span class="stat-value">₹1.2 Cr</span>
+ </div>
+ <span class="stat-label">Highest UG package</span>
+ </div>
+
+ <div class="stat-card">
+ <div class="stat-number-wrap">
+ <span class="stat-value counter" data-target="100">100%</span>
+ </div>
+ <span class="stat-label">Placement record</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= PROGRAMMES WE OFFER ================= -->
+ <section class="section programmes-section" id="programmes">
+ <div class="container">
+ <div class="section-header text-center">
+ <span class="section-tag">Academic Excellence</span>
+ <h2 class="section-title">Programmes we offer</h2>
+ <p class="section-subtitle">
+ Designed to stimulate your intellectual curiosity and turn you into an innovator in the field of your choice.
+ </p>
+ 
+ <div class="programme-filter-tabs">
+ <button class="tab-btn active" onclick="filterBranch('all', this)">All Programmes</button>
+ <button class="tab-btn" onclick="filterBranch('ug', this)">B.E. Undergraduate (6)</button>
+ <button class="tab-btn" onclick="filterBranch('pg', this)">M.E. Postgraduate (2)</button>
+ <button class="tab-btn" onclick="filterBranch('phd', this)">Ph.D. Research</button>
+ </div>
+ </div>
+
+ <div class="programmes-grid" id="programmesContainer">
+ <!-- 1. Computer Engineering -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">180 Intake</span>
+ </div>
+ <h3 class="prog-title">Computer Engineering</h3>
+ <p class="prog-desc">Comprehensive curriculum covering Cloud Computing, AI/ML, Full-Stack Development, Cyber Security and High-Performance Computing.</p>
+ <div class="prog-tags">
+ <span>AI / ML</span>
+ <span>Cloud & DevOps</span>
+ <span>Data Structures</span>
+ <span>NBA Accredited</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Computer Engineering')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 2. Information Technology -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">120 Intake</span>
+ </div>
+ <h3 class="prog-title">Information Technology</h3>
+ <p class="prog-desc">Focuses on enterprise system architecture, big data engineering, software engineering principles, and distributed cloud microservices.</p>
+ <div class="prog-tags">
+ <span>Distributed Systems</span>
+ <span>Big Data</span>
+ <span>Web 3.0</span>
+ <span>NBA Accredited</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Information Technology')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 3. Electronics & Computer Science -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">60 Intake</span>
+ </div>
+ <h3 class="prog-title">Electronics & Computer Science</h3>
+ <p class="prog-desc">Interdisciplinary fusion of embedded computing, IoT smart systems, hardware-software co-design, and modern robotics automation.</p>
+ <div class="prog-tags">
+ <span>Embedded Systems</span>
+ <span>IoT</span>
+ <span>VLSI Design</span>
+ <span>Robotics</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Electronics & Computer Science')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 4. Electronics & Telecommunication -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">60 Intake</span>
+ </div>
+ <h3 class="prog-title">Electronics & Telecommunication</h3>
+ <p class="prog-desc">Specialized training in 5G/6G wireless networks, RF microwave engineering, digital signal processing, and antenna design.</p>
+ <div class="prog-tags">
+ <span>5G Communications</span>
+ <span>DSP</span>
+ <span>Satellite Tech</span>
+ <span>NBA Accredited</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Electronics & Telecommunication')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 5. Mechanical Engineering -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">60 Intake</span>
+ </div>
+ <h3 class="prog-title">Mechanical Engineering</h3>
+ <p class="prog-desc">State-of-the-art CAD/CAM/CAE laboratories, Mechatronics, EV vehicle engineering, and automated additive manufacturing.</p>
+ <div class="prog-tags">
+ <span>EV Technology</span>
+ <span>Robotics & CAD</span>
+ <span>Thermal Fluidics</span>
+ <span>Industry 4.0</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Mechanical Engineering')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 6. Civil Engineering -->
+ <div class="programme-card" data-category="ug">
+ <div class="prog-top">
+ <span class="prog-level">B.E. • 4 Years</span>
+ <span class="prog-seats">60 Intake</span>
+ </div>
+ <h3 class="prog-title">Civil Engineering</h3>
+ <p class="prog-desc">Smart city infrastructure, structural health monitoring, BIM modeling, geospatial analytics, and green building technologies.</p>
+ <div class="prog-tags">
+ <span>Smart Cities</span>
+ <span>BIM Modeling</span>
+ <span>Structural Engg</span>
+ <span>Geotech</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('Civil Engineering')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 7. M.E. Computer Engineering -->
+ <div class="programme-card pg-card" data-category="pg">
+ <div class="prog-top">
+ <span class="prog-level pg-pill">M.E. Postgraduate • 2 Years</span>
+ <span class="prog-seats">18 Intake</span>
+ </div>
+ <h3 class="prog-title">M.E. in Computer Engineering</h3>
+ <p class="prog-desc">Advanced master's research programme centered on Deep Learning architectures, Distributed Parallel Algorithms, and Cyber Intelligence.</p>
+ <div class="prog-tags">
+ <span>Deep Learning</span>
+ <span>Research Thesis</span>
+ <span>High Compute</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('M.E. Computer Engineering')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 8. M.E. Electronics & Telecommunication -->
+ <div class="programme-card pg-card" data-category="pg">
+ <div class="prog-top">
+ <span class="prog-level pg-pill">M.E. Postgraduate • 2 Years</span>
+ <span class="prog-seats">18 Intake</span>
+ </div>
+ <h3 class="prog-title">M.E. in Electronics & Telecommunication</h3>
+ <p class="prog-desc">Specialized master's program focusing on Advanced Optical Communications, Microwave Systems, and AI-assisted Signal Processing.</p>
+ <div class="prog-tags">
+ <span>Optoelectronics</span>
+ <span>Microwave</span>
+ <span>Signal Analytics</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openCourseDetails('M.E. EXTC')">Explore Branch </button>
+ </div>
+ </div>
+
+ <!-- 9. Ph.D. Research -->
+ <div class="programme-card phd-card" data-category="phd">
+ <div class="prog-top">
+ <span class="prog-level phd-pill">Ph.D. Doctoral Programme</span>
+ <span class="prog-seats">Recognized Centre</span>
+ </div>
+ <h3 class="prog-title">Ph.D. Research Centre</h3>
+ <p class="prog-desc">University of Mumbai recognized research facility with high-end computing labs, patent assistance, and funded research initiatives.</p>
+ <div class="prog-tags">
+ <span>Patents & IPR</span>
+ <span>IEEE Publications</span>
+ <span>Industry Funded</span>
+ </div>
+ <div class="prog-footer">
+ <button class="btn-text-action" onclick="openModal('phd-notice-modal')">View Research Guidelines </button>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= NEWS & EVENTS ================= -->
+ <section class="section news-section" id="news">
+ <div class="container">
+ <div class="section-header-flex">
+ <div>
+ <span class="section-tag">Campus Pulse</span>
+ <h2 class="section-title">News & events</h2>
+ <p class="section-subtitle">Latest first. Each item links to the full notice.</p>
+ </div>
+ <div class="news-filter-chips">
+ <span class="news-chip active" onclick="filterNews('all', this)">Latest updates</span>
+ <span class="news-chip" onclick="filterNews('event', this)">Events</span>
+ <span class="news-chip" onclick="filterNews('notice', this)">Notices</span>
+ </div>
+ </div>
+
+ <div class="news-grid">
+ <!-- Item 1: Event - Alumni Meet -->
+ <div class="news-card" data-newstype="event" onclick="showNoticeModal('Alumni Meet: Invitation & Registration', 'Event', 'We cordially invite all alumni to reconnect, network, and celebrate achievements with faculty and students. Register online to join the official SLRTCE alumni network directory.', '2026-10-24')">
+ <div class="news-meta">
+ <span class="type-badge event-badge">Event</span>
+ <span class="news-date">Upcoming</span>
+ </div>
+ <h3 class="news-title">Alumni Meet: Invitation & Registration</h3>
+ <p class="news-snippet">Register online to join the alumni network.</p>
+ <span class="news-action-link">View Event Details & Register </span>
+ </div>
+
+ <!-- Item 2: Notice - Ph.D. Admission -->
+ <div class="news-card" data-newstype="notice" onclick="showNoticeModal('Ph.D. Admission Notification', 'Notice', 'Applications are invited for admission to the Ph.D. Programme in Computer Engineering and EXTC for Academic Year 2026-27 under the University of Mumbai. Detailed eligibility criteria, fee schedule, and application forms are available.', '2026-10-02')">
+ <div class="news-meta">
+ <span class="type-badge notice-badge">Notice</span>
+ <span class="news-date">Official</span>
+ </div>
+ <h3 class="news-title">Ph.D. Admission Notification</h3>
+ <p class="news-snippet">Eligibility and application details.</p>
+ <span class="news-action-link">Download Notification PDF </span>
+ </div>
+
+ <!-- Item 3: Notice - Autonomy Undertaking -->
+ <div class="news-card" data-newstype="notice" onclick="showNoticeModal('Autonomy Undertaking', 'Notice', 'Public disclosure of autonomous status compliance, UGC undertakings, and academic governance framework applicable for all affiliated undergraduate and postgraduate programs.', '2026-09-28')">
+ <div class="news-meta">
+ <span class="type-badge notice-badge">Notice</span>
+ <span class="news-date">Public Disclosure</span>
+ </div>
+ <h3 class="news-title">Autonomy Undertaking</h3>
+ <p class="news-snippet">Official undertaking document.</p>
+ <span class="news-action-link">Read Undertaking Document </span>
+ </div>
+
+ <!-- Item 4: Event - Voter Awareness Session -->
+ <div class="news-card highlight-event" data-newstype="event" onclick="showNoticeModal('Voter Awareness Session (ELC Club)', 'Event', 'The Electoral Literacy Club (ELC) of SLRTCE is organizing a voter registration and awareness drive in association with the Election Commission to empower young student voters on campus.', '2026-10-12')">
+ <div class="news-meta">
+ <span class="type-badge event-badge">Event</span>
+ <span class="news-date">Next Week</span>
+ </div>
+ <h3 class="news-title"><strong>Voter Awareness Session (ELC Club)</strong></h3>
+ <p class="news-snippet">Helping students understand the power of their vote.</p>
+ <span class="news-action-link">View Session Schedule </span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= WHY CHOOSE US ================= -->
+ <section class="section why-us-section" id="why-us">
+ <div class="container">
+ <div class="why-us-grid">
+ <div class="why-us-intro">
+ <span class="section-tag">Why choose us</span>
+ <h2 class="section-title">The best path to a bright career.</h2>
+ <p class="why-intro-desc">
+ At Shree L. R. Tiwari College of Engineering, autonomy empowers our curriculum to stay dynamic, industry-aligned, and deeply rooted in practical engineering problem-solving.
+ </p>
+ <button class="btn btn-primary" onclick="openModal('why-choose-more')">
+ <span>View more</span>
+ </button>
+ </div>
+
+ <div class="why-cards-col">
+ <!-- Pillar 1 -->
+ <div class="why-card">
+ <div class="why-card-body">
+ <h3>Excellent educational record</h3>
+ <p>Meritorious achievements in academics, research and placement.</p>
+ </div>
+ </div>
+
+ <!-- Pillar 2 -->
+ <div class="why-card">
+ <div class="why-card-body">
+ <h3>Model of transparency</h3>
+ <p>From admission to evaluation and placements.</p>
+ </div>
+ </div>
+
+ <!-- Pillar 3 -->
+ <div class="why-card">
+ <div class="why-card-body">
+ <h3>Unparalleled teaching-learning</h3>
+ <p>Technology-enabled classrooms and updated methods.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= WHERE OUR STUDENTS WORK / RECRUITERS ================= -->
+ <section class="section recruiters-section" id="placements">
+ <div class="container">
+ <div class="section-header text-center">
+ <span class="section-tag">Placements & Career Cell</span>
+ <h2 class="section-title">Where our students work</h2>
+ <p class="section-subtitle">
+ Our placement cell works with recruiters across IT, core engineering and consulting.
+ </p>
+ </div>
+
+ <!-- Recruiter Logos / Badges Grid -->
+ <div class="recruiter-logo-grid">
+ <div class="recruiter-pill">Amazon AWS</div>
+ <div class="recruiter-pill">Hexaware</div>
+ <div class="recruiter-pill">TCS</div>
+ <div class="recruiter-pill">Infosys</div>
+ <div class="recruiter-pill">Capgemini</div>
+ <div class="recruiter-pill">L&T Infotech</div>
+ <div class="recruiter-pill">Tech Mahindra</div>
+ <div class="recruiter-pill">Accenture</div>
+ <div class="recruiter-pill">Reliance Jio</div>
+ <div class="recruiter-pill">Morgan Stanley</div>
+ <div class="recruiter-pill">Wipro</div>
+ <div class="recruiter-pill">Cognizant</div>
+ </div>
+
+ <!-- Placement Cell CTA Banner -->
+ <div class="placement-cta-card">
+ <div class="placement-cta-content">
+ <h3>Empowering 1000+ student careers every year</h3>
+ <p>Continuous aptitude drills, mock interviews, live capstone projects, and direct corporate connect.</p>
+ </div>
+ <div class="placement-cta-btn-wrap">
+ <button class="btn btn-white" onclick="openModal('placement-report-modal')">
+ Our placement cell
+ </button>
+ </div>
+ </div>
+
+ <!-- Alumni Quote / Testimonial -->
+ <div class="alumni-quote-box">
+ <blockquote class="quote-text">
+ “As a proud alum of Shree L. R. Tiwari College of Engineering, I owe a big thank you to this top-notch institution. [...] The placement cell deserves a special mention for helping me land my dream job at Hexaware Technologies.”
+ </blockquote>
+ <div class="quote-author-info">
+ <div>
+ <strong class="author-name">Shweta Singh</strong>
+ <span class="author-desc">B.E. Computer Engineering, placed at Hexaware Technologies</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= LEARN FROM THE FINEST MENTORS ================= -->
+ <section class="section mentors-section" id="mentors">
+ <div class="container">
+ <div class="section-header text-center">
+ <span class="section-tag">Academic Leadership</span>
+ <h2 class="section-title">Learn from the finest mentors</h2>
+ <p class="section-subtitle">
+ Heads of department, with regular guest lectures from industry leaders.
+ </p>
+ </div>
+
+ <div class="mentors-grid">
+ <!-- Mentor 1: BN -->
+ <div class="mentor-card">
+ <div class="mentor-avatar-badge bn">BN</div>
+ <div class="mentor-details">
+ <h3 class="mentor-name">Dr. Bhushan Kumar Nemade</h3>
+ <span class="mentor-designation">HOD, Computer Engineering</span>
+ <p class="mentor-spec">Ph.D. in Computer Engg, 20+ Yrs Research & High Performance Systems</p>
+ </div>
+ </div>
+
+ <!-- Mentor 2: AS -->
+ <div class="mentor-card">
+ <div class="mentor-avatar-badge as">AS</div>
+ <div class="mentor-details">
+ <h3 class="mentor-name">Mr. Abhijit A. Samanta</h3>
+ <span class="mentor-designation">HOD, Mechanical Engineering</span>
+ <p class="mentor-spec">Thermal Fluidics, CAD/CAM Optimization & EV Powertrains</p>
+ </div>
+ </div>
+
+ <!-- Mentor 3: SB -->
+ <div class="mentor-card">
+ <div class="mentor-avatar-badge sb">SB</div>
+ <div class="mentor-details">
+ <h3 class="mentor-name">Mrs. Sarnita Bhandari</h3>
+ <span class="mentor-designation">HOD, Electronics & Computer Science</span>
+ <p class="mentor-spec">Embedded Architectures, IoT & Hardware Co-Design</p>
+ </div>
+ </div>
+
+ <!-- Mentor 4: SP -->
+ <div class="mentor-card">
+ <div class="mentor-avatar-badge sp">SP</div>
+ <div class="mentor-details">
+ <h3 class="mentor-name">Mrs. Swapna Patil</h3>
+ <span class="mentor-designation">HOD, Electronics & Telecommunication</span>
+ <p class="mentor-spec">5G Wireless Standards, Antenna Simulation & Signal Analysis</p>
+ </div>
+ </div>
+
+ <!-- Mentor 5: VK -->
+ <div class="mentor-card">
+ <div class="mentor-avatar-badge vk">VK</div>
+ <div class="mentor-details">
+ <h3 class="mentor-name">Dr. Vikas Kaul</h3>
+ <span class="mentor-designation">HOD, Information Technology</span>
+ <p class="mentor-spec">Data Analytics, Information Security & Cloud Infrastructure</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= SEND ENQUIRY (ADMISSION COUNSELING) ================= -->
+ <section class="section enquiry-full-section" id="enquiry-section">
+ <div class="container">
+ <div class="enquiry-layout-grid">
+ 
+ <!-- Left: Admission Counseling Guidance Info -->
+ <div class="enquiry-info-col">
+ <span class="section-tag">Admission 2026-27</span>
+ <h2 class="section-title">Ready to take the first step towards your engineering career?</h2>
+ <p class="enquiry-info-desc">
+ Connect with our dedicated academic counsellors for personalized guidance regarding cutoffs, seat matrices, autonomous curriculum options, fee concessions, and campus tours.
+ </p>
+
+ <div class="counseling-features">
+ <div class="counsel-item">
+ <div>
+ <h4>Direct Admission Helpline</h4>
+ <p>Call our admission counselors at <strong>+91 (022) 2812 0144 / 45</strong> (Mon - Sat, 9 AM - 5 PM)</p>
+ </div>
+ </div>
+
+ <div class="counsel-item">
+ <div>
+ <h4>Campus Visit & Lab Tour</h4>
+ <p>Visit our Mira Road campus for live lab demonstrations, library walkthrough, and direct interaction with HODs.</p>
+ </div>
+ </div>
+
+ <div class="counsel-item">
+ <div>
+ <h4>Scholarships & Fee Concessions</h4>
+ <p>Guidance on MahaDBT schemes, EBC, TFWS quota, and merit-based financial aid.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Right: Send Enquiry Form Card -->
+ <div class="enquiry-form-wrapper">
+ <div class="hero-form-card">
+ <div class="form-header">
+ <div>
+ <h3>Send enquiry</h3>
+ <p>Get immediate counseling & admission guidance</p>
+ </div>
+ </div>
+
+ <form id="enquiryForm" onsubmit="handleEnquirySubmit(event)">
+ <div class="form-group">
+ <label for="leadName">Name</label>
+ <input type="text" id="leadName" name="name" placeholder="Enter your full name" required>
+ </div>
+
+ <div class="form-group">
+ <label for="leadEmail">Email</label>
+ <input type="email" id="leadEmail" name="email" placeholder="example@domain.com" required>
+ </div>
+
+ <div class="form-group">
+ <label for="leadPhone">Phone</label>
+ <input type="tel" id="leadPhone" name="phone" placeholder="+91 98765 43210" required>
+ </div>
+
+ <div class="form-group">
+ <label for="leadCourse">Course</label>
+ <select id="leadCourse" name="course" required>
+ <option value="" disabled selected>Select desired engineering branch</option>
+ <optgroup label="B.E. Undergraduate (4 Years)">
+ <option value="Computer Engineering">B.E. Computer Engineering</option>
+ <option value="Information Technology">B.E. Information Technology</option>
+ <option value="Electronics & Computer Science">B.E. Electronics & Computer Science</option>
+ <option value="Electronics & Telecommunication">B.E. Electronics & Telecommunication</option>
+ <option value="Mechanical Engineering">B.E. Mechanical Engineering</option>
+ <option value="Civil Engineering">B.E. Civil Engineering</option>
+ </optgroup>
+ <optgroup label="M.E. Postgraduate (2 Years)">
+ <option value="M.E. Computer Engineering">M.E. Computer Engineering</option>
+ <option value="M.E. Electronics & Telecommunication">M.E. Electronics & Telecommunication</option>
+ </optgroup>
+ <optgroup label="Doctoral Studies">
+ <option value="Ph.D. Research">Ph.D. Research Programme</option>
+ </optgroup>
+ </select>
+ </div>
+
+ <button type="submit" class="btn btn-primary btn-block btn-submit">
+ <span>Submit Enquiry</span>
+ </button>
+ </form>
+
+ <div class="demo-feedback-notice" id="enquirySuccessNotice">
+ <span>Thanks! (Demo form, nothing is sent.)</span>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= ACTIVE APPROVALS COMPACT BAND ================= -->
+ <section class="approvals-band">
+ <div class="container">
+ <div class="approvals-header">
+ <span class="approvals-title">Active approvals</span>
+ <span class="approvals-subtitle">Shown once, as a compact band.</span>
+ </div>
+ <div class="approvals-row">
+ <div class="approval-item">NAAC</div>
+ <div class="approval-item">NBA</div>
+ <div class="approval-item">AICTE</div>
+ <div class="approval-item">DTE Maharashtra</div>
+ <div class="approval-item">UGC 2(f)</div>
+ <div class="approval-item">University of Mumbai</div>
+ <div class="approval-item">ISO 9001:2015</div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ================= SHARED GLOBAL FOOTER ================= -->
+ <site-footer></site-footer>
+
+ <!-- ================= MODALS & POPUPS FOR ALL MENTIONED ITEMS ================= -->
+
+ <!-- Generic Modal Backdrop -->
+ <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+ <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+ <div class="modal-header">
+ <h3 id="modalTitle">Modal Header</h3>
+ <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+ </div>
+ <div class="modal-body" id="modalBody">
+ <!-- Content inserted dynamically -->
+ </div>
+ <div class="modal-footer">
+ <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+ </div>
+ </div>
+ </div>
+
+ <script src="app.js"></script>
+</body>
+</html>

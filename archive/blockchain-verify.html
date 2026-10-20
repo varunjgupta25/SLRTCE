@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Transcript Verification | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Verify SLRTCE student academic transcripts instantly using the blockchain verification portal — for employers, universities, and background check agencies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .verify-center {
+      display: flex; justify-content: center;
+      padding: 1.5rem 0 2rem;
+    }
+    .verify-card {
+      width: 100%; max-width: 500px;
+      border: 1px solid var(--border-color);
+      padding: 2rem; background: var(--bg-card);
+    }
+    .verify-card h2 { margin: 0 0 0.35rem; color: var(--color-maroon); font-size: 1.2rem; }
+    .verify-card p { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+    .verify-card .form-group { margin-bottom: 1rem; }
+    .verify-card label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .verify-card input {
+      width: 100%; padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-color); background: var(--bg-main);
+      color: var(--text-main); font-family: var(--font-main); font-size: 0.9rem;
+    }
+    .verify-card input:focus { outline: none; border-color: var(--color-maroon); }
+    .verify-card .btn { width: 100%; margin-top: 0.5rem; }
+    .chain-badge {
+      display: inline-block; background: var(--color-maroon);
+      color: #fff; font-size: 0.72rem; font-weight: 700;
+      padding: 0.2rem 0.6rem; margin-bottom: 1rem; letter-spacing: 0.05em;
+    }
+    .verify-result {
+      display: none; margin-top: 1.25rem;
+      border: 1px solid #38a169; background: #f0fff4;
+      padding: 1rem; font-size: 0.875rem; color: #276749;
+    }
+    .verify-result strong { display: block; margin-bottom: 0.35rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="Blockchain Verification Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Blockchain Based Transcript</span> / <span>Verification</span>
+        </div>
+        <h1 class="inner-banner-title">Blockchain Transcript Verification</h1>
+        <p class="inner-banner-desc">
+          Instantly verify the authenticity of any SLRTCE academic transcript using a document hash or verification code — for employers, universities, and verification agencies.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Blockchain Verification System" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p>This portal is for <strong>employers, universities, and background screening agencies</strong> to independently verify the authenticity of an SLRTCE blockchain-issued academic transcript without contacting the college directly.</p>
+      </div>
+
+      <div class="verify-center">
+        <div class="verify-card">
+          <span class="chain-badge">BLOCKCHAIN VERIFICATION</span>
+          <h2>Verify a Transcript</h2>
+          <p>Enter the document verification code or hash printed on the SLRTCE blockchain transcript to confirm its authenticity.</p>
+
+          <form id="verifyForm" onsubmit="handleVerify(event)">
+            <div class="form-group">
+              <label for="verifyCode">Verification Code / Document Hash</label>
+              <input type="text" id="verifyCode" placeholder="e.g. SLRTCE-2024-CE-A7F3D2C1..." required>
+            </div>
+            <button type="submit" class="btn btn-primary">Verify Transcript</button>
+
+            <div class="verify-result" id="verifyResult">
+              <strong>Transcript Verified Successfully</strong>
+              This is a demonstration of the verification result. In the live system, the student's name, programme, graduation year, and CGPA would be displayed here after blockchain confirmation.
+            </div>
+          </form>
+
+          <div style="margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+            Student login: <a href="blockchain-login.html" style="color: var(--color-maroon); font-weight: 600;">Student Portal</a>
+          </div>
+        </div>
+      </div>
+
+      <h2>How Verification Works</h2>
+      <table class="inner-table">
+        <thead><tr><th>Step</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>The graduate shares their blockchain transcript (PDF or digital link) with the employer or institution</td></tr>
+          <tr><td>2</td><td>The verifier locates the <strong>Verification Code</strong> or <strong>Document Hash</strong> printed on the transcript</td></tr>
+          <tr><td>3</td><td>Enter the code in the verification portal above and click Verify</td></tr>
+          <tr><td>4</td><td>The system queries the blockchain and returns the verified credential data in real-time</td></tr>
+          <tr><td>5</td><td>A verified result confirms the document is genuine and unaltered since issuance</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Why Blockchain?</h2>
+      <table class="inner-table">
+        <thead><tr><th>Feature</th><th>Benefit</th></tr></thead>
+        <tbody>
+          <tr><td>Immutability</td><td>Once recorded on the blockchain, credentials cannot be altered or deleted</td></tr>
+          <tr><td>Decentralization</td><td>No single point of failure — the record exists across multiple nodes</td></tr>
+          <tr><td>Instant Verification</td><td>Verification takes seconds — no waiting for college responses or physical document couriering</td></tr>
+          <tr><td>Global Accessibility</td><td>Any employer or institution worldwide can verify credentials online</td></tr>
+          <tr><td>Fraud Prevention</td><td>Eliminates fake degree certificates and transcript forgery</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Contact — Transcript Queries</h2>
+      <table class="inner-table">
+        <tr><th>Examination Cell</th><td><a href="mailto:exam@slrtce.in">exam@slrtce.in</a></td></tr>
+        <tr><th>Phone</th><td>+91 (022) 2812 0144</td></tr>
+        <tr><th>Hours</th><td>Mon–Fri, 10:00 AM – 4:00 PM</td></tr>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    function handleVerify(e) {
+      e.preventDefault();
+      document.getElementById('verifyResult').style.display = 'block';
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Blockchain Based Transcript', 'Verification', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

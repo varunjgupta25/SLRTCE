@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE (Data Science) | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="B.E. Computer Science & Engineering (Data Science) at SLRTCE — big data, data engineering, analytics, and business intelligence. 60 intake, AICTE approved.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="CSE Data Science Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>CSE (Data Science)</span>
+        </div>
+        <h1 class="inner-banner-title">CSE (Data Science)</h1>
+        <p class="inner-banner-desc">
+          B.E. Computer Science & Engineering with specialization in Data Science — big data engineering, analytics pipelines, data visualization, and business intelligence.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Data Science Lab" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p><strong>AICTE Approved</strong> &nbsp;|&nbsp; <strong>B.E. Intake: 60</strong> &nbsp;|&nbsp; <strong>Established: 2021</strong> &nbsp;|&nbsp; <strong>CSE Specialization</strong></p>
+      </div>
+
+      <h2>About the Programme</h2>
+      <p>
+        The B.E. in Computer Science & Engineering (Data Science) is a specialization programme that combines a strong computer science foundation with deep expertise in data engineering, analytics, and business intelligence. The programme prepares students to work as data engineers, analysts, and scientists who can collect, process, model, and communicate insights from large and complex datasets.
+      </p>
+      <p>
+        Data Science graduates are among the most sought-after professionals globally, with demand spanning every industry — from finance and healthcare to retail, manufacturing, and government.
+      </p>
+
+      <h2>Programme Profile</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Programme</th><td>B.E. CSE (Data Science) — 4 Years</td></tr>
+          <tr><th>Intake</th><td>60 seats</td></tr>
+          <tr><th>Established</th><td>2021</td></tr>
+          <tr><th>Affiliation</th><td>University of Mumbai | AICTE Approved</td></tr>
+          <tr><th>Key Domains</th><td>Big Data, Data Engineering, Analytics, Business Intelligence, Data Visualization</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Curriculum Highlights</h2>
+      <table class="inner-table">
+        <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
+        <tbody>
+          <tr><td>First Year</td><td>Python Programming, Mathematics (Statistics & Probability), DBMS, Data Structures, Introduction to Data Science</td></tr>
+          <tr><td>Second Year</td><td>SQL & NoSQL Databases, Data Warehousing, Statistical Modelling, Exploratory Data Analysis, Data Wrangling</td></tr>
+          <tr><td>Third Year</td><td>Big Data Technologies (Hadoop/Spark), Machine Learning for DS, Data Visualization (Tableau/Power BI), Cloud Data Platforms</td></tr>
+          <tr><td>Final Year</td><td>Real-time Data Pipelines, Business Analytics, AI-driven BI Tools, Ethics in Data, Capstone Data Science Project</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Tools & Technologies</h2>
+      <table class="inner-table">
+        <thead><tr><th>Category</th><th>Tools</th></tr></thead>
+        <tbody>
+          <tr><td>Programming</td><td>Python, R, SQL, Scala</td></tr>
+          <tr><td>Big Data</td><td>Apache Hadoop, Spark, Hive, Kafka</td></tr>
+          <tr><td>Visualization</td><td>Tableau, Power BI, Matplotlib, Seaborn, Plotly</td></tr>
+          <tr><td>Cloud Platforms</td><td>AWS (Redshift, Glue, Athena), GCP BigQuery, Azure Synapse</td></tr>
+          <tr><td>ML Libraries</td><td>Scikit-learn, XGBoost, LightGBM, Pandas, NumPy</td></tr>
+          <tr><td>Databases</td><td>Oracle, MySQL, PostgreSQL, MongoDB, Cassandra</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Career Pathways</h2>
+      <table class="inner-table">
+        <thead><tr><th>Role</th><th>Industry</th></tr></thead>
+        <tbody>
+          <tr><td>Data Engineer</td><td>Tech, BFSI, Consulting</td></tr>
+          <tr><td>Data Analyst</td><td>E-commerce, Healthcare, Retail</td></tr>
+          <tr><td>Business Intelligence Analyst</td><td>Corporate, Government, FMCG</td></tr>
+          <tr><td>Data Scientist</td><td>All sectors</td></tr>
+          <tr><td>Analytics Consultant</td><td>Big 4, MNCs, Startups</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'Computer Science & Engineering (Data Science)', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

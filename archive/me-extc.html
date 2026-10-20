@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M.E. Electronics & Telecommunication | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="M.E. Electronics & Telecommunication Engineering at SLRTCE — Advanced Optical Communications, Microwave Systems, AI-assisted Signal Processing. 18 intake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="ME EXTC Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>Post Graduate Programmes</span> / <span>M.E. EXTC</span>
+        </div>
+        <h1 class="inner-banner-title">M.E. Electronics & Telecommunication</h1>
+        <p class="inner-banner-desc">
+          Advanced postgraduate programme in Optical Communications, Microwave Systems, and AI-assisted Signal Processing. 18 intake, 2 years.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE EXTC Research Lab" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p><strong>AICTE Approved</strong> &nbsp;|&nbsp; <strong>Intake: 18</strong> &nbsp;|&nbsp; <strong>2 Years Full-Time</strong> &nbsp;|&nbsp; <strong>Established: 2013</strong></p>
+      </div>
+
+      <h2>About the Programme</h2>
+      <p>
+        The M.E. in Electronics & Telecommunication Engineering at SLRTCE is a rigorous postgraduate programme for engineers seeking mastery in advanced communication systems, photonics, microwave engineering, and next-generation wireless technologies. The programme combines advanced theory with experimental research and a full-year dissertation.
+      </p>
+
+      <h2>Programme Profile</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Programme</th><td>Master of Engineering — Electronics & Telecommunication</td></tr>
+          <tr><th>Duration</th><td>2 Years (4 Semesters)</td></tr>
+          <tr><th>Intake</th><td>18 seats</td></tr>
+          <tr><th>Established</th><td>2013</td></tr>
+          <tr><th>Total Credits</th><td>72</td></tr>
+          <tr><th>Eligibility</th><td>B.E./B.Tech in EXTC, ECS, Electronics, or equivalent; MAH-M.E. CET / GATE score</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Curriculum Overview</h2>
+      <table class="inner-table">
+        <thead><tr><th>Semester</th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Semester I</td><td>Advanced Digital Communications, Optical Fiber Communications, Research Methodology, Elective I</td></tr>
+          <tr><td>Semester II</td><td>Microwave Engineering & Antenna Design, AI-assisted Signal Processing, Elective II, Mini Research Project</td></tr>
+          <tr><td>Semester III</td><td>Dissertation Phase I — Proposal, Literature Review, Lab Experiments</td></tr>
+          <tr><td>Semester IV</td><td>Dissertation Phase II — Prototype, Results, Paper Publication, Viva Voce</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Research Areas</h2>
+      <table class="inner-table">
+        <thead><tr><th>Domain</th><th>Topics</th></tr></thead>
+        <tbody>
+          <tr><td>Advanced Optical Communications</td><td>WDM systems, photonic integrated circuits, coherent optical transmission</td></tr>
+          <tr><td>5G/6G Wireless Systems</td><td>Massive MIMO, beamforming, millimeter wave propagation, network slicing</td></tr>
+          <tr><td>Microwave & Antenna</td><td>Phased array antennas, reconfigurable intelligent surfaces, radar systems</td></tr>
+          <tr><td>AI in Signal Processing</td><td>Deep learning for channel estimation, adaptive filtering, cognitive radio</td></tr>
+          <tr><td>Satellite & Space Comm.</td><td>LEO satellite link budgets, VSAT systems, ground station design</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Eligibility & Admission</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Qualifying Degree</th><td>B.E./B.Tech in EXTC, Electronics, ECS, or equivalent</td></tr>
+          <tr><th>Minimum Marks</th><td>50% aggregate (45% for SC/ST)</td></tr>
+          <tr><th>Entrance Exam</th><td>MAH-M.E./M.Tech CET or valid GATE score</td></tr>
+          <tr><th>Admission Route</th><td>DTE Maharashtra CAP rounds</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'Electronics and Telecommunication Engineering', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

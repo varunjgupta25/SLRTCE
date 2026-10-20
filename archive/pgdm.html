@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGDM | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Post Graduate Diploma in Management (PGDM) at SLRTCE — Finance, Business Analytics, Marketing, Corporate Law, Cyber Law, and Management specializations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="PGDM Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>Post Graduate Programmes</span> / <span>PGDM</span>
+        </div>
+        <h1 class="inner-banner-title">Post Graduate Diploma in Management (PGDM)</h1>
+        <p class="inner-banner-desc">
+          2-year management programme with specializations in Finance, Business Analytics, Marketing, Corporate Law, Cyber Law, and Management.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE PGDM Management Programme" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p><strong>Intake: 60</strong> &nbsp;|&nbsp; <strong>2 Years (4 Semesters)</strong> &nbsp;|&nbsp; <strong>Multiple Specializations</strong> &nbsp;|&nbsp; <strong>Industry-Integrated Curriculum</strong></p>
+      </div>
+
+      <h2>About the Programme</h2>
+      <p>
+        The Post Graduate Diploma in Management (PGDM) at SLRTCE is a 2-year full-time management programme that combines strong business fundamentals with specialized knowledge tracks tailored to current industry demand. The programme is open to graduates from any discipline and is designed to produce professionals with both strategic thinking and domain expertise.
+      </p>
+      <p>
+        What sets SLRTCE's PGDM apart is its technology-management convergence — students graduating from engineering backgrounds find a natural bridge between their technical skills and business leadership, while non-engineering graduates gain exposure to the technology dimensions reshaping every industry.
+      </p>
+
+      <h2>Specializations Offered</h2>
+      <table class="inner-table">
+        <thead><tr><th>Specialization</th><th>Career Focus</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Finance</strong></td><td>Investment banking, corporate finance, financial analysis, equity research</td></tr>
+          <tr><td><strong>Business Analytics</strong></td><td>Data-driven decision making, BI tools, analytics consulting</td></tr>
+          <tr><td><strong>Marketing</strong></td><td>Brand management, digital marketing, consumer behaviour, sales strategy</td></tr>
+          <tr><td><strong>Corporate Law</strong></td><td>Company law, contracts, mergers & acquisitions, regulatory compliance</td></tr>
+          <tr><td><strong>Cyber Law</strong></td><td>IT Act, data protection, cybercrime law, digital evidence, IP rights</td></tr>
+          <tr><td><strong>Management</strong></td><td>General management, HR, operations, supply chain, project management</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Programme Structure</h2>
+      <table class="inner-table">
+        <thead><tr><th>Semester</th><th>Key Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Semester I</td><td>Management Fundamentals — Accounting, Economics, Organizational Behaviour, Business Communication, Statistics</td></tr>
+          <tr><td>Semester II</td><td>Core Management — Marketing, Finance, HRM, Operations, Business Research Methods</td></tr>
+          <tr><td>Semester III</td><td>Specialization Electives (2) + Summer Internship (8 weeks) + Industry Project</td></tr>
+          <tr><td>Semester IV</td><td>Advanced Specialization Electives + Dissertation / Industry Consulting Project + Placement Preparation</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Eligibility & Admission</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Qualifying Degree</th><td>Any Bachelor's degree (minimum 3 years) from a recognized university</td></tr>
+          <tr><th>Minimum Marks</th><td>50% aggregate (45% for SC/ST)</td></tr>
+          <tr><th>Selection Process</th><td>Written test / GD / Personal Interview at SLRTCE (merit + aptitude based)</td></tr>
+          <tr><th>Contact</th><td><a href="mailto:admissions@slrtce.in">admissions@slrtce.in</a> | +91 (022) 2812 0144</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'PGDM Program', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

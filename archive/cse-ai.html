@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE (AI & Data Science) | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="B.E. Computer Science & Engineering (Artificial Intelligence & Data Science) at SLRTCE — AI systems, data science, intelligent applications. 60 intake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="CSE AI & DS Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>CSE (AI & Data Science)</span>
+        </div>
+        <h1 class="inner-banner-title">CSE (Artificial Intelligence & Data Science)</h1>
+        <p class="inner-banner-desc">
+          B.E. programme at the intersection of AI and Data Science — intelligent system design, predictive analytics, cognitive computing, and applied AI development.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE AI & Data Science Lab" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p><strong>AICTE Approved</strong> &nbsp;|&nbsp; <strong>B.E. Intake: 60</strong> &nbsp;|&nbsp; <strong>Established: 2021</strong> &nbsp;|&nbsp; <strong>CSE Specialization</strong></p>
+      </div>
+
+      <h2>About the Programme</h2>
+      <p>
+        The B.E. in CSE (Artificial Intelligence & Data Science) is a convergence programme that trains students to be both AI practitioners and data science professionals. Where pure AI programmes focus on model building and where pure DS programmes focus on data pipelines, this programme equips students with both skill sets — preparing them to build end-to-end intelligent data applications.
+      </p>
+      <p>
+        Graduates are equipped to design AI-powered products, build data-driven decision systems, and deploy scalable intelligent applications across domains including healthcare, finance, manufacturing, and smart cities.
+      </p>
+
+      <h2>Programme Profile</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Programme</th><td>B.E. CSE (Artificial Intelligence & Data Science) — 4 Years</td></tr>
+          <tr><th>Intake</th><td>60 seats</td></tr>
+          <tr><th>Established</th><td>2021</td></tr>
+          <tr><th>Affiliation</th><td>University of Mumbai | AICTE Approved</td></tr>
+          <tr><th>Key Domains</th><td>Artificial Intelligence, Machine Learning, Data Science, Cognitive Systems, Applied AI</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Curriculum Highlights</h2>
+      <table class="inner-table">
+        <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
+        <tbody>
+          <tr><td>First Year</td><td>Python, Discrete Mathematics, Statistics & Probability, Introduction to AI & DS, Data Structures</td></tr>
+          <tr><td>Second Year</td><td>Machine Learning, DBMS, Data Exploration & Analysis, Algorithm Design, Software Engineering</td></tr>
+          <tr><td>Third Year</td><td>Deep Learning, Big Data Engineering, NLP, Computer Vision, AI Product Development</td></tr>
+          <tr><td>Final Year</td><td>Generative AI, Advanced Analytics, Responsible AI, Industry Capstone Project</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Differentiator vs. AIML and CSE-DS</h2>
+      <table class="inner-table">
+        <thead><tr><th>Programme</th><th>Primary Focus</th></tr></thead>
+        <tbody>
+          <tr><td>B.E. AIML</td><td>Deep AI model research, LLMs, MLOps, advanced model architectures</td></tr>
+          <tr><td>B.E. CSE (Data Science)</td><td>Data pipelines, warehousing, BI, analytics engineering</td></tr>
+          <tr><td><strong>B.E. CSE (AI & DS)</strong></td><td><strong>End-to-end: AI model + data infrastructure + product deployment</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Career Pathways</h2>
+      <table class="inner-table">
+        <thead><tr><th>Role</th><th>Industry</th></tr></thead>
+        <tbody>
+          <tr><td>AI Application Developer</td><td>Product companies, SaaS startups</td></tr>
+          <tr><td>Data Scientist</td><td>BFSI, Healthcare, Retail</td></tr>
+          <tr><td>ML Engineer</td><td>Tech MNCs, AI startups</td></tr>
+          <tr><td>Cognitive Systems Analyst</td><td>Consulting, IBM, Accenture</td></tr>
+          <tr><td>AI Product Manager (with experience)</td><td>Product companies</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'Computer Science & Engineering (Artificial Intelligence & Data Science)', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

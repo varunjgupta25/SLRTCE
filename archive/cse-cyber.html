@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE (Cyber Security) | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="B.E. Computer Science & Engineering (Cyber Security) at SLRTCE — ethical hacking, network security, cryptography, digital forensics. 60 intake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="CSE Cyber Security Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>CSE (Cyber Security)</span>
+        </div>
+        <h1 class="inner-banner-title">CSE (Cyber Security)</h1>
+        <p class="inner-banner-desc">
+          B.E. programme for the next generation of security professionals — ethical hacking, network security, cryptography, digital forensics, and cloud security.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Cybersecurity Lab" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p><strong>AICTE Approved</strong> &nbsp;|&nbsp; <strong>B.E. Intake: 60</strong> &nbsp;|&nbsp; <strong>Established: 2022</strong> &nbsp;|&nbsp; <strong>CSE Specialization</strong></p>
+      </div>
+
+      <h2>About the Programme</h2>
+      <p>
+        The B.E. in Computer Science & Engineering (Cyber Security) was launched in 2022 to address one of the most critical skill gaps in the global technology industry. Cybersecurity professionals are in extreme demand — India alone needs over 1 million cybersecurity specialists, and the global shortfall runs into millions. This programme trains students to become those specialists.
+      </p>
+      <p>
+        The curriculum covers both the offensive and defensive sides of cybersecurity — giving students the skills to think like attackers (ethical hacking, penetration testing) while building the expertise to defend systems, investigate incidents, and design secure architectures.
+      </p>
+
+      <h2>Programme Profile</h2>
+      <table class="inner-table">
+        <tbody>
+          <tr><th>Programme</th><td>B.E. CSE (Cyber Security) — 4 Years</td></tr>
+          <tr><th>Intake</th><td>60 seats</td></tr>
+          <tr><th>Established</th><td>2022</td></tr>
+          <tr><th>Affiliation</th><td>University of Mumbai | AICTE Approved</td></tr>
+          <tr><th>Key Domains</th><td>Ethical Hacking, Network Security, Cryptography, Digital Forensics, Cloud Security, SOC Operations</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Curriculum Highlights</h2>
+      <table class="inner-table">
+        <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
+        <tbody>
+          <tr><td>First Year</td><td>Programming (C/Python), Computer Networks Fundamentals, Operating Systems, Mathematics, Security Fundamentals</td></tr>
+          <tr><td>Second Year</td><td>Network Security, Cryptography & PKI, Web Application Security, Linux System Administration, DBMS</td></tr>
+          <tr><td>Third Year</td><td>Ethical Hacking & Penetration Testing, Digital Forensics, Malware Analysis, Cloud Security, SIEM & SOC Operations</td></tr>
+          <tr><td>Final Year</td><td>Advanced Persistent Threats, Incident Response, Blockchain Security, AI in Cybersecurity, Capstone Security Project</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Cybersecurity Lab</h2>
+      <table class="inner-table">
+        <thead><tr><th>Tool / Platform</th><th>Application</th></tr></thead>
+        <tbody>
+          <tr><td>Kali Linux</td><td>Penetration testing, vulnerability assessment</td></tr>
+          <tr><td>Metasploit Framework</td><td>Exploit development, ethical hacking practice</td></tr>
+          <tr><td>Wireshark / Nmap</td><td>Network traffic analysis, port scanning</td></tr>
+          <tr><td>Burp Suite</td><td>Web application security testing</td></tr>
+          <tr><td>Splunk / IBM QRadar (trial)</td><td>SIEM, security event monitoring</td></tr>
+          <tr><td>Autopsy / FTK Imager</td><td>Digital forensics and evidence analysis</td></tr>
+          <tr><td>AWS Security / Azure Defender</td><td>Cloud security practice environments</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Industry Certifications Aligned</h2>
+      <table class="inner-table">
+        <thead><tr><th>Certification</th><th>Issuing Body</th></tr></thead>
+        <tbody>
+          <tr><td>CEH — Certified Ethical Hacker</td><td>EC-Council</td></tr>
+          <tr><td>CompTIA Security+</td><td>CompTIA</td></tr>
+          <tr><td>OSCP — Offensive Security Certified Professional</td><td>Offensive Security</td></tr>
+          <tr><td>AWS Certified Security Specialty</td><td>Amazon Web Services</td></tr>
+          <tr><td>CISSP (post-experience)</td><td>(ISC)²</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'Computer Science & Engineering (Cyber Security)', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

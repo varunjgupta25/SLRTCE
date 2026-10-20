@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Toppers | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="University toppers and meritorious students of SLRTCE — UG and PG rank holders across all engineering programmes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .topper-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    @media (max-width: 768px) { .topper-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .topper-grid { grid-template-columns: 1fr; } }
+    .topper-card {
+      border: 1px solid var(--border-color);
+      padding: 1.1rem;
+      text-align: center;
+      background: var(--bg-card);
+    }
+    .topper-rank {
+      display: inline-block;
+      background: var(--color-maroon);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .topper-name { font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin: 0 0 0.2rem; }
+    .topper-branch { font-size: 0.8rem; color: var(--text-muted); margin: 0 0 0.15rem; }
+    .topper-cgpa { font-size: 0.85rem; font-weight: 700; color: var(--color-maroon); margin: 0; }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="College Toppers Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Academics</span> / <span>College Toppers</span>
+        </div>
+        <h1 class="inner-banner-title">College Toppers</h1>
+        <p class="inner-banner-desc">
+          Celebrating academic excellence — University rank holders, gold medallists, and meritorious graduates from SLRTCE's undergraduate and postgraduate programmes.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_project_review.jpg" alt="SLRTCE Academic Excellence" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p>SLRTCE students consistently achieve University of Mumbai ranks and distinctions. The toppers listed here represent the academic best of each passing batch. Detailed rank certificates are available with the Examination Cell.</p>
+      </div>
+
+      <h2>UG Toppers — B.E. AY 2024-25</h2>
+      <div class="topper-grid">
+        <div class="topper-card">
+          <span class="topper-rank">University Rank</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Computer Engineering</p>
+          <p class="topper-cgpa">CGPA: 9.8 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">University Rank</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Information Technology</p>
+          <p class="topper-cgpa">CGPA: 9.7 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">University Rank</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Electronics & Telecom</p>
+          <p class="topper-cgpa">CGPA: 9.6 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">College Topper</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Electronics & Computer Sci.</p>
+          <p class="topper-cgpa">CGPA: 9.5 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">College Topper</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Mechanical Engineering</p>
+          <p class="topper-cgpa">CGPA: 9.4 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">College Topper</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">Civil Engineering</p>
+          <p class="topper-cgpa">CGPA: 9.3 / 10</p>
+        </div>
+      </div>
+
+      <h2>PG Toppers — M.E. AY 2024-25</h2>
+      <div class="topper-grid">
+        <div class="topper-card">
+          <span class="topper-rank">University Rank</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">M.E. Computer Engineering</p>
+          <p class="topper-cgpa">CGPA: 9.9 / 10</p>
+        </div>
+        <div class="topper-card">
+          <span class="topper-rank">University Rank</span>
+          <p class="topper-name">Topper Name</p>
+          <p class="topper-branch">M.E. Electronics & Telecom</p>
+          <p class="topper-cgpa">CGPA: 9.7 / 10</p>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--color-gold); background: #fffbf0; padding: 1.25rem; margin-bottom: 1.75rem;">
+        <p style="margin: 0; font-size: 0.9rem; color: var(--text-main);">
+          <strong>Note:</strong> Topper names will be updated with official University of Mumbai results for each batch. Current entries are placeholder records. For the verified list of university rank holders, contact the Examination Cell at <a href="mailto:exam@slrtce.in">exam@slrtce.in</a>.
+        </p>
+      </div>
+
+      <h2>Academic Excellence Awards</h2>
+      <table class="inner-table">
+        <thead><tr><th>Award</th><th>Criteria</th><th>Frequency</th></tr></thead>
+        <tbody>
+          <tr><td><strong>University Gold Medal</strong></td><td>First rank in University of Mumbai final examination (programme-wise)</td><td>Annual</td></tr>
+          <tr><td><strong>SLRTCE Merit Award</strong></td><td>Top 3 CGPA holders in each branch at the time of graduation</td><td>Annual</td></tr>
+          <tr><td><strong>Director's List</strong></td><td>Students with CGPA 9.0+ in any semester</td><td>Per semester</td></tr>
+          <tr><td><strong>Best Project Award</strong></td><td>Best final-year project in each department</td><td>Annual</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Contact — Examination Cell</h2>
+      <table class="inner-table">
+        <tr><th>Email</th><td><a href="mailto:exam@slrtce.in">exam@slrtce.in</a></td></tr>
+        <tr><th>Phone</th><td>+91 (022) 2812 0144</td></tr>
+        <tr><th>Hours</th><td>Mon–Fri, 10:00 AM – 4:00 PM</td></tr>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Academics', 'Under Graduate Rankers', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

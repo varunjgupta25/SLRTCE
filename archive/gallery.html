@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Photo gallery of Shree L. R. Tiwari College of Engineering (SLRTCE) - Campus, events, labs, student activities, and cultural festivals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .gallery-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .gallery-filter-btn {
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--color-maroon);
+      background: transparent;
+      color: var(--color-maroon);
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    .gallery-filter-btn.active,
+    .gallery-filter-btn:hover {
+      background: var(--color-maroon);
+      color: #fff;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(143, 10, 11, 0.88);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+    }
+    .gallery-item:hover .gallery-item-caption {
+      transform: translateY(0);
+    }
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+    }
+    .lightbox-inner img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+    .lightbox-caption {
+      color: #fff;
+      text-align: center;
+      padding: 0.75rem 0 0;
+      font-size: 0.9rem;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -2rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.75rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(143,10,11,0.8);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+    }
+    .lightbox-nav.prev { left: -3.5rem; }
+    .lightbox-nav.next { right: -3.5rem; }
+    @media (max-width: 768px) {
+      .lightbox-nav.prev { left: 0; }
+      .lightbox-nav.next { right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="Gallery Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>About Us</span> / <span>Gallery</span>
+        </div>
+        <h1 class="inner-banner-title">Gallery</h1>
+        <p class="inner-banner-desc">
+          A visual journey through campus life, academic events, cultural festivals, student achievements, and the vibrant community at SLRTCE.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Carpe Diem Cultural Festival 2025" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <!-- Filter Bar -->
+      <div class="gallery-filter-bar" role="group" aria-label="Filter gallery by category">
+        <button class="gallery-filter-btn active" onclick="filterGallery('all', this)">All Photos</button>
+        <button class="gallery-filter-btn" onclick="filterGallery('campus', this)">Campus</button>
+        <button class="gallery-filter-btn" onclick="filterGallery('events', this)">Events & Fests</button>
+        <button class="gallery-filter-btn" onclick="filterGallery('labs', this)">Labs & Tech</button>
+        <button class="gallery-filter-btn" onclick="filterGallery('academic', this)">Academic</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gallery-item" data-cat="campus" onclick="openLightbox(0)">
+          <img src="assets/slide_campus_lawn.jpg" alt="SLRTCE Main Campus Building with manicured lawn">
+          <div class="gallery-item-caption">SLRTCE Campus — Mira Road</div>
+        </div>
+
+        <div class="gallery-item" data-cat="campus" onclick="openLightbox(1)">
+          <img src="assets/slide_college_entrance.jpg" alt="SLRTCE Main College Entrance Gate">
+          <div class="gallery-item-caption">Main Entrance Gate</div>
+        </div>
+
+        <div class="gallery-item" data-cat="campus" onclick="openLightbox(2)">
+          <img src="assets/campus_building.png" alt="SLRTCE Multi-storey Academic Block">
+          <div class="gallery-item-caption">Academic Block</div>
+        </div>
+
+        <div class="gallery-item" data-cat="events" onclick="openLightbox(3)">
+          <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Students at Carpe Diem 2025 Cultural Festival">
+          <div class="gallery-item-caption">Carpe Diem 2025 — Champions</div>
+        </div>
+
+        <div class="gallery-item" data-cat="events" onclick="openLightbox(4)">
+          <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Alumni Meet and Seminar Event">
+          <div class="gallery-item-caption">Alumni Meet & Institute Events</div>
+        </div>
+
+        <div class="gallery-item" data-cat="events" onclick="openLightbox(5)">
+          <img src="assets/slide_dlle_voter_session.jpg" alt="SLRTCE DLLE Voter Awareness Drive">
+          <div class="gallery-item-caption">DLLE Voter Awareness Drive</div>
+        </div>
+
+        <div class="gallery-item" data-cat="labs" onclick="openLightbox(6)">
+          <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Modern Computer and Electronics Laboratories">
+          <div class="gallery-item-caption">Advanced Computing & Electronics Labs</div>
+        </div>
+
+        <div class="gallery-item" data-cat="labs" onclick="openLightbox(7)">
+          <img src="assets/slide_robot_exhibition.jpg" alt="SLRTCE Students with Humanoid Robot at Technical Exhibition">
+          <div class="gallery-item-caption">Technical Exhibition & Robotics</div>
+        </div>
+
+        <div class="gallery-item" data-cat="academic" onclick="openLightbox(8)">
+          <img src="assets/slide_project_demo.jpg" alt="Faculty reviewing student engineering project demonstrations">
+          <div class="gallery-item-caption">Student Innovation & Project Demos</div>
+        </div>
+
+        <div class="gallery-item" data-cat="academic" onclick="openLightbox(9)">
+          <img src="assets/slide_project_review.jpg" alt="Academic dignitaries evaluating student research posters">
+          <div class="gallery-item-caption">Project Review & Research Exhibition</div>
+        </div>
+
+        <div class="gallery-item" data-cat="academic" onclick="openLightbox(10)">
+          <img src="assets/slide_classroom.jpg" alt="Interactive lecture session in SLRTCE smart classroom">
+          <div class="gallery-item-caption">Smart Classrooms & Academic Sessions</div>
+        </div>
+
+        <div class="gallery-item" data-cat="campus" onclick="openLightbox(11)">
+          <img src="assets/library.jpg" alt="SLRTCE Central Library with book stacks">
+          <div class="gallery-item-caption">Central Library</div>
+        </div>
+
+      </div>
+
+    </article>
+
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer">&times;</button>
+      <button class="lightbox-nav prev" onclick="lightboxNav(-1)" aria-label="Previous image">&#8249;</button>
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <button class="lightbox-nav next" onclick="lightboxNav(1)" aria-label="Next image">&#8250;</button>
+    </div>
+  </div>
+
+  <site-footer></site-footer>
+
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal Header</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Gallery data for lightbox
+    const galleryData = [
+      { src: 'assets/slide_campus_lawn.jpg', caption: 'SLRTCE Campus — Mira Road' },
+      { src: 'assets/slide_college_entrance.jpg', caption: 'Main Entrance Gate' },
+      { src: 'assets/campus_building.png', caption: 'Academic Block' },
+      { src: 'assets/slide_carpe_diem_2025.jpg', caption: 'Carpe Diem 2025 — Champions' },
+      { src: 'assets/slide_alumni_meet.jpg', caption: 'Alumni Meet & Institute Events' },
+      { src: 'assets/slide_dlle_voter_session.jpg', caption: 'DLLE Voter Awareness Drive' },
+      { src: 'assets/slide_computer_lab.jpg', caption: 'Advanced Computing & Electronics Labs' },
+      { src: 'assets/slide_robot_exhibition.jpg', caption: 'Technical Exhibition & Robotics' },
+      { src: 'assets/slide_project_demo.jpg', caption: 'Student Innovation & Project Demos' },
+      { src: 'assets/slide_project_review.jpg', caption: 'Project Review & Research Exhibition' },
+      { src: 'assets/slide_classroom.jpg', caption: 'Smart Classrooms & Academic Sessions' },
+      { src: 'assets/library.jpg', caption: 'Central Library' }
+    ];
+
+    let currentLightboxIdx = 0;
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      document.getElementById('lightboxImg').src = galleryData[idx].src;
+      document.getElementById('lightboxImg').alt = galleryData[idx].caption;
+      document.getElementById('lightboxCaption').textContent = galleryData[idx].caption;
+      document.getElementById('lightboxOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function lightboxNav(dir) {
+      currentLightboxIdx = (currentLightboxIdx + dir + galleryData.length) % galleryData.length;
+      document.getElementById('lightboxImg').src = galleryData[currentLightboxIdx].src;
+      document.getElementById('lightboxImg').alt = galleryData[currentLightboxIdx].caption;
+      document.getElementById('lightboxCaption').textContent = galleryData[currentLightboxIdx].caption;
+    }
+
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+
+    // Close lightbox on overlay click
+    document.getElementById('lightboxOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Keyboard nav
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('lightboxOverlay').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+      if (e.key === 'ArrowRight') lightboxNav(1);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') {
+        renderSectionSidebar('About Us', 'Gallery', 'sectionSidebar');
+      }
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

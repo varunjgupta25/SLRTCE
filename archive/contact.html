@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Contact Shree L. R. Tiwari College of Engineering (SLRTCE) — address, phone, email, map, and online enquiry form. Mira Road, Mumbai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } }
+    .contact-form-card {
+      border: 1px solid var(--border-color);
+      padding: 1.75rem;
+      background: var(--bg-card);
+    }
+    .contact-form-card h3 { margin: 0 0 1.25rem; color: var(--color-maroon); font-size: 1.1rem; }
+    .contact-form-card .form-group { margin-bottom: 1rem; }
+    .contact-form-card label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-main); }
+    .contact-form-card input,
+    .contact-form-card textarea,
+    .contact-form-card select {
+      width: 100%; padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-main); color: var(--text-main);
+      font-family: var(--font-main); font-size: 0.9rem;
+      outline: none;
+    }
+    .contact-form-card input:focus,
+    .contact-form-card textarea:focus { border-color: var(--color-maroon); }
+    .contact-form-card textarea { resize: vertical; min-height: 120px; }
+    .map-embed { width: 100%; border: 1px solid var(--border-color); }
+    .contact-info-box {
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      background: var(--bg-card);
+      margin-bottom: 1.25rem;
+    }
+    .contact-info-box h4 { margin: 0 0 0.75rem; color: var(--color-maroon); font-size: 0.95rem; }
+    .contact-info-box p { margin: 0 0 0.4rem; font-size: 0.875rem; color: var(--text-main); line-height: 1.6; }
+    .contact-info-box a { color: var(--color-maroon); }
+    .success-msg { display: none; background: #f0fff4; border: 1px solid #38a169; color: #276749; padding: 0.85rem 1rem; font-size: 0.875rem; margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="Contact Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Contact Us</span>
+        </div>
+        <h1 class="inner-banner-title">Contact Us</h1>
+        <p class="inner-banner-desc">
+          Reach the SLRTCE admissions office, departments, or administration — we are here to help. Mira Road (East), Mumbai.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_college_entrance.jpg" alt="SLRTCE College Entrance Gate" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="contact-layout">
+
+        <!-- Left: Contact Details -->
+        <div>
+          <div class="contact-info-box">
+            <h4>Campus Address</h4>
+            <p>Shree L. R. Tiwari College of Engineering</p>
+            <p>Kanakia Park, Mira Road (East),</p>
+            <p>Mira Bhayandar — 401107</p>
+            <p>Mumbai, Maharashtra, India</p>
+          </div>
+
+          <div class="contact-info-box">
+            <h4>Phone</h4>
+            <p>+91 (022) 2812 0144</p>
+            <p>+91 (022) 2812 0145</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Mon–Sat, 9:00 AM – 5:00 PM</p>
+          </div>
+
+          <div class="contact-info-box">
+            <h4>Email</h4>
+            <p>General: <a href="mailto:info@slrtce.in">info@slrtce.in</a></p>
+            <p>Admissions: <a href="mailto:admissions@slrtce.in">admissions@slrtce.in</a></p>
+            <p>Placements: <a href="mailto:placements@slrtce.in">placements@slrtce.in</a></p>
+            <p>Research: <a href="mailto:research@slrtce.in">research@slrtce.in</a></p>
+          </div>
+
+          <div class="contact-info-box">
+            <h4>Department Contacts</h4>
+            <p>Principal's Office: <a href="mailto:principal@slrtce.in">principal@slrtce.in</a></p>
+            <p>Library: <a href="mailto:library@slrtce.in">library@slrtce.in</a></p>
+            <p>Examination Cell: <a href="mailto:exam@slrtce.in">exam@slrtce.in</a></p>
+            <p>Scholarship Cell: <a href="mailto:scholarship@slrtce.in">scholarship@slrtce.in</a></p>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <iframe
+            class="map-embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.093!2d72.8617!3d19.2854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1017f39a9e9%3A0x2b7b3e1a4fde9ccd!2sShree%20L.%20R.%20Tiwari%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+            width="100%"
+            height="280"
+            style="border:0; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="SLRTCE Location on Google Maps">
+          </iframe>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div>
+          <div class="contact-form-card">
+            <h3>Send us a Message</h3>
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="cName">Full Name</label>
+                <input type="text" id="cName" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="cEmail">Email Address</label>
+                <input type="email" id="cEmail" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="cPhone">Phone Number</label>
+                <input type="tel" id="cPhone" placeholder="+91 98765 43210">
+              </div>
+              <div class="form-group">
+                <label for="cSubject">Subject</label>
+                <select id="cSubject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option>Admission Enquiry</option>
+                  <option>Fee Structure Query</option>
+                  <option>Placement / Internship</option>
+                  <option>Research / Ph.D. Enquiry</option>
+                  <option>General Information</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cMessage">Message</label>
+                <textarea id="cMessage" placeholder="Type your message here..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <div class="success-msg" id="contactSuccess">
+                Thank you for reaching out. We will respond within 1 working day.
+              </div>
+            </form>
+          </div>
+
+          <div class="contact-info-box" style="margin-top: 1.25rem;">
+            <h4>How to Reach Us</h4>
+            <p><strong>By Road:</strong> Kanakia Park, Mira Road (East). From Mira Road station, take any auto or bus towards Sector 1/2, Kanakia Park.</p>
+            <p><strong>By Train:</strong> Mira Road station on the Western Railway line (15 mins from Borivali, 45 mins from Churchgate).</p>
+            <p><strong>Nearest Landmark:</strong> Kanakia Park, near Mira-Bhayandar Municipal Corporation (MBMC) headquarters.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactSuccess').style.display = 'block';
+      document.getElementById('contactForm').reset();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Contact', 'Contact Us', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

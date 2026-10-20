@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Engineering | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="B.E. and M.E. Computer Engineering at SLRTCE - NBA accredited, 180 UG intake, AI/ML, Cloud, Cybersecurity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .dept-tabs{display:flex;gap:0;border-bottom:2px solid var(--color-maroon);margin-bottom:1.5rem;flex-wrap:wrap}
+    .dept-tab-btn{padding:.6rem 1.25rem;border:none;background:transparent;font-family:var(--font-main);font-size:.875rem;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s}
+    .dept-tab-btn:hover{color:var(--color-maroon)}
+    .dept-tab-btn.active{color:var(--color-maroon);border-bottom-color:var(--color-maroon)}
+    .dept-tab-panel{display:none}
+    .dept-tab-panel.active{display:block}
+    .accordion{border:1px solid var(--border-color);margin-bottom:.6rem}
+    .accordion-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:.85rem 1rem;background:var(--bg-card);border:none;cursor:pointer;font-family:var(--font-main);font-size:.9rem;font-weight:700;color:var(--text-main);text-align:left}
+    .accordion-trigger:hover{background:var(--border-color-light)}
+    .acc-icon{font-size:1.1rem;color:var(--color-maroon);transition:transform .2s;flex-shrink:0}
+    .accordion-trigger[aria-expanded="true"] .acc-icon{transform:rotate(45deg)}
+    .accordion-body{display:none;padding:0 1rem 1rem;background:var(--bg-main)}
+    .accordion-body.open{display:block}
+    .dept-stats-strip{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+    .dept-stat-chip{padding:.3rem .8rem;border:1px solid var(--color-maroon);font-size:.78rem;font-weight:700;color:var(--color-maroon)}
+    .hod-card{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;border:1px solid var(--border-color);background:var(--bg-card);margin-bottom:1rem}
+    .hod-avatar{width:52px;height:52px;background:var(--color-maroon);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:800;flex-shrink:0}
+    .hod-name{margin:0 0 .15rem;color:var(--color-maroon);font-size:1rem}
+    .hod-role{margin:0 0 .6rem;font-size:.8rem;color:var(--text-muted)}
+    .hod-quote{margin:0;font-size:.875rem;line-height:1.7;color:var(--text-main);font-style:italic}
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+  <section class="inner-page-banner" aria-label="Computer Engineering Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs"><a href="index.html">Home</a> / <span>Academics</span> / <span>Computer Engineering</span></div>
+        <h1 class="inner-banner-title">Computer Engineering</h1>
+        <p class="inner-banner-desc">NBA Accredited B.E. &amp; M.E. &mdash; AI/ML, Cloud, Cybersecurity &amp; High Performance Systems. Est. 2010.</p>
+      </div>
+      <div class="inner-banner-photo-wrap"><img src="assets/slide_computer_lab.jpg" alt="SLRTCE Computer Engineering Lab" class="inner-banner-photo"></div>
+    </div>
+  </section>
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+      <div class="dept-stats-strip">
+        <span class="dept-stat-chip">NBA Accredited</span><span class="dept-stat-chip">B.E. Intake: 180</span><span class="dept-stat-chip">M.E. Intake: 18</span><span class="dept-stat-chip">Ph.D. Centre</span><span class="dept-stat-chip">Est. 2010</span><span class="dept-stat-chip">16 Faculty</span><span class="dept-stat-chip">6 Labs</span>
+      </div>
+      <div class="dept-tabs" role="tablist">
+        <button class="dept-tab-btn active" onclick="switchTab(event,'ov')">Overview</button>
+        <button class="dept-tab-btn" onclick="switchTab(event,'cur')">Curriculum</button>
+        <button class="dept-tab-btn" onclick="switchTab(event,'lab')">Labs &amp; Facilities</button>
+        <button class="dept-tab-btn" onclick="switchTab(event,'car')">Careers</button>
+      </div>
+      <!-- OVERVIEW -->
+      <div class="dept-tab-panel active" id="ov">
+        <div class="hod-card">
+          <div class="hod-avatar">BN</div>
+          <div>
+            <h3 class="hod-name">Dr. Bhushan Kumar Nemade</h3>
+            <p class="hod-role">HOD, Computer Engineering &mdash; Ph.D., 20+ Yrs Research &amp; High Performance Systems</p>
+            <p class="hod-quote">"Engineering education must be deeply practical and aligned with real-world industry demands. Our curriculum integrates AI, ML, Cloud, and Cybersecurity &mdash; ensuring our graduates are competitive from day one."</p>
+          </div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="true" onclick="toggleAcc(this)">About the Department <span class="acc-icon">+</span></button>
+          <div class="accordion-body open"><p style="font-size:.9rem;line-height:1.7;margin:.5rem 0 0">Established in 2010, the CE department produces technically proficient, industry-ready engineers offering B.E., M.E., and Ph.D. programmes under University of Mumbai, AICTE-approved. NBA-accredited B.E. with 6 labs, 16 faculty, and a strong research and placement record.</p></div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" onclick="toggleAcc(this)">Department Profile <span class="acc-icon">+</span></button>
+          <div class="accordion-body">
+            <table class="inner-table" style="margin-top:.75rem">
+              <tbody>
+                <tr><th>Programmes</th><td>B.E. CE (4 Yrs) | M.E. CE (2 Yrs) | Ph.D.</td></tr>
+                <tr><th>Intake</th><td>180 (B.E.) | 18 (M.E.) | 8 Ph.D. seats/cycle</td></tr>
+                <tr><th>Established</th><td>2010 (UG) | 2013 (PG)</td></tr>
+                <tr><th>Accreditation</th><td>NBA Accredited (B.E.)</td></tr>
+                <tr><th>Credits</th><td>212 (B.E.) | 72 (M.E.)</td></tr>
+                <tr><th>Faculty / Labs</th><td>16 faculty | 6 labs | 4 classrooms</td></tr>
+                <tr><th>Batches Graduated</th><td>11 UG | 10 PG</td></tr>
+                <tr><th>Professional Chapter</th><td>SLRTCE-CSI: I02352</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- CURRICULUM -->
+      <div class="dept-tab-panel" id="cur">
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="true" onclick="toggleAcc(this)">B.E. Year-wise Subjects <span class="acc-icon">+</span></button>
+          <div class="accordion-body open">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
+              <tbody>
+                <tr><td>First Year</td><td>Engineering Mathematics, Programming Fundamentals, Physics &amp; Chemistry, Basic Electronics</td></tr>
+                <tr><td>Second Year</td><td>Data Structures, OOP, Computer Organization, DBMS, Discrete Mathematics</td></tr>
+                <tr><td>Third Year</td><td>OS, Computer Networks, Software Engineering, AI &amp; ML, Web Technologies</td></tr>
+                <tr><td>Final Year</td><td>Cloud Computing, Cybersecurity, Distributed Systems, Big Data Analytics, Capstone Project</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" onclick="toggleAcc(this)">M.E. Curriculum <span class="acc-icon">+</span></button>
+          <div class="accordion-body">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Semester</th><th>Focus</th></tr></thead>
+              <tbody>
+                <tr><td>Sem I</td><td>Advanced Algorithms, ML Theory, Research Methodology, Elective I</td></tr>
+                <tr><td>Sem II</td><td>Advanced Architecture, Cyber Intelligence, Elective II, Mini Project</td></tr>
+                <tr><td>Sem III&ndash;IV</td><td>Dissertation &mdash; Literature Survey &rarr; Implementation &rarr; Publication &rarr; Viva</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- LABS -->
+      <div class="dept-tab-panel" id="lab">
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="true" onclick="toggleAcc(this)">Laboratories <span class="acc-icon">+</span></button>
+          <div class="accordion-body open">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Laboratory</th><th>Key Tools</th></tr></thead>
+              <tbody>
+                <tr><td>Programming &amp; Software Lab</td><td>NetBeans, Eclipse, VS Code, Python</td></tr>
+                <tr><td>Database &amp; Web Lab</td><td>Oracle 19c, MySQL, Node.js, React.js</td></tr>
+                <tr><td>AI &amp; ML Lab</td><td>NVIDIA GPU, TensorFlow, PyTorch, Jupyter</td></tr>
+                <tr><td>Cloud &amp; DevOps Lab</td><td>AWS, Azure, Docker, Kubernetes, Jenkins</td></tr>
+                <tr><td>Cybersecurity Lab</td><td>Kali Linux, Wireshark, Metasploit</td></tr>
+                <tr><td>Computer Networks Lab</td><td>Cisco Packet Tracer, routers &amp; switches</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" onclick="toggleAcc(this)">Research &amp; Innovation Centres <span class="acc-icon">+</span></button>
+          <div class="accordion-body">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Centre</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>Ph.D. Research Centre</td><td>University of Mumbai recognized &mdash; CE &amp; IT research</td></tr>
+                <tr><td>IIC (Innovation Council)</td><td>MoE-approved incubation, patent support, startup mentoring</td></tr>
+                <tr><td>e-yantra Robotics Lab</td><td>IIT Bombay collaboration &mdash; embedded &amp; robotics competitions</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- CAREERS -->
+      <div class="dept-tab-panel" id="car">
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="true" onclick="toggleAcc(this)">Placement Highlights <span class="acc-icon">+</span></button>
+          <div class="accordion-body open">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Metric</th><th>Record</th></tr></thead>
+              <tbody>
+                <tr><td>Highest Package (UG)</td><td>&#8377; 1.2 Crore per annum</td></tr>
+                <tr><td>Average Package</td><td>&#8377; 5&ndash;7 LPA (recent batches)</td></tr>
+                <tr><td>PPO Rate</td><td>80% of placed students</td></tr>
+                <tr><td>Placement Record</td><td>100% eligible students placed</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" onclick="toggleAcc(this)">Top Recruiters <span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p style="font-size:.875rem;line-height:2.2;margin:.75rem 0 0">TCS &nbsp;&middot;&nbsp; Infosys &nbsp;&middot;&nbsp; Capgemini &nbsp;&middot;&nbsp; Hexaware &nbsp;&middot;&nbsp; Accenture &nbsp;&middot;&nbsp; Tech Mahindra &nbsp;&middot;&nbsp; Wipro &nbsp;&middot;&nbsp; Amazon AWS &nbsp;&middot;&nbsp; L&amp;T Infotech &nbsp;&middot;&nbsp; Cognizant &nbsp;&middot;&nbsp; Morgan Stanley</p></div>
+        </div>
+        <div class="accordion">
+          <button class="accordion-trigger" aria-expanded="false" onclick="toggleAcc(this)">Higher Education Pathways <span class="acc-icon">+</span></button>
+          <div class="accordion-body">
+            <table class="inner-table" style="margin-top:.75rem">
+              <thead><tr><th>Option</th><th>Details</th></tr></thead>
+              <tbody>
+                <tr><td>M.E. at SLRTCE</td><td>Deep Learning, Distributed Systems, Cyber Intelligence</td></tr>
+                <tr><td>GATE / M.Tech</td><td>IIT / NIT / IIIT via GATE score</td></tr>
+                <tr><td>MS Abroad</td><td>GRE + TOEFL &mdash; US / Canada / Europe</td></tr>
+                <tr><td>Ph.D. at SLRTCE</td><td>University of Mumbai recognized centre</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    function switchTab(e,id){const a=e.target.closest('article');a.querySelectorAll('.dept-tab-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false')});a.querySelectorAll('.dept-tab-panel').forEach(p=>p.classList.remove('active'));e.target.classList.add('active');e.target.setAttribute('aria-selected','true');document.getElementById(id).classList.add('active')}
+    function toggleAcc(t){const b=t.nextElementSibling,o=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',o?'false':'true');b.classList.toggle('open',!o)}
+    document.addEventListener('DOMContentLoaded',()=>{if(typeof renderSectionSidebar==='function')renderSectionSidebar('Academics','Computer Engineering','sectionSidebar')});
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

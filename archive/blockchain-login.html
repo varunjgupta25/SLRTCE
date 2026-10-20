@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Transcript Login | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Student login for blockchain-based academic transcript system at SLRTCE — tamper-proof, verifiable digital credentials.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+  <style>
+    .blockchain-center {
+      display: flex; justify-content: center; align-items: flex-start;
+      padding: 2rem 0;
+    }
+    .login-card {
+      width: 100%; max-width: 440px;
+      border: 1px solid var(--border-color);
+      padding: 2rem; background: var(--bg-card);
+    }
+    .login-card h2 { margin: 0 0 0.35rem; color: var(--color-maroon); font-size: 1.25rem; }
+    .login-card p { font-size: 0.875rem; color: var(--text-muted); margin: 0 0 1.5rem; }
+    .login-card .form-group { margin-bottom: 1rem; }
+    .login-card label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .login-card input {
+      width: 100%; padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-color); background: var(--bg-main);
+      color: var(--text-main); font-family: var(--font-main); font-size: 0.9rem;
+    }
+    .login-card input:focus { outline: none; border-color: var(--color-maroon); }
+    .login-card .btn { width: 100%; margin-top: 0.5rem; }
+    .chain-badge {
+      display: inline-block; background: var(--color-maroon);
+      color: #fff; font-size: 0.72rem; font-weight: 700;
+      padding: 0.2rem 0.6rem; margin-bottom: 1rem; letter-spacing: 0.05em;
+    }
+    .login-alt { margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+    .login-alt a { color: var(--color-maroon); font-weight: 600; }
+    .error-msg { display:none; color: #c0392b; font-size: 0.85rem; margin-top: 0.5rem; padding: 0.5rem 0.75rem; border: 1px solid #e74c3c; background: #fef9f9; }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="Blockchain Login Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Blockchain Based Transcript</span> / <span>Login</span>
+        </div>
+        <h1 class="inner-banner-title">Blockchain Transcript — Student Login</h1>
+        <p class="inner-banner-desc">
+          Access your tamper-proof, blockchain-verified academic transcript. Secure, instant, and verifiable by any employer or institution worldwide.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_computer_lab.jpg" alt="SLRTCE Blockchain Transcript System" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p>The SLRTCE Blockchain Transcript system issues <strong>tamper-proof digital academic credentials</strong> recorded on a distributed ledger. Transcripts are instantly verifiable by employers, universities, and government bodies without requiring a physical copy or institutional confirmation.</p>
+      </div>
+
+      <div class="blockchain-center">
+        <div class="login-card">
+          <span class="chain-badge">BLOCKCHAIN SECURED</span>
+          <h2>Student Login</h2>
+          <p>Enter your SLRTCE student credentials to access your digital transcript.</p>
+
+          <form id="blockchainLoginForm" onsubmit="handleBlockchainLogin(event)">
+            <div class="form-group">
+              <label for="studentId">Student ID / Enrollment Number</label>
+              <input type="text" id="studentId" placeholder="e.g. SLRTCE2022CE001" required autocomplete="username">
+            </div>
+            <div class="form-group">
+              <label for="studentPass">Password</label>
+              <input type="password" id="studentPass" placeholder="Enter your password" required autocomplete="current-password">
+            </div>
+            <div class="error-msg" id="loginError">Invalid credentials. Please check your Student ID and password.</div>
+            <button type="submit" class="btn btn-primary">Login to Transcript Portal</button>
+          </form>
+
+          <div class="login-alt">
+            Want to verify a transcript? <a href="blockchain-verify.html">Go to Verification Portal</a>
+          </div>
+          <div class="login-alt" style="margin-top: 0.5rem;">
+            Need help? Contact <a href="mailto:exam@slrtce.in">exam@slrtce.in</a>
+          </div>
+        </div>
+      </div>
+
+      <h2>About the Blockchain Transcript System</h2>
+      <table class="inner-table">
+        <thead><tr><th>Feature</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>Technology</td><td>Distributed ledger (blockchain) — immutable record of academic credentials</td></tr>
+          <tr><td>Tamper-Proof</td><td>Once issued, transcript data cannot be altered or forged</td></tr>
+          <tr><td>Instant Verification</td><td>Employers and institutions can verify credentials in seconds using a unique hash or QR code</td></tr>
+          <tr><td>No Physical Copy Needed</td><td>Digital transcript is legally valid and accepted by universities and corporates</td></tr>
+          <tr><td>Availability</td><td>Available to all graduating students from eligible batches</td></tr>
+          <tr><td>Support</td><td>Contact Examination Cell for login issues, password reset, or transcript queries</td></tr>
+        </tbody>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    function handleBlockchainLogin(e) {
+      e.preventDefault();
+      document.getElementById('loginError').style.display = 'block';
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Blockchain Based Transcript', 'Login', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

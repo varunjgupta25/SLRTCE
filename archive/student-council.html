@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Council | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Student Council of Shree L. R. Tiwari College of Engineering (SLRTCE) - Student representation, leadership, cultural activities, and technical events.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <!-- Shared Global Header & 3-Level Sticky Navigation -->
+  <site-header></site-header>
+
+  <!-- Banner Section -->
+  <section class="inner-page-banner" aria-label="Student Council Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <a href="placeholder.html?title=Student+Life&section=Life+%40+SLRTCE">Life @ SLRTCE</a> / <span>Student Council</span>
+        </div>
+        <h1 class="inner-banner-title">Student Council</h1>
+        <p class="inner-banner-desc">
+          Empowering student leadership, fostering institutional camaraderie, and driving innovation across technical, cultural, and sports spheres at SLRTCE.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Student Council and Annual Celebration" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout (2-Column Desktop, Stacked Mobile) -->
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+      <h2>About the Student Council</h2>
+      <p>
+        The Student Council of Shree L. R. Tiwari College of Engineering serves as the official representative body of the student community. Working under the guidance of the Principal, Dean of Student Affairs, and Faculty Mentors, the Council bridges the dialogue between students and institutional leadership.
+      </p>
+      <p>
+        The Council oversees student representation, ensures campus welfare, and spearheads major inter-collegiate and intra-collegiate events, including <em>Carpe Diem</em> (Annual Fest), <em>Technophilia</em> (Technical Festival), and the Annual Sports Meet.
+      </p>
+
+      <h2>Council Leadership by Academic Year</h2>
+
+      <!-- Tab Navigation -->
+      <div class="tab-nav" role="tablist">
+        <button type="button" class="tab-btn active" onclick="switchYearTab('ay2627', this)" role="tab" aria-selected="true">AY 2026-27</button>
+        <button type="button" class="tab-btn" onclick="switchYearTab('ay2526', this)" role="tab" aria-selected="false">AY 2025-26</button>
+        <button type="button" class="tab-btn" onclick="switchYearTab('ay2425', this)" role="tab" aria-selected="false">AY 2024-25</button>
+        <button type="button" class="tab-btn" onclick="switchYearTab('ay2324', this)" role="tab" aria-selected="false">AY 2023-24</button>
+      </div>
+
+      <!-- Tab 1: AY 2026-27 -->
+      <div class="year-panel" id="panel_ay2627" style="display: block;">
+        <h3>Council Representatives (Academic Year 2026-27)</h3>
+        <div class="council-grid">
+
+          <!-- President -->
+          <div class="council-card council-card--president">
+            <img src="assets/council/shreyash_chaturvedi.jpg" alt="Shreyash Chaturvedi" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Shreyash Chaturvedi</p>
+              <p class="council-card-role">President</p>
+            </div>
+          </div>
+
+          <!-- General Secretary -->
+          <div class="council-card">
+            <img src="assets/council/vidhi_tripathi.jpg" alt="Vidhi Tripathi" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Vidhi Tripathi</p>
+              <p class="council-card-role">General Secretary</p>
+            </div>
+          </div>
+
+          <!-- Cultural Secretary -->
+          <div class="council-card">
+            <img src="assets/council/soumya_thakur.jpg" alt="Soumya Thakur" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Soumya Thakur</p>
+              <p class="council-card-role">Cultural Secretary</p>
+            </div>
+          </div>
+
+          <!-- Jt. Cultural Secretary -->
+          <div class="council-card">
+            <img src="assets/council/atharva_jadhav.jpg" alt="Atharva Jadhav" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Atharva Jadhav</p>
+              <p class="council-card-role">Jt. Cultural Secretary</p>
+            </div>
+          </div>
+
+          <!-- Jt. Cultural Secretary -->
+          <div class="council-card">
+            <img src="assets/council/shantanu_thakur.png" alt="Shantanu Thakur" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Shantanu Thakur</p>
+              <p class="council-card-role">Jt. Cultural Secretary</p>
+            </div>
+          </div>
+
+          <!-- Technical Head -->
+          <div class="council-card">
+            <img src="assets/council/vaibhav_dubey.jpg" alt="Vaibhav Dubey" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Vaibhav Dubey</p>
+              <p class="council-card-role">Technical Head</p>
+            </div>
+          </div>
+
+          <!-- Technical Co-head -->
+          <div class="council-card">
+            <img src="assets/council/aditya_parab.jpg" alt="Aditya Parab" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Aditya Parab</p>
+              <p class="council-card-role">Technical Co-head</p>
+            </div>
+          </div>
+
+          <!-- Technical Co-head -->
+          <div class="council-card">
+            <img src="assets/council/indresh_suresh.jpg" alt="Indresh Suresh" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Indresh Suresh</p>
+              <p class="council-card-role">Technical Co-head</p>
+            </div>
+          </div>
+
+          <!-- Sports Head -->
+          <div class="council-card">
+            <img src="assets/council/divya_sharma.jpg" alt="Divya Sharma" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Divya Sharma</p>
+              <p class="council-card-role">Sports Head</p>
+            </div>
+          </div>
+
+          <!-- Sports Co-Head -->
+          <div class="council-card">
+            <img src="assets/council/rihan_ali.jpg" alt="Rihan Ali" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Rihan Ali</p>
+              <p class="council-card-role">Sports Co-Head</p>
+            </div>
+          </div>
+
+          <!-- Social Media Head -->
+          <div class="council-card">
+            <img src="assets/council/akansha_barai.jpg" alt="Akansha Barai" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Akansha Barai</p>
+              <p class="council-card-role">Social Media Head</p>
+            </div>
+          </div>
+
+          <!-- Social Media Co-head -->
+          <div class="council-card">
+            <img src="assets/council/rishabh_upadhyay.jpg" alt="Rishabh Upadhyay" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Rishabh Upadhyay</p>
+              <p class="council-card-role">Social Media Co-head</p>
+            </div>
+          </div>
+
+          <!-- Lady Representative -->
+          <div class="council-card">
+            <img src="assets/council/smruti_vishwakarma.jpg" alt="Smruti Vishwakarma" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Smruti Vishwakarma</p>
+              <p class="council-card-role">Lady Representative</p>
+            </div>
+          </div>
+
+          <!-- Lady Representative -->
+          <div class="council-card">
+            <img src="assets/council/yutika_gosain.jpg" alt="Yutika Gosain" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Yutika Gosain</p>
+              <p class="council-card-role">Lady Representative</p>
+            </div>
+          </div>
+
+          <!-- B-Voc Head -->
+          <div class="council-card">
+            <img src="assets/council/shrishti_vishwakarma.jpg" alt="Shrishti Vishwakarma" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Shrishti Vishwakarma</p>
+              <p class="council-card-role">B-Voc Head</p>
+            </div>
+          </div>
+
+          <!-- B-Voc Co-head -->
+          <div class="council-card">
+            <img src="assets/council/dhairya_goyal.jpg" alt="Dhairya Goyal" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Dhairya Goyal</p>
+              <p class="council-card-role">B-Voc Co-head</p>
+            </div>
+          </div>
+
+          <!-- Content Editor -->
+          <div class="council-card">
+            <img src="assets/council/aarti_gupta.jpg" alt="Aarti Gupta" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Aarti Gupta</p>
+              <p class="council-card-role">Content Editor</p>
+            </div>
+          </div>
+
+          <!-- Content Editor -->
+          <div class="council-card">
+            <img src="assets/council/priyanka_sharma.jpg" alt="Priyanka Sharma" class="council-card-photo">
+            <div class="council-card-info">
+              <p class="council-card-name">Priyanka Sharma</p>
+              <p class="council-card-role">Content Editor</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab 2: AY 2025-26 -->
+      <div class="year-panel" id="panel_ay2526" style="display: none;">
+        <h3>Council Representatives (Academic Year 2025-26)</h3>
+        <table class="inner-table">
+          <thead>
+            <tr>
+              <th>Designation</th>
+              <th>Name</th>
+              <th>Department / Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>President</strong></td>
+              <td>Pratiksha Mishra</td>
+              <td>Computer Engineering</td>
+            </tr>
+            <tr>
+              <td><strong>General Secretary</strong></td>
+              <td>Devika Bhandari</td>
+              <td>Information Technology</td>
+            </tr>
+            <tr>
+              <td><strong>Cultural Secretary</strong></td>
+              <td>Anuraag Mishra</td>
+              <td>Electronics & Telecommunication</td>
+            </tr>
+            <tr>
+              <td><strong>Cultural Jt. Secretary</strong></td>
+              <td>Harshit Upadhyay</td>
+              <td>Civil Engineering</td>
+            </tr>
+            <tr>
+              <td><strong>Sports Secretary</strong></td>
+              <td>TODO_SPORTS_SEC_2025_26</td>
+              <td>Sports Committee</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab 3: AY 2024-25 -->
+      <div class="year-panel" id="panel_ay2425" style="display: none;">
+        <h3>Council Representatives (Academic Year 2024-25)</h3>
+        <table class="inner-table">
+          <thead>
+            <tr>
+              <th>Designation</th>
+              <th>Name</th>
+              <th>Department / Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>President</strong></td>
+              <td>Vansh Gusain</td>
+              <td>Computer Engineering</td>
+            </tr>
+            <tr>
+              <td><strong>General Secretary</strong></td>
+              <td>TODO_STUDENT_GEN_SEC_2024_25</td>
+              <td>Student Council Executive</td>
+            </tr>
+            <tr>
+              <td><strong>Cultural Head</strong></td>
+              <td>TODO_CULTURAL_HEAD_2024_25</td>
+              <td>Cultural Committee</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab 4: AY 2023-24 -->
+      <div class="year-panel" id="panel_ay2324" style="display: none;">
+        <h3>Council Representatives (Academic Year 2023-24)</h3>
+        <table class="inner-table">
+          <thead>
+            <tr>
+              <th>Designation</th>
+              <th>Name</th>
+              <th>Department / Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>President</strong></td>
+              <td>Siddhi Rathod</td>
+              <td>Electronics & Telecommunication</td>
+            </tr>
+            <tr>
+              <td><strong>General Secretary</strong></td>
+              <td>Nandini Maurya</td>
+              <td>Information Technology</td>
+            </tr>
+            <tr>
+              <td><strong>Treasurer</strong></td>
+              <td>TODO_TREASURER_2023_24</td>
+              <td>Student Council Finance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Key Objectives & Charter</h2>
+      <ul style="padding-left: 1.25rem; line-height: 1.75; color: var(--text-main); margin-bottom: 1.5rem;">
+        <li>Provide a structured forum for students to voice ideas, recommendations, and concerns to institute leadership.</li>
+        <li>Organize academic seminars, hackathons, and industry mentorship sessions in collaboration with professional chapters.</li>
+        <li>Promote social responsibility and civic engagement through blood donation drives, tree plantation, and DLLE voter awareness.</li>
+        <li>Maintain highest standards of academic integrity, campus discipline, and inclusive peer mentorship.</li>
+      </ul>
+
+      <h2>Annual Reports & Documentation</h2>
+      <table class="inner-table">
+        <thead>
+          <tr>
+            <th>Document Title</th>
+            <th>Academic Year</th>
+            <th>Status / Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Student Council Constitution & Election Bye-Laws</td>
+            <td>Permanent Charter</td>
+            <td><a href="placeholder.html?title=Council+Constitution&section=Life+%40+SLRTCE">View Guidelines</a></td>
+          </tr>
+          <tr>
+            <td>Annual Activities & Expenditure Report</td>
+            <td>AY 2025-26</td>
+            <td><a href="placeholder.html?title=Activity+Report+2025-26&section=Life+%40+SLRTCE">Official PDF</a></td>
+          </tr>
+          <tr>
+            <td>NSS & DLLE Community Outreach Summary</td>
+            <td>AY 2024-25</td>
+            <td><a href="placeholder.html?title=NSS+Report+2024-25&section=Life+%40+SLRTCE">Download Summary</a></td>
+          </tr>
+          <tr>
+            <td>Election Notification & Selection Protocol</td>
+            <td>AY 2026-27</td>
+            <td><a href="placeholder.html?title=Election+Protocol+2026-27&section=Life+%40+SLRTCE">Published Circular</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- Right-Hand Section Directory Sidebar -->
+    <aside class="inner-sidebar-col" id="sectionSidebar">
+      <!-- Injected dynamically via renderSectionSidebar('Life @ SLRTCE', 'Student Council') -->
+    </aside>
+  </main>
+
+  <!-- Shared Global Footer -->
+  <site-footer></site-footer>
+
+  <!-- Page Logic -->
+  <script>
+    function switchYearTab(panelId, btn) {
+      document.querySelectorAll('.year-panel').forEach(p => p.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+
+      const target = document.getElementById('panel_' + panelId);
+      if (target) {
+        target.style.display = 'block';
+      }
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') {
+        renderSectionSidebar('Life @ SLRTCE', 'Student Council', 'sectionSidebar');
+      }
+    });
+  </script>
+  <!-- Generic Modal Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal Header</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content inserted dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

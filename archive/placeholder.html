@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLRTCE | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Shree L. R. Tiwari College of Engineering (SLRTCE) - Autonomous Institute affiliated to University of Mumbai, Approved by AICTE & DTE Maharashtra.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <!-- Shared Global Header & 3-Level Sticky Navigation -->
+  <site-header></site-header>
+
+  <!-- Banner Section -->
+  <section class="inner-page-banner" aria-label="Page Title & Overview">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span id="bannerSection">Section</span> / <span id="bannerCrumb">Page</span>
+        </div>
+        <h1 class="inner-banner-title" id="bannerTitle">Institutional Information</h1>
+        <p class="inner-banner-desc" id="bannerDesc">
+          Official academic and institutional directory of Shree L. R. Tiwari College of Engineering (SLRTCE), Mira Road.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_carpe_diem_2025.jpg" alt="SLRTCE Campus Activity" class="inner-banner-photo" id="bannerImg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout (2-Column Desktop, Stacked Mobile) -->
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+      <h2 id="mainHeading">Institutional Updates</h2>
+
+      <div class="inner-info-box">
+        <p><strong>Notice:</strong> This page is being updated.</p>
+        <p>The academic council and administrative office are currently synchronizing official documentation for the current academic year.</p>
+      </div>
+
+      <p>
+        Shree L. R. Tiwari College of Engineering is an autonomous institute affiliated to the University of Mumbai, approved by AICTE, recognized by DTE Maharashtra, and accredited with NAAC and NBA.
+      </p>
+
+      <p>
+        For inquiries regarding this section, official notices, or immediate admissions support, please reach out to our campus office:
+      </p>
+
+      <table class="inner-table">
+        <tr>
+          <th>Department</th>
+          <th>Contact Channel</th>
+          <th>Operating Hours</th>
+        </tr>
+        <tr>
+          <td>General Enquiries & Administration</td>
+          <td><a href="mailto:info@slrtce.in">info@slrtce.in</a> / +91 (022) 2812 0144</td>
+          <td>9:00 AM - 5:00 PM (Mon-Sat)</td>
+        </tr>
+        <tr>
+          <td>Admissions & Counselling Cell</td>
+          <td><a href="index.html#enquiry-section">Submit Online Enquiry</a></td>
+          <td>9:00 AM - 6:00 PM (Mon-Sun)</td>
+        </tr>
+        <tr>
+          <td>Examination & Records</td>
+          <td><a href="mailto:exam@slrtce.in">exam@slrtce.in</a></td>
+          <td>10:00 AM - 4:00 PM (Mon-Fri)</td>
+        </tr>
+      </table>
+
+      <p>
+        You can also explore active programmes, academic schedules, and facilities using the navigation menu above or the section directory on the right.
+      </p>
+    </article>
+
+    <!-- Right-Hand Section Directory Sidebar -->
+    <aside class="inner-sidebar-col" id="sectionSidebar">
+      <!-- Injected dynamically via renderSectionSidebar() -->
+    </aside>
+  </main>
+
+  <!-- Shared Global Footer -->
+  <site-footer></site-footer>
+
+  <!-- Page Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const titleParam = params.get('title') || 'Institutional Overview';
+      const sectionParam = params.get('section') || 'SLRTCE';
+
+      // Update titles and text
+      document.title = titleParam + ' | Shree L. R. Tiwari College of Engineering';
+      const bannerTitle = document.getElementById('bannerTitle');
+      const bannerSection = document.getElementById('bannerSection');
+      const bannerCrumb = document.getElementById('bannerCrumb');
+      const mainHeading = document.getElementById('mainHeading');
+
+      if (bannerTitle) bannerTitle.textContent = titleParam;
+      if (bannerSection) bannerSection.textContent = sectionParam;
+      if (bannerCrumb) bannerCrumb.textContent = titleParam;
+      if (mainHeading) mainHeading.textContent = titleParam;
+
+      // Render Section Sidebar
+      if (typeof renderSectionSidebar === 'function') {
+        renderSectionSidebar(sectionParam, titleParam, 'sectionSidebar');
+      }
+    });
+  </script>
+  <!-- Generic Modal Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal Header</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content inserted dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

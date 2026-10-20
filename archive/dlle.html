@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLLE | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Department of Lifelong Learning and Extension (DLLE) at SLRTCE — voter registration, women empowerment, adult literacy, and social extension activities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="DLLE Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>Life @ SLRTCE</span> / <span>DLLE</span>
+        </div>
+        <h1 class="inner-banner-title">Department of Lifelong Learning & Extension (DLLE)</h1>
+        <p class="inner-banner-desc">
+          Extending the impact of education beyond the campus — DLLE volunteers at SLRTCE work on voter awareness, women empowerment, adult literacy, and community development.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_dlle_voter_session.jpg" alt="SLRTCE DLLE Voter Awareness Drive" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div class="inner-info-box">
+        <p>DLLE is a University of Mumbai initiative that trains students to become agents of social change — taking the skills and awareness they develop in college out into the community to create lasting impact.</p>
+      </div>
+
+      <h2>About DLLE</h2>
+      <p>
+        The Department of Lifelong Learning and Extension (DLLE) is an extension wing of the University of Mumbai, established to involve students in adult education and community service through structured extension activities. SLRTCE has an active DLLE unit that regularly participates in University-assigned extension projects and social initiatives.
+      </p>
+      <p>
+        DLLE volunteers earn credits and certificates recognized by the University of Mumbai. The programme develops communication, leadership, community engagement, and civic responsibility in students — skills that complement their technical education.
+      </p>
+
+      <h2>DLLE Schemes & Activities</h2>
+      <table class="inner-table">
+        <thead><tr><th>Scheme / Activity</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Voter Registration Drive (ELC)</strong></td>
+            <td>In collaboration with the Election Commission's Electoral Literacy Club — helping students and community members register as first-time voters. SLRTCE conducted a voter registration drive with students displaying their new voter ID cards.</td>
+          </tr>
+          <tr>
+            <td><strong>Adult & Non-Formal Education</strong></td>
+            <td>Volunteers teach basic reading, writing, and arithmetic to adults in nearby communities who lack access to formal education.</td>
+          </tr>
+          <tr>
+            <td><strong>Women Empowerment Programme</strong></td>
+            <td>Workshops on financial literacy, self-defence awareness, health and hygiene, and digital safety for women in nearby communities.</td>
+          </tr>
+          <tr>
+            <td><strong>Consumer Awareness</strong></td>
+            <td>Educating community members about consumer rights, digital payment safety, and protection against fraud.</td>
+          </tr>
+          <tr>
+            <td><strong>Health & Hygiene Awareness</strong></td>
+            <td>Campaigns on sanitation, menstrual health, nutrition, and preventive healthcare in the Mira Road community.</td>
+          </tr>
+          <tr>
+            <td><strong>Environment Awareness</strong></td>
+            <td>Programmes on waste segregation, plastic-free living, water conservation, and sustainable practices.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Student Benefits</h2>
+      <table class="inner-table">
+        <thead><tr><th>Benefit</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>DLLE Certificate</td><td>University of Mumbai DLLE completion certificate awarded for 120 hours of extension work</td></tr>
+          <tr><td>Grade Benefit</td><td>University of Mumbai grants grade/mark benefits to DLLE participants in degree examinations</td></tr>
+          <tr><td>Personality Development</td><td>Communication, leadership, empathy, and civic responsibility — skills that enhance professional profiles</td></tr>
+          <tr><td>Community Recognition</td><td>Outstanding DLLE volunteers are recognized at University-level extension activity awards</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How to Join</h2>
+      <p>Students in B.E. First or Second Year can register for DLLE at the beginning of the academic year through the Student Affairs Office. Participation requires commitment to a minimum of 120 hours of approved extension activities.</p>
+
+      <table class="inner-table">
+        <tr><th>DLLE Coordinator</th><td>Student Affairs Office, SLRTCE</td></tr>
+        <tr><th>Email</th><td><a href="mailto:dlle@slrtce.in">dlle@slrtce.in</a></td></tr>
+        <tr><th>Phone</th><td>+91 (022) 2812 0144</td></tr>
+      </table>
+
+    </article>
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3 id="modalTitle">Modal Header</h3><button class="modal-close-btn" onclick="closeAllModals()">&times;</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="closeAllModals()">Close</button></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') renderSectionSidebar('Life @ SLRTCE', 'DLLE', 'sectionSidebar');
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

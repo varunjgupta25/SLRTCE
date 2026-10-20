@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>President's Message | Shree L. R. Tiwari College of Engineering</title>
+  <meta name="description" content="Message from the President of Rahul Education Trust and Shree L. R. Tiwari College of Engineering (SLRTCE).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="nav-footer.js"></script>
+</head>
+<body>
+
+  <site-header></site-header>
+
+  <section class="inner-page-banner" aria-label="President Banner">
+    <div class="container inner-banner-grid">
+      <div class="inner-banner-info">
+        <div class="inner-breadcrumbs">
+          <a href="index.html">Home</a> / <span>About Us</span> / <a href="about-college.html">Our Management</a> / <span>President</span>
+        </div>
+        <h1 class="inner-banner-title">President's Message</h1>
+        <p class="inner-banner-desc">
+          A message from the President of Rahul Education Trust, guiding the vision and strategic direction of SLRTCE.
+        </p>
+      </div>
+      <div class="inner-banner-photo-wrap">
+        <img src="assets/slide_alumni_meet.jpg" alt="SLRTCE Management - President's Address" class="inner-banner-photo">
+      </div>
+    </div>
+  </section>
+
+  <main class="container inner-layout-container">
+    <article class="inner-main-content">
+
+      <div style="background: var(--bg-main); border: 1px solid var(--border-color); padding: 1.75rem; margin-bottom: 1.75rem; display: flex; gap: 1.5rem; align-items: flex-start;">
+        <div style="width: 80px; height: 80px; background: var(--color-maroon); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; font-weight: 800; flex-shrink: 0;">PR</div>
+        <div>
+          <h2 style="margin: 0 0 0.25rem; color: var(--color-maroon); font-size: 1.3rem;">President</h2>
+          <p style="margin: 0 0 0.15rem; font-weight: 600; color: var(--text-main);">Rahul Education Trust</p>
+          <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">Governing Body — Shree L. R. Tiwari College of Engineering</p>
+        </div>
+      </div>
+
+      <div class="inner-info-box">
+        <p style="font-size: 1.05rem; font-style: italic; margin-bottom: 0.35rem;">
+          "Our students are our greatest achievement. Every placement record, every research paper, and every patent filed at SLRTCE is a testament to the potential we unlock in young minds."
+        </p>
+        <span style="font-size: 0.825rem; font-weight: 700; color: var(--color-maroon);">President, Rahul Education Trust</span>
+      </div>
+
+      <h2>Message from the President</h2>
+      <p>Dear Students, Faculty, and Stakeholders,</p>
+      <p>
+        As President of Rahul Education Trust, I have had the privilege of witnessing SLRTCE's remarkable journey — from its early years to its current status as one of Mumbai's most respected autonomous engineering institutions. This transformation has been driven by one constant: our commitment to student success.
+      </p>
+      <p>
+        The world of engineering and technology is changing at an unprecedented pace. Artificial intelligence, green energy, cybersecurity, and biotechnology are reshaping every industry. SLRTCE has responded by investing heavily in modern infrastructure, hiring expert faculty, forging international academic partnerships, and building a curriculum that prepares students not just for the jobs of today, but for the careers of tomorrow.
+      </p>
+      <p>
+        Our placement record, our research output, and the achievements of our alumni across India and the world speak louder than any brochure. I encourage every student who joins SLRTCE to take full advantage of the opportunities on offer — internships, research projects, club activities, competitions, and the mentorship of our outstanding faculty.
+      </p>
+      <p>
+        The institute's doors are always open to questions, ideas, and feedback. We grow when our students grow, and that is the commitment we make to every family that entrusts their child's future to us.
+      </p>
+      <p style="margin-bottom: 0;">
+        <strong>President</strong><br>
+        <span style="color: var(--text-muted);">Rahul Education Trust — Shree L. R. Tiwari College of Engineering</span>
+      </p>
+
+    </article>
+
+    <aside class="inner-sidebar-col" id="sectionSidebar"></aside>
+  </main>
+
+  <site-footer></site-footer>
+
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeAllModals(event)">
+    <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal Header</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAllModals()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderSectionSidebar === 'function') {
+        renderSectionSidebar('About Us', 'President', 'sectionSidebar');
+      }
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
