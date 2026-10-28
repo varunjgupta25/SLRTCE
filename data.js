@@ -219,8 +219,25 @@
       }
     ],
 
-    // HODs (Academic Leadership)
+    // Principal / Leadership Profile
+    principal: {
+      name: 'Dr. Umesh S. Bhadade',
+      designation: 'Principal',
+      college: 'Shree L. R. Tiwari College of Engineering',
+      qualifications: 'Ph.D. | M.E. | B.E. — Electronics Engineering',
+      photo: 'assets/optimized/hods/umesh_bhadade.webp',
+      email: 'principal@slrtce.in',
+      phone: '+91 (022) 2812 0144'
+    },
+
+    // Academic Leadership & Heads of Department
     hods: [
+      {
+        name: 'Dr. Umesh S. Bhadade',
+        designation: 'Professor & Institutional Head',
+        department: 'Principal, SLRTCE',
+        photo: 'assets/optimized/hods/umesh_bhadade.webp'
+      },
       {
         name: 'Dr. Bhushan Nemade',
         designation: 'Professor & HOD',
@@ -230,7 +247,7 @@
       {
         name: 'Mr. Abhijit A. Samanta',
         designation: 'Associate Professor & HOD',
-        department: 'Information Technology',
+        department: 'Mechanical Engineering',
         photo: 'assets/optimized/hods/abhijit_samanta.webp'
       },
       {
@@ -244,12 +261,6 @@
         designation: 'Assistant Professor & HOD',
         department: 'Civil Engineering',
         photo: 'assets/optimized/hods/swapna_patil.webp'
-      },
-      {
-        name: 'Dr. Umesh Bhadade',
-        designation: 'Professor & HOD',
-        department: 'Mechanical Engineering',
-        photo: 'assets/optimized/hods/umesh_bhadade.webp'
       },
       {
         name: 'Dr. Lahu Teli',

@@ -278,9 +278,9 @@
         <div class="container">
           <div class="hd-header-wrap">
             <div>
-              <span class="section-tag">Academic Leadership</span>
-              <h2 class="section-title">Heads of Department</h2>
-              <p class="section-desc">Distinguished professors and academic administrators directing excellence across disciplines.</p>
+              <span class="section-tag">Institutional Leadership</span>
+              <h2 class="section-title">Leadership &amp; Heads of Department</h2>
+              <p class="section-desc">Distinguished institutional leadership, professors, and academic administrators directing excellence across disciplines.</p>
             </div>
             <div class="hd-controls" role="region" aria-label="HOD Carousel Controls">
               <button type="button" class="hd-nav-btn hd-prev" aria-label="Previous HOD">Previous</button>
