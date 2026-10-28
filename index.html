@@ -1913,19 +1913,21 @@ site-footer {
 
 /* ================= ACTIVE APPROVALS COMPACT BAND ================= */
 .approvals-band {
-  background: var(--color-maroon-darkest);
-  color: var(--bg-card);
+  background: var(--bg-alt);
+  color: var(--text-main);
   padding: 2.25rem 0;
-  border-top: 2px solid var(--color-yellow-primary);
-  border-bottom: 2px solid var(--color-yellow-primary);
+  border-top: 2px solid var(--color-maroon);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .approvals-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.35rem;
   margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 .approvals-title {
@@ -1933,49 +1935,63 @@ site-footer {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-yellow-bright);
+  color: var(--color-maroon);
 }
 
 .approvals-subtitle {
   font-size: 0.8rem;
-  color: var(--bg-card);
+  color: var(--text-muted);
 }
 
 .approvals-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .approval-item {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(224, 170, 36, 0.4);
+  background: #ffffff;
+  border: 1.5px solid rgba(224, 170, 36, 0.5);
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--bg-card);
+  color: var(--text-main);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all var(--transition-fast);
 }
 
 .approval-item:hover {
   background: var(--color-yellow-primary);
-  border-color: var(--color-yellow-bright);
+  border-color: var(--color-yellow-primary);
   color: var(--color-maroon-darkest);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(224, 170, 36, 0.25);
 }
 
 .approval-item i {
-  color: var(--color-yellow-bright);
+  color: var(--color-yellow-primary);
+  font-size: 0.9rem;
 }
 
 .approval-item:hover i {
   color: var(--color-maroon-darkest);
 }
+
+.approval-mini-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 
 /* ================= MAIN FOOTER ================= */
 .site-footer {
@@ -4049,15 +4065,8 @@ button, input, select, textarea, .btn, .card, .stat-card, .programme-card,
 }
 
 /* ==========================================================================
-   PROBLEM 6: APPROVALS COMPACT BAND
+   PROBLEM 6: APPROVALS COMPACT BAND LOGO GRID (EXTENDED)
    ========================================================================== */
-.approvals-band {
-  background: var(--bg-alt);
-  padding: 1.5rem 0;
-  border-top: 2px solid var(--color-maroon);
-  border-bottom: 1px solid var(--border-color);
-}
-.approvals-header { margin-bottom: 1rem; }
 .approvals-label {
   font-size: 0.78rem;
   font-weight: 800;
@@ -7336,20 +7345,41 @@ PAGES['home'] = function() {
  </section>
 
  <!-- ================= ACTIVE APPROVALS COMPACT BAND ================= -->
- <section class="approvals-band">
+ <section class="approvals-band" aria-label="Active Approvals and Accreditations">
  <div class="container">
  <div class="approvals-header">
- <span class="approvals-title">Active approvals</span>
- <span class="approvals-subtitle">Shown once, as a compact band.</span>
+ <span class="approvals-title">Active Approvals &amp; Accreditations</span>
+ <span class="approvals-subtitle">Approved by AICTE, DTE Maharashtra &amp; Affiliated to University of Mumbai</span>
  </div>
  <div class="approvals-row">
- <div class="approval-item">NAAC</div>
- <div class="approval-item">NBA</div>
- <div class="approval-item">AICTE</div>
- <div class="approval-item">DTE Maharashtra</div>
- <div class="approval-item">UGC 2(f)</div>
- <div class="approval-item">University of Mumbai</div>
- <div class="approval-item">ISO 9001:2015</div>
+ <a href="https://www.naac.gov.in" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="NAAC Accredited">
+   <img src="assets/optimized/logos/approvals/naac.webp" alt="NAAC Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>NAAC</span>
+ </a>
+ <a href="https://www.nbaind.org" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="NBA Accredited">
+   <img src="assets/optimized/logos/approvals/nba.webp" alt="NBA Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>NBA</span>
+ </a>
+ <a href="https://www.aicte-india.org" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="AICTE Approved">
+   <img src="assets/optimized/logos/approvals/aicte.webp" alt="AICTE Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>AICTE</span>
+ </a>
+ <a href="https://dtemaharashtra.gov.in" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="DTE Maharashtra Approved">
+   <img src="assets/optimized/logos/approvals/dte_maharashtra.webp" alt="DTE Maharashtra Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>DTE Maharashtra</span>
+ </a>
+ <a href="https://www.ugc.gov.in" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="UGC Recognized">
+   <img src="assets/optimized/logos/approvals/ugc.webp" alt="UGC Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>UGC 2(f)</span>
+ </a>
+ <a href="https://mu.ac.in" target="_blank" rel="noopener noreferrer" class="approval-item" aria-label="Affiliated to University of Mumbai">
+   <img src="assets/optimized/logos/approvals/mumbai_university.webp" alt="University of Mumbai Logo" class="approval-mini-logo" width="22" height="22" loading="lazy" decoding="async">
+   <span>University of Mumbai</span>
+ </a>
+ <div class="approval-item" aria-label="ISO 9001:2015 Certified">
+   <i class="fa-solid fa-award" aria-hidden="true"></i>
+   <span>ISO 9001:2015</span>
+ </div>
  </div>
  </div>
  </section>
