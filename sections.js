@@ -248,7 +248,7 @@
         if (hasPhoto) {
           mediaHtml = `
             <div class="hd-photo-wrap">
-              <img src="${item.photo}" alt="${item.name}" class="hd-photo" width="160" height="160" loading="lazy" decoding="async">
+              <img src="${item.photo}" alt="${item.name}" class="hd-photo" width="130" height="130" loading="lazy" decoding="async">
             </div>
           `;
         } else {
@@ -262,9 +262,16 @@
           `;
         }
 
+        const isPrincipal = (item.department || '').toLowerCase().includes('principal') || 
+                            (item.designation || '').toLowerCase().includes('principal');
+        const badgeHtml = isPrincipal
+          ? `<span class="hd-card-badge principal-badge">Principal</span>`
+          : `<span class="hd-card-badge hod-badge">HOD</span>`;
+
         return `
           <div class="hd-slide" role="group" aria-roledescription="slide">
-            <div class="hd-card">
+            <div class="hd-card ${isPrincipal ? 'is-principal' : ''}">
+              ${badgeHtml}
               ${mediaHtml}
               <h3 class="hd-name">${item.name}</h3>
               <p class="hd-dept">${item.department}</p>
@@ -282,23 +289,30 @@
               <h2 class="section-title">Leadership &amp; Heads of Department</h2>
               <p class="section-desc">Distinguished institutional leadership, professors, and academic administrators directing excellence across disciplines.</p>
             </div>
-            <div class="hd-controls" role="region" aria-label="HOD Carousel Controls">
-              <button type="button" class="hd-nav-btn hd-prev" aria-label="Previous HOD">Previous</button>
-              <button type="button" class="hd-nav-btn hd-next" aria-label="Next HOD">Next</button>
+            <div class="hd-controls" role="region" aria-label="Leadership Carousel Controls">
+              <button type="button" class="hd-nav-btn hd-prev" aria-label="Previous slide" title="Previous">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="hd-nav-btn hd-next" aria-label="Next slide" title="Next">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
             </div>
           </div>
-          <div class="hd-carousel-window" tabindex="0" aria-label="HODs list, use arrow keys or buttons to navigate">
+          <div class="hd-carousel-window" tabindex="0" aria-label="Leadership &amp; HODs list, use arrow keys or swipe to navigate">
             <div class="hd-track">
               ${slidesHtml}
             </div>
           </div>
+          <div class="hd-dots" role="tablist" aria-label="Carousel slide indicators"></div>
         </div>
       `;
 
       const track = section.querySelector('.hd-track');
       const prevBtn = section.querySelector('.hd-prev');
       const nextBtn = section.querySelector('.hd-next');
+      const dotsContainer = section.querySelector('.hd-dots');
       const carouselWindow = section.querySelector('.hd-carousel-window');
+      const slides = section.querySelectorAll('.hd-slide');
       const totalSlides = data.length;
       let currentIndex = 0;
       let autoTimer = null;
@@ -309,21 +323,56 @@
         return 1;
       }
 
+      function getMaxIndex() {
+        return Math.max(0, totalSlides - getVisibleCount());
+      }
+
+      function renderDots() {
+        if (!dotsContainer) return;
+        const maxIdx = getMaxIndex();
+        let dotsHtml = '';
+        for (let i = 0; i <= maxIdx; i++) {
+          dotsHtml += `<button type="button" class="hd-dot ${i === currentIndex ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}" role="tab" aria-selected="${i === currentIndex}"></button>`;
+        }
+        dotsContainer.innerHTML = dotsHtml;
+
+        const dotButtons = dotsContainer.querySelectorAll('.hd-dot');
+        dotButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-index'), 10);
+            if (!isNaN(idx)) {
+              currentIndex = idx;
+              updateSlidePosition();
+            }
+          });
+        });
+      }
+
       function updateSlidePosition() {
-        const visible = getVisibleCount();
-        const maxIndex = Math.max(0, totalSlides - visible);
+        const maxIndex = getMaxIndex();
         if (currentIndex > maxIndex) {
           currentIndex = 0;
         } else if (currentIndex < 0) {
           currentIndex = maxIndex;
         }
-        const slideWidthPct = 100 / visible;
-        track.style.transform = 'translateX(-' + (currentIndex * slideWidthPct) + '%)';
+
+        if (slides.length > 0) {
+          const slideWidth = slides[0].getBoundingClientRect().width;
+          track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        if (dotsContainer) {
+          const dots = dotsContainer.querySelectorAll('.hd-dot');
+          dots.forEach((dot, idx) => {
+            const isActive = idx === currentIndex;
+            dot.classList.toggle('active', isActive);
+            dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+        }
       }
 
       function nextSlide() {
-        const visible = getVisibleCount();
-        const maxIndex = Math.max(0, totalSlides - visible);
+        const maxIndex = getMaxIndex();
         if (currentIndex >= maxIndex) {
           currentIndex = 0;
         } else {
@@ -333,8 +382,7 @@
       }
 
       function prevSlide() {
-        const visible = getVisibleCount();
-        const maxIndex = Math.max(0, totalSlides - visible);
+        const maxIndex = getMaxIndex();
         if (currentIndex <= 0) {
           currentIndex = maxIndex;
         } else {
@@ -343,8 +391,17 @@
         updateSlidePosition();
       }
 
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopTimer();
+        startTimer();
+      });
+
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopTimer();
+        startTimer();
+      });
 
       carouselWindow.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowRight') {
@@ -356,12 +413,33 @@
         }
       });
 
+      let touchStartX = 0;
+      let touchEndX = 0;
+      carouselWindow.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopTimer();
+      }, { passive: true });
+
+      carouselWindow.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+        startTimer();
+      }, { passive: true });
+
       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function startTimer() {
         if (prefersReducedMotion) return;
         if (autoTimer) clearInterval(autoTimer);
-        autoTimer = setInterval(nextSlide, 5000);
+        autoTimer = setInterval(nextSlide, 4500);
       }
+
       function stopTimer() {
         if (autoTimer) {
           clearInterval(autoTimer);
@@ -379,11 +457,13 @@
       });
 
       window.addEventListener('resize', function() {
+        renderDots();
         updateSlidePosition();
       });
 
-      startTimer();
+      renderDots();
       updateSlidePosition();
+      startTimer();
 
       section.hidden = false;
       section.removeAttribute('hidden');
